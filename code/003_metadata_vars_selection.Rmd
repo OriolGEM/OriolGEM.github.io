@@ -1,0 +1,126 @@
+---
+title: "CHIR HIV RV306 Vaginal - Metadata Variables Selection"
+author: "Oriol Careta Borras"
+output: html_document
+output_dir: ../docs
+site: workflowr::wflow_site
+mainfont: Helvetica
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{lipsum}
+- \pagestyle{fancy}
+- \fancyhead[CO,CE]{Flamingo - CIHR}
+- \fancyfoot[LO,RE]{Oriol Careta Borras}
+- \fancyhead[LE,RO]{\thepage}
+- \fancyfoot[CO,CE]{}
+- \usepackage[default]{sourcesanspro}
+- \usepackage[T1]{fontenc}
+- \usepackage{eso-pic,graphicx,transparent}
+---
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+knitr::opts_chunk$set(
+ cache = FALSE, 
+  warning = FALSE, 
+  message = FALSE, 
+  dpi = 180, 
+  fig.align = "center", 
+  comment = "#>",
+  fig.width = 8, 
+  fig.height = 6
+)
+```
+
+### Variable definition
+
+```{r}
+bucket <- "s3://cihr-hiv-rv306"
+inp_prefix <- "vaginal/metadata/"
+out_prefix <- "vaginal/metagenome/WMGS/Metadata/" 
+
+# Last metadata file
+metadata_file <- 
+  aws.s3::get_bucket_df(bucket, prefix = inp_prefix) %>% 
+  tibble::as_tibble() %>% 
+  dplyr::filter(stringr::str_detect(Key, ".*metadata/metadata.csv$")) %>% 
+  dplyr::arrange(dplyr::desc(LastModified)) %>% 
+  dplyr::pull(Key) %>% 
+  .[1]
+
+metadata_file
+```
+
+### Load Metadata file
+
+```{r}
+metadata <-
+  aws.s3::s3read_using(
+    readr::read_csv,
+    object = metadata_file,
+    bucket = bucket,
+    show_col_types = FALSE, 
+  )
+
+dplyr::glimpse(metadata)
+```
+
+### Define Categorical, numeric and longitudinal variables
+
+```{r}
+# "Study_number_visit" / "Pastel2"
+cat <- tibble::tibble(
+  CategoricalVariable = c("Treatment_group", "Arm", "Heme_test", "Medical_center"), 
+  PaletteName = c("Set1", "Set3","Dark2", "Accent")
+)
+
+cat
+
+num <- tibble::tibble(
+  NumericalVariable = "Concentration_ng_ul", 
+  PaletteName = "Spectral"
+)
+
+num 
+
+lon <- tibble(
+  LongitudinalVariable = "Timepoint", 
+  LinkVariable = "PatientID", 
+  GroupVariable = "Arm", 
+  Breakpoints = 28
+)
+
+lon
+```
+
+### Exporting
+
+```{r}
+aws.s3::s3write_using(
+  metadata, 
+  object = glue::glue("{bucket}/{out_prefix}metadata.csv"),
+  readr::write_csv
+)
+
+aws.s3::s3write_using(
+  cat, 
+  object = glue::glue("{bucket}/{out_prefix}CategoricalVariables.txt"),
+  readr::write_tsv,
+  col_names = FALSE
+)
+
+aws.s3::s3write_using(
+  num, 
+  object = glue::glue("{bucket}/{out_prefix}NumericalVariables.txt"),
+  readr::write_tsv,
+  col_names = FALSE
+)
+
+aws.s3::s3write_using(
+  lon, 
+  object = glue::glue("{bucket}/{out_prefix}LongitudinalVariables.txt"),
+  readr::write_tsv, 
+  col_names = F
+)
+```

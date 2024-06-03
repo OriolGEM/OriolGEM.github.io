@@ -1,0 +1,137 @@
+---
+title: "CHIR HIV RV306 Vaginal - Phylosmith Abundance"
+author: "Francesc Català-Moll & Oriol Careta Borràs"
+output: html_document
+output_dir: "`here::here('docs')`"
+site: workflowr::wflow_site
+mainfont: Helvetica
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{lipsum}
+- \pagestyle{fancy}
+- \fancyhead[CO,CE]{Flamingo - CIHR}
+- \fancyfoot[LO,RE]{Oriol Careta Borras}
+- \fancyhead[LE,RO]{\thepage}
+- \fancyfoot[CO,CE]{}
+- \usepackage[default]{sourcesanspro}
+- \usepackage[T1]{fontenc}
+- \usepackage{eso-pic,graphicx,transparent}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  dpi = 180,
+  fig.align = "center",
+  comment = "#>",
+  fig.width = 20,
+  fig.height = 10
+)
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+
+## Introduction 
+
+This study will perform an exploratory analysis of **CHIR HIV RV306 Vaginal** data using the phylosmith package to gain insights into the distribution and patterns of microbial taxa. The analysis aims to provide a foundation for further investigations, potentially uncovering associations between microbial diversity and disease outcomes. By visualizing and exploring the data in a phylogenetic context, phylosmith will facilitate a comprehensive understanding of the microbial community present in the CHIR HIV RV306 Vaginal dataset. Specifically, we will explore data using 4 different plots:
+
+- Abundance heatmap: displays the relative abundance of different taxa across samples. Each row represents a taxon (in this case, a specie), and each column represents a sample. The intensity of color in each cell indicates the abundance of the corresponding taxon in the respective sample. This heatmap provides an overview of the relative abundance of different taxa across samples, allowing the identification of patterns of abundance and potential clusters of samples with similar microbial compositions.
+
+- Taxa abundance bars: displays the abundance of different taxa in a bar chart format. Each bar represents the abundance of a specific taxon within a sample or group of samples. While the species are listed on the x-axis, the y-axis represents abundance. This visualization focuses on the abundance of individual taxa within samples or groups, providing a detailed look at the distribution of specific taxa. It allows for the identification of dominant taxa and their variation across samples.
+
+- Taxa core graph: displays the core microbiome taxa, which are taxa consistently present across samples or groups. It shows the prevalence or abundance of core taxa, highlighting those taxa that are most important or common within the dataset. Thus, this graph emphasizes the taxa that are consistently present across samples. It helps identify the key taxa that contribute to the core microbial community structure and stability.
+
+- Phylogeny profile: displays the relative abundance of each taxa on each sample. This type of profile can help identify taxa that are contributing most significantly to the microbiomic composition of each sample.
+
+## Extract and preprocess phyloseq object from the mre
+
+```{r load_data_&_obtain_phyloseq}
+library(dplyr)
+
+## Load mre
+mre <- readr::read_rds(here::here("data", "preprocessed", "mre.rds"))
+
+mre
+
+## Get Phyloseq from virgo slot & preprocess
+phy <- 
+  metar::get_phyloseq(mre, type = "virgo") %>%
+  microbiome::transform(transform = "compositional") %>%
+  microbiome::core(detection = 0.001, prevalence = 0.1)
+
+phy
+```
+
+## Generate abundance plots for all categorical variables and also for Timepoint var
+
+```{r list_for_abundance_plots}
+library(phylosmith)
+pl <- list(
+      abundance_heatmap = abundance_heatmap(phy, classification = "ta1"),
+      taxa_abundance_bars = taxa_abundance_bars(phy, classification = "ta1"),
+      taxa_core_graph = taxa_core_graph(phy, classification = "ta1"),
+      phylogeny_profile = phylogeny_profile(phy, relative_abundance = TRUE, classification = "ta1")
+      )
+
+plts <-
+  c(metar::get_cat(mre)$CategoricalVariable, "Timepoint") %>%
+  purrr::set_names() %>%
+  purrr::map(~ {
+    print(.x)
+    list(
+      abundance_heatmap = abundance_heatmap(phy, treatment = .x, classification = "ta1"),
+      taxa_abundance_bars = taxa_abundance_bars(phy, treatment = .x, classification = "ta1"),
+      taxa_core_graph = taxa_core_graph(phy, treatment = .x, classification = "ta1"),
+      phylogeny_profile = phylogeny_profile(phy, treatment = .x, relative_abundance = TRUE, classification = "ta1"
+      )
+    )
+})
+```
+
+## Results {.tabset}
+
+### All {.active}
+
+```{r all_plots}
+purrr::walk(pl, plot)
+```
+
+### Treatment_group
+
+```{r treatment_group_plots}
+purrr::walk(plts$Treatment_group_1, plot)
+```
+
+### Arm
+
+```{r arm_plots}
+purrr::walk(plts$Arm, plot)
+```
+
+### Heme_test
+
+```{r heme_test_plots}
+purrr::walk(plts$Heme_test, plot)
+```
+
+### Medical_center
+
+```{r medical_center_plots}
+purrr::walk(plts$Medical_center, plot)
+```
+
+### Timepoint
+
+```{r timepoint_plots}
+purrr::walk(plts$Timepoint, plot)
+```
+
+## {-}
+
+#### Interpretation
+
+In general, all samples seem to be dominated either by Gardnerella Vaginalis, Lactobacillus Crispatus or Lactobacillus Iners. When observed by treatment groups, treatment t_3 and t_4B seem to be more dominated by Lactobacillus Crispatus in detriment of Lactobacillus Iners and  Gardnerella Vaginalis, while the other treatment groups (t_1, t_2, t_4A) seem to be more dominated by Lactobacillus Iners and Gardnerella Vaginalis in detriment of Lactobacillus Crispatus. On the other hand, when observed by arm, heme test, and medical center, no apparent differences can be observed.
+Finally, when observed by timepoint, at 62 weeks samples seem to have less proportion of Lactobacillus Crispatus, and at 74 weeks less proportion of Lactobacillus Iners, while the other groups seem to maintain the same proportion. This could be indicative that the intervention had some effect on vaginal microbiome, even though further analyses are needed.

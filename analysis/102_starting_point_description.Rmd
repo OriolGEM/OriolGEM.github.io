@@ -1,0 +1,300 @@
+---
+title: "CHIR HIV RV306 Vaginal - Starting Point Description"
+author: "Oriol Careta Borràs"
+output: html_document
+output_dir: "`here::here('docs')`"
+site: workflowr::wflow_site
+mainfont: Helvetica
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{lipsum}
+- \pagestyle{fancy}
+- \fancyhead[CO,CE]{Flamingo - CIHR}
+- \fancyfoot[LO,RE]{Oriol Careta Borras}
+- \fancyhead[LE,RO]{\thepage}
+- \fancyfoot[CO,CE]{}
+- \usepackage[default]{sourcesanspro}
+- \usepackage[T1]{fontenc}
+- \usepackage{eso-pic,graphicx,transparent}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE,
+  autodep = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  dpi = 180,
+  fig.align = "center",
+  comment = "#>"
+)
+knitr::opts_knit$set(root.dir = here::here())
+library(magrittr)
+library(ggplot2)
+```
+
+## Introduction
+
+We are interested in evaluating microbiome composition and function at the starting point of the study (time-point 0).
+
+## MRE initialization and filter baseline samples
+
+```{r load_data}
+mre <- readr::read_rds(here::here("data", "preprocessed", "mre_vaginotype.rds"))
+
+## mre init & filter
+mre <- 
+  metar::get_meta(mre) %>%
+  dplyr::filter(Timepoint %in% c(0)) %>%
+  dplyr::pull(SampleID) %>%
+  metar::filter_samples(mre, sample_ids = .)
+
+mre
+```
+
+There are 118 samples from 118 patients which were collected at time-point 0.
+
+## Gene richness - Rarefaction {.tabset}
+
+Note that diversity analysis here are delicate to perform due to the limitations in sampling.
+
+From the taxonomic composition we'll derive some alpha-diversity ecological indices and compare them among groups.
+
+We also want to use the VIRGO catalog mapping-derived gene richness. However, this can be problematic for gene richness since the initial reads per sample is very low in some cases. This low numbers may be enough to describe the taxonomic composition, specially if the microbiome is "simple", but may fail to capture richness/diversity.
+
+```{r rarefraction_plots, results='asis'}
+## run rarefaction
+mre <- metar::virgo_rarefaction(mre, save_files = FALSE)
+
+## plot rarefaction
+metar::get_cat(mre) %>%
+  dplyr::pull(1) %>%
+  .[-1] %>% # Remove "Treatment_group"
+  purrr::walk(~ {
+    cat('\n\n### `', .x, '`\n\n')
+    metar::get_diversity(mre, type = "virgo", res_slot = "rarefaction") %>%
+      purrr::pluck("categorical", .x, "rarefaction") %>%
+      plot()
+  })
+```
+
+## {-}
+
+The rarefraction curves (used to present relationship between gene richness and sequencing depth) show no apparent difference between groups in terms of diversity. Of note, rarefaction curve shows how far we are from asymptotically saturating richness signal from this catalog at the sampling depth we have (after filtering human sequences).  Thus, we need to be aware of the limitations of gene richness analysis and interpret with caution. Samples enriched in **G. Vaginalis** (and thus, with a vaginosis profile) seem to have a higher sample depth and gene richness compared to the other ones.
+
+## Gene richness - Boxplots {.tabset }
+
+```{r gene_richness, results='asis'}
+## plot gene richness
+metar::get_cat(mre) %>%
+  dplyr::pull(1) %>%
+  .[-1] %>% # Remove "Treatment_group"
+  purrr::walk(~ {
+    cat('\n\n### `', .x, '`\n\n')
+    metar::get_diversity(mre, type = "virgo", res_slot = "rarefaction") %>%
+      purrr::pluck("categorical", .x, "boxplots", "GeneNumber") %>%
+      plot()
+  })
+```
+
+## {-}
+
+The gene richness boxplots indicate that there are no significant differences between groups in terms of gene richness, except when separating by the number of QPass reads by quantiles, where the gene richness on the 4th quantile group is significantly higher. This could be explained due to the fact that the sample depth is higher on this group which favors gene richness. There are also significant differences between vaginotype groups. More importantly, the differences regarding treatment groups that could be observed when analysing all time-points have disappeared.
+
+## PCoA based on Bray Curtis 
+
+```{r PCoA, fig.width=20, fig.height=5}
+ps <- metar::get_phyloseq(mre, type = "virgo")
+ps_RA <- phyloseq::transform_sample_counts(ps, function(x) x / sum(x))
+bray_pcoa  <-
+  phyloseq::ordinate(physeq = ps_RA, method = "PCoA", distance = "bray")
+
+create_pcoa_plot <- function(ordination_obj, title, a, b) {
+  plot <- phyloseq::plot_ordination(
+    physeq = ps_RA,
+    ordination = ordination_obj,
+    color = "vaginotype",
+    shape = "Arm",
+    axes = c(a,b)
+  ) +
+  geom_point(size = 2.5) +
+  scale_color_manual(values = c("deeppink4", "coral", "cadetblue4")) +
+  scale_shape_manual(values = c(16, 2)) +
+  theme_light() +
+  ggtitle(title)
+  
+  return(plot)
+}
+
+pcoa_plot_PCo1_PCo2 <- create_pcoa_plot(bray_pcoa, "PCo1 vs PCo2", 1, 2)
+pcoa_plot_PCo1_PCo3 <- create_pcoa_plot(bray_pcoa, "PCo1 vs PCo3", 1, 3)
+pcoa_plot_PCo2_PCo3 <- create_pcoa_plot(bray_pcoa, "PCo2 vs PCo3", 2, 3)
+
+gridExtra::grid.arrange(pcoa_plot_PCo1_PCo2, pcoa_plot_PCo1_PCo3, pcoa_plot_PCo2_PCo3, nrow = 1)
+```
+
+In the PCoA plots, it can be seen that the compositional variables that affect each cluster. PCo 1 and 2 explain the 83,3% of the variability (46.8% and 34.7% respectively), while PCo3 only explains the 5% of the variability. From the plots we can see that PCo1 is the one that explains the separation of cluster 2 (G. Vaginalis) from cluster 1 (L. Crispatus) and cluster 3 (L. Iners), while PCo2 explains the separation of cluster 1 from cluster 2 and 3. On the other hand, PCo3 is not useful to discriminate between clusters.
+It can also be seen that 
+
+## Beta-Diversity - Species Composition
+
+Let's visualize composition at the species level using barplots.
+
+```{r top50_abundance_barplot, fig.width=20, fig.height=10}
+## run barplots 
+mre <- metar::virgo_barplots(mre, top_n = 50, save_files = FALSE)
+
+## Plot virgo barplots
+mre %>% 
+  metar::get_taxa("virgo", "barplots") %>%
+  purrr::pluck("ta1", "top_50", "rel_abundance", "bray_NMDS1_order_barplot") +
+  theme(axis.text.x = element_blank())
+```
+
+ The clustering barplots depicting taxonomic diversity per sample reveal the presence of three distinct groups:
+
+* The first group is primarily characterized by the dominance of **Gardnerella vaginalis**, occasionally accompanied by co-dominance with **Atopobium vaginae**. Notably, this group exhibits a higher level of taxonomic diversity compared to the other two groups. Both **Gardnerella vaginalis**, a gram-negative facultative anaerobic bacterium, and **Atopobium vaginae**, a gram-positive strict anaerobic bacterium, have been associated with bacterial vaginosis (BV) and its characteristic symptoms.
+* The second group, is characterized by a strong dominance of **Lactobacillus iners**. **Lactobacillus iners** is a common bacterium found in the vaginal microbiota, playing a vital role in maintaining vaginal health. It helps to maintain an acidic pH, creating an unfavorable environment for harmful microorganisms. **Lactobacillus iners** contributes to the stability and balance of the vaginal microbiota, promoting overall vaginal health and potentially protecting against infections like bacterial vaginosis.
+* The third group is mainly characterized by a dominant presence of **Lactobacillus crispatus**. **Lactobacillus crispatus** is a beneficial bacterium commonly found in the vaginal microbiota. It helps maintain a healthy vaginal environment by producing lactic acid and supporting acidity. Some samples of this group present codominance with **L. jensenii**.
+
+```{r pred_taxa}
+## Count of two predominant taxas per sample
+mre %>% 
+  metar::get_taxa("virgo", "barplots") %>%
+  purrr::pluck("ta1", "top_50", "rel_abundance", "bray_NMDS1_order_barplot", "data") %>%
+  dplyr::group_by(SampleID) %>%
+  dplyr::slice_max(Abundance, n = 2) %>%
+  dplyr::ungroup() %>%
+  dplyr::count(Species, sort = TRUE)
+```
+
+In this table, we can see the to most dominant species of each sample summed up. It can be seen that the most abundant species are **Gardnerella vaginalis**, **Lactobacillus iners** and **Lactobacillus crispatus**, followed by **Atopobium vaginae**, which on the abundance barplot was found in codominance with **Gardnerella vaginalis** on some samples.
+
+## Beta-Diversity - Cluestering
+
+In the previous barplots, the x-axis is defined according to ward.D2, bray-based clustering. We'll now transform abundances and project them into a heatmap, to be able to visualize association with variables of interes.
+
+```{r hierarchical_clustering, fig.height=10}
+## run heatmap
+mre <- metar::virgo_heatmap(mre, top_n = 50, save_files = FALSE)
+
+## plot heatmap
+library(ComplexHeatmap)
+mre %>%
+  metar::get_taxa("virgo", "heatmaps") %>%
+  purrr::pluck("ta1", "top_50") %>%
+  ComplexHeatmap::draw(heatmap_legend_side = "left", annotation_legend_side = "bottom")
+```
+
+In this hierarchical clustering, we can clearly see the three groups, and their association with the vaginotype and vaginotype_condition variables. We can also observe the polimicrobial nature of the **G. vaginalis** dominated samples.
+
+## Beta Diversity - NMDS 
+
+NMDS (Non-metric Multidimensional Scaling) analysis is a commonly used non-metric ordination technique that helps visualize the similarity or dissimilarity between samples based on a distance or similarity matrix. In the context of microbiome data, this technique is particularly useful for identifying patterns and significant changes in microbiome composition among different samples or groups.
+
+```{r adonis_table}
+mre <- metar::virgo_nmds(mre, top_n = 50, save_files = FALSE)
+
+metar::get_taxa(mre, "virgo", "nmds") %>%
+  purrr::pluck("ta1", "top_50", "all_adonis") %>%
+  dplyr::arrange(Pr..F.)
+```
+
+The Adonis test indicates that there are significant differences in the taxonomic composition between the levels of the categorical variables **pass_reads_quantile**, **vaginotype**, and **vaginotype_condition**.
+
+## {.tabset }
+
+```{r nmds_groups, results='asis'}
+metar::get_cat(mre) %>%
+  dplyr::pull(1) %>%
+  .[-1] %>% # Remove "Treatment_group"
+  purrr::walk( ~ {
+    cat('\n\n### `', .x, '`\n\n')
+    metar::get_taxa(mre, "virgo", "nmds") %>%
+      purrr::pluck("ta1", "top_50", "categorical", .x) %>%
+      plot()
+  })
+```
+
+## {-}
+
+The nmds plots also indicate that there are significant differences between the levels of the categorical variables: **pass_reads_quantile**, **vaginotype**, and **vaginotype_condition**
+
+## Differential Analyisis ANCOM {.tabset }
+
+```{r run_ancom, results='asis'}
+# run ancom
+mre <- metar::virgo_ancom(mre, save_files = FALSE)
+
+# plot ancom
+metar::get_cat(mre) %>%
+  dplyr::pull(1) %>%
+  .[-1] %>% # Remove "Treatment_group"
+  purrr::walk( ~ {
+    plt <- metar::get_taxa(mre, "virgo", "ancom") %>%
+      purrr::pluck("ta1", .x, "plot")
+    
+    if (!is.null(plt)) {
+      cat('\n\n### `', .x, '`\n\n')
+      plot(plt)
+    }
+  })
+```
+
+## {-}
+
+ANCOM is a statistical method designed specifically for the compositional analysis of microbiome data. It's used when you have microbiome abundance data and want to identify features that are differentially abundant across different groups or conditions.
+
+W Statistic:
+In ANCOM, the "W statistic" is a measure used to assess the significance of differential abundance for each feature (taxa or OTUs). The W statistic measures how many times the abundance of a particular feature is significantly different from the abundance expected by chance across the groups being compared.
+
+CLR (Centered Log-Ratio) Mean Difference:
+The CLR mean difference represents the mean difference in the log-ratio transformed abundances of a feature between two groups. The log-ratio transformation is applied to the relative abundances of features to handle compositional data properly. The mean difference indicates the average change in abundance of a feature between the groups after applying the log-ratio transformation.
+
+In conclusion, when using ANCOM with a categorical variable, the W statistic helps identify significant differences in feature abundance across groups, while the CLR mean difference provides additional insight into the direction and magnitude of these differences after applying the log-ratio transformation.
+
+Features with high W statistic values are considered significantly differentially abundant between groups. The CLR mean difference helps to understand the direction and magnitude of the difference in abundance between groups after transformation.
+
+Thus, these plots indicate us that there are abundance values that are significantly different between **pass_reads_quantile**, **vaginotype** and **vaginotype_condition** groups. Regarding pass_reads_quantile, these differences are bigger when comparing c_4 group against others (but do not occur on c_1 vs c_2 or c_1 vs c_3 and c_2 vs c_3), and regarding vaginotype, these differences are bigger when comparing **G. Vaginalis** against Lactobacillus-dominated groups.
+
+## Differential Analyisis Lefse {.tabset }
+
+```{r run_lefse, results='asis'}
+# run lefse
+mre <- metar::virgo_lefse(mre, save_files = FALSE)
+
+# plot lefse
+metar::get_cat(mre) %>%
+  dplyr::pull(1) %>%
+  .[-1] %>% # Remove "Treatment_group"
+  purrr::walk(~ {
+    plt <- metar::get_taxa(mre, "virgo", "lefse") %>%
+      purrr::pluck("ta1", .x, "plot")
+    
+    if (!is.null(plt)) {
+      cat('\n\n### `', .x, '`\n\n')
+      plot(plt)
+    }
+  })
+```
+
+## {-}
+
+LEfSe is a method used for identifying features that are differentially abundant between two or more biological classes. It combines the statistical rigor of linear discriminant analysis (LDA) with the biological relevance of effect size estimation.
+
+reorder(names, scores):
+In the context of LEfSe results, the "reorder(names, scores)" refers to the reordering of the features based on their scores. The scores represent the effect size of each feature in discriminating between the biological classes. By reordering the features based on their scores, you can visually prioritize the most discriminative features.
+
+LDA score (log10):
+The LDA score represents the effect size of a feature in discriminating between the biological classes. It's calculated based on the combination of mean differences and standard deviations of feature abundances between classes, as assessed by linear discriminant analysis (LDA). The log10 transformation of the LDA score is often used to make the distribution of scores more symmetric and easier to interpret.
+
+In conclusion, when using LEfSe results with a categorical variable, reordering features based on their LDA scores and visualizing them using log10-transformed scores can help prioritize and interpret the most discriminative features associated with the biological classes.
+
+Features with higher LDA scores (either positive or negative) are considered more discriminative between the biological classes. By sorting and visualizing the features based on their LDA scores, you can identify the most biologically relevant and statistically significant features associated with the categorical variable of interest.
+
+If we consider features with LDA scores above 4 as biologically relevant, these plots indicate us that **Lactobacillus Iners**, **Lactobacillus Crispatus** and **Gardnerella Vaginalis** are the species that explain the difference between vaginotype groups.
+
+## Conclusions
+
+After performing all these tests, we can conclude that there are no differences between treatment groups or between study arms at time-point 0, and that there are three different groups, one dominated by **Lactobacillus Crispatus**, another by **Lactobacillus Iners**, and a third one dominated by **Gardnerella vaginalis**. This allows us to ensure that possible differences observed between treatment groups at posterior time-points are due to differences in the vaccination regimes.

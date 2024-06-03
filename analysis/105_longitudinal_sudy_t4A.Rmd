@@ -1,0 +1,395 @@
+---
+title: "CHIR HIV RV306 Vaginal - Longitudinal study Group 4A"
+author: "Oriol Careta Borràs"
+output: html_document
+output_dir: "`here::here('docs')`"
+site: workflowr::wflow_site
+mainfont: Helvetica
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{lipsum}
+- \pagestyle{fancy}
+- \fancyhead[CO,CE]{Flamingo - CIHR}
+- \fancyfoot[LO,RE]{Oriol Careta Borras}
+- \fancyhead[LE,RO]{\thepage}
+- \fancyfoot[CO,CE]{}
+- \usepackage[default]{sourcesanspro}
+- \usepackage[T1]{fontenc}
+- \usepackage{eso-pic,graphicx,transparent}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE,
+  autodep = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  dpi = 180,
+  fig.align = "center",
+  comment = "#>"
+)
+knitr::opts_knit$set(root.dir = here::here())
+library(magrittr)
+library(ggplot2)
+```
+
+## Introduction
+
+We are interested in comparing samples the evolution of microbiome composition and function in a specific treatment group to answer the question how is the microbiome altered depending on the treatment?. Patients on group 4A received the vaccination regime of RV144, and an additional boost of both ALVAC and AIDSVAX at week 60.
+
+## MRE initialization and filter samples
+
+```{r load_data}
+mre <- readr::read_rds(here::here("data", "preprocessed", "mre_vaginotype.rds"))
+
+## mre init & filter
+mre_4A <- 
+  metar::get_meta(mre) %>%
+  dplyr::filter(Treatment_group %in% c("t_4A")) %>%
+  dplyr::pull(SampleID) %>%
+  metar::filter_samples(mre, sample_ids = .)
+
+mre_4A
+```
+
+mre_4A contains all samples from group 4A, which were collected at time-points 0, 14, 26, 50 and 62 and received vaccination on time-points 0, 4, 12, 24 and 60. They are 102 samples from 23 patients. In this group, there are `r sum(mre_4A@metadata@metadata_df$Arm=="Placebo")` samples in the placebo arm and `r sum(mre_4A@metadata@metadata_df$Arm=="Active")` samples in the active arm.
+
+
+![Group 4A](Study_4A.png)
+
+## Gene richness - Rarefaction {.tabset}
+
+Note that diversity analysis here are delicate to perform due to the limitations in sampling.
+
+From the taxonomic composition we'll derive some alpha-diversity ecological indices and compare them among groups.
+
+We also want to use the VIRGO catalog mapping-derived gene richness. However, this can be problematic for gene richness since the initial reads per sample is very low in some cases. This low numbers may be enough to describe the taxonomic composition, specially if the microbiome is "simple", but may fail to capture richness/diversity.
+
+```{r rarefraction_plots, results='asis'}
+## run rarefaction
+mre_4A <- metar::virgo_rarefaction(mre_4A, save_files = FALSE)
+
+## plot rarefaction
+metar::get_cat(mre_4A) %>%
+  dplyr::pull(1) %>%
+  purrr::walk(~ {
+    cat('\n\n### `', .x, '`\n\n')
+    metar::get_diversity(mre_4A, type = "virgo", res_slot = "rarefaction") %>%
+      purrr::pluck("categorical", .x, "rarefaction") %>%
+      plot()
+  })
+```
+
+## {-}
+
+The rarefraction curves (used to present relationship between gene richness and sequencing depth) show a difference between groups in terms of diversity and sample depth. Samples enriched in **G. Vaginalis** (and thus, with a vaginosis profile) seem to have a higher sample depth and gene richness compared to the other ones. Of note, rarefaction curve shows how far we are from asymptotically saturating richness signal from this catalog at the sampling depth we have (after filtering human sequences).  Thus, we need to be aware of the limitations of gene richness analysis and interpret with caution. 
+
+## Gene richness - Boxplots {.tabset }
+
+```{r gene_richness, results='asis'}
+## plot gene richness
+metar::get_cat(mre_4A) %>%
+  dplyr::pull(1) %>%
+  purrr::walk(~ {
+    cat('\n\n### `', .x, '`\n\n')
+    metar::get_diversity(mre_4A, type = "virgo", res_slot = "rarefaction") %>%
+      purrr::pluck("categorical", .x, "boxplots", "GeneNumber") %>%
+      plot()
+  })
+```
+
+## {-}
+
+The gene richness boxplots indicate that there are no significant differences between groups in terms of gene richness, except when separating by the number of QPass reads by quantiles, where the gene richness on the 4th quantile group is significantly higher. This could be explained due to the fact that the sample depth is higher on this group which favors gene richness. There are also significant differences between vaginotype groups.
+
+## Alpha Diversity - Longitudinal {.tabset }
+
+To further explore the aforementioned observations, we will verify whether gene diversity varies across timepoints for the categorical variables.
+
+```{r lon_gene_richness, results='asis'}
+metar::get_cat(mre_4A) %>%
+  dplyr::pull(1) %>%
+  purrr::walk(~ {
+    cat('\n\n### `', .x, '`\n\n')
+    metar::get_diversity(mre_4A, type = "virgo", res_slot = "rarefaction") %>%
+      purrr::pluck("longitudinal_rel", "categorical", .x) %>%
+      plot()
+  })
+```
+
+## {-}
+
+In these graphs, we can see the changes in the relative gene richness over time of samples separated by categorical variable groups. It seems that microbiome stability is higher in the active arm compared to the placebo.
+
+## PCoA based on Bray Curtis 
+
+```{r PCoA, fig.width=20, fig.height=5}
+ps <- metar::get_phyloseq(mre_4A, type = "virgo")
+ps_RA <- phyloseq::transform_sample_counts(ps, function(x) x / sum(x))
+bray_pcoa  <-
+  phyloseq::ordinate(physeq = ps_RA, method = "PCoA", distance = "bray")
+
+create_pcoa_plot <- function(ordination_obj, title, a, b) {
+  plot <- phyloseq::plot_ordination(
+    physeq = ps_RA,
+    ordination = ordination_obj,
+    color = "vaginotype",
+    shape = "Arm",
+    axes = c(a,b)
+  ) +
+  geom_point(size = 2.5) +
+  scale_color_manual(values = c("deeppink4", "coral", "cadetblue4")) +
+  scale_shape_manual(values = c(16, 2)) +
+  theme_light() +
+  ggtitle(title)
+  
+  return(plot)
+}
+
+pcoa_plot_PCo1_PCo2 <- create_pcoa_plot(bray_pcoa, "PCo1 vs PCo2", 1, 2)
+pcoa_plot_PCo1_PCo3 <- create_pcoa_plot(bray_pcoa, "PCo1 vs PCo3", 1, 3)
+pcoa_plot_PCo2_PCo3 <- create_pcoa_plot(bray_pcoa, "PCo2 vs PCo3", 2, 3)
+
+gridExtra::grid.arrange(pcoa_plot_PCo1_PCo2, pcoa_plot_PCo1_PCo3, pcoa_plot_PCo2_PCo3, nrow = 1)
+```
+
+In the PCoA plots, it can be seen that the compositional variables that affect each cluster. PCo 1 and 2 explain the 83.7% of the variability (62.3% and 21.4% respectively), while PCo3 only explains the 7% of the variability. From the plots we can see that PCo1 is the one that explains the separation of cluster 2 (G. Vaginalis) from cluster 1 (L. Crispatus) and cluster 3 (L. Iners), while PCo2 and PCo3 are not useful to discriminate between clusters. All placebos belong to **L. crispatus** or **L. iners** groups (no vaginosis).
+
+## Beta-Diversity - Species Composition
+
+Let's visualize composition at the species level using barplots.
+
+```{r top50_abundance_barplot, fig.width=20, fig.height=10}
+## run barplots 
+mre_4A <- metar::virgo_barplots(mre_4A, top_n = 50, save_files = FALSE)
+
+## Plot virgo barplots
+mre_4A %>% 
+  metar::get_taxa("virgo", "barplots") %>%
+  purrr::pluck("ta1", "top_50", "rel_abundance", "bray_NMDS1_order_barplot") +
+  theme(axis.text.x = element_blank())
+```
+
+ The clustering barplots depicting taxonomic diversity per sample reveal the presence of three distinct groups:
+
+* The first group is primarily characterized by the dominance of **Gardnerella vaginalis**, occasionally accompanied by co-dominance with **Atopobium vaginae**. Notably, this group exhibits a higher level of taxonomic diversity compared to the other two groups. Both **Gardnerella vaginalis**, a gram-negative facultative anaerobic bacterium, and **Atopobium vaginae**, a gram-positive strict anaerobic bacterium, have been associated with bacterial vaginosis (BV) and its characteristic symptoms.
+* The second group, is characterized by a strong dominance of **Lactobacillus iners**. **Lactobacillus iners** is a common bacterium found in the vaginal microbiota, playing a vital role in maintaining vaginal health. It helps to maintain an acidic pH, creating an unfavorable environment for harmful microorganisms. **Lactobacillus iners** contributes to the stability and balance of the vaginal microbiota, promoting overall vaginal health and potentially protecting against infections like bacterial vaginosis.
+* The third group is mainly characterized by a dominant presence of **Lactobacillus crispatus**, although some samples in this group also show high levels of **Lactobacillus jensenii**. **Lactobacillus crispatus** is a beneficial bacterium commonly found in the vaginal microbiota. It helps maintain a healthy vaginal environment by producing lactic acid and supporting acidity. **Lactobacillus jensenii** is a gram-positive bacterium commonly found in the vaginal microbiota, particularly in women of reproductive age. It contributes to maintaining vaginal health by producing lactic acid and creating an acidic environment, which helps inhibit the growth of harmful bacteria. **Lactobacillus jensenii** is known for its ability to adhere to vaginal epithelial cells, which may enhance its protective effects against infections and maintain the balance of the vaginal microbiota.
+
+```{r pred_taxa}
+## Count of two predominant taxas per sample
+mre_4A %>% 
+  metar::get_taxa("virgo", "barplots") %>%
+  purrr::pluck("ta1", "top_50", "rel_abundance", "bray_NMDS1_order_barplot", "data") %>%
+  dplyr::group_by(SampleID) %>%
+  dplyr::slice_max(Abundance, n = 2) %>%
+  dplyr::ungroup() %>%
+  dplyr::count(Species, sort = TRUE)
+```
+
+In this table, we can see the to most dominant species of each sample summed up. It can be seen that the most abundant species are **Gardnerella vaginalis**, **Lactobacillus iners** and **Lactobacillus crispatus**, followed by **Atopobium vaginae**, which on the abundance barplot was found in codominance with **Gardnerella vaginalis** on some samples.
+
+## Beta-Diversity - Cluestering
+
+In the previous barplots, the x-axis is defined according to ward.D2, bray-based clustering. We'll now transform abundances and project them into a heatmap, to be able to visualize association with variables of interest.
+
+```{r hierarchical_clustering, fig.height=10}
+## run heatmap
+mre_4A <- metar::virgo_heatmap(mre_4A, top_n = 50, save_files = FALSE)
+
+## plot heatmap
+library(ComplexHeatmap)
+mre_4A %>%
+  metar::get_taxa("virgo", "heatmaps") %>%
+  purrr::pluck("ta1", "top_50") %>%
+  ComplexHeatmap::draw(heatmap_legend_side = "left", annotation_legend_side = "bottom")
+```
+
+In this hierarchical clustering heatmap, we can see the three groups. It can be seen that **G. Vaginalis** group is dominated by **G. vaginalis** and **A. vaginae** and that lactobacillus groups are codominated by other Lactobacillus such as **L. jensenii** and **L. gasseri**.
+
+## Beta Diversity - NMDS 
+
+NMDS (Non-metric Multidimensional Scaling) analysis is a commonly used non-metric ordination technique that helps visualize the similarity or dissimilarity between samples based on a distance or similarity matrix. In the context of microbiome data, this technique is particularly useful for identifying patterns and significant changes in microbiome composition among different samples or groups.
+
+```{r adonis_table}
+mre_4A <- metar::virgo_nmds(mre_4A, top_n = 50, save_files = FALSE)
+
+metar::get_taxa(mre_4A, "virgo", "nmds") %>%
+  purrr::pluck("ta1", "top_50", "all_adonis") %>%
+  dplyr::arrange(Pr..F.)
+```
+
+The Adonis test indicates that there are significant differences in the taxonomic composition between the levels of the categorical variables: **pass_reads_quantile**, **vaginotype** and **vaginotype_condition**. Importantly, there are also significant differences in the taxonomic composition between the levels of the variable **Arm**, which reflects the study arms. **Medical center** groups have also significant differences in terms of taxonomy.
+
+## {.tabset }
+
+```{r nmds_groups, results='asis'}
+metar::get_cat(mre_4A) %>%
+  dplyr::pull(1) %>%
+  purrr::walk( ~ {
+    cat('\n\n### `', .x, '`\n\n')
+    metar::get_taxa(mre_4A, "virgo", "nmds") %>%
+      purrr::pluck("ta1", "top_50", "categorical", .x) %>%
+      plot()
+  })
+```
+
+## {-}
+
+The nmds plots also indicate that there are significant differences between the levels of the categorical variables: **pass_reads_quantile**, **vaginotype**, and **vaginotype_condition**. Differences between study arms and between hospitals are also seen here.
+
+## Differential Analyisis ANCOM {.tabset }
+
+```{r run_ancom, results='asis'}
+# run ancom
+mre_4A <- metar::virgo_ancom(mre_4A, save_files = FALSE)
+
+# plot ancom
+metar::get_cat(mre_4A) %>%
+  dplyr::pull(1) %>%
+  purrr::walk( ~ {
+    plt <- metar::get_taxa(mre_4A, "virgo", "ancom") %>%
+      purrr::pluck("ta1", .x, "plot")
+    
+    if (!is.null(plt)) {
+      cat('\n\n### `', .x, '`\n\n')
+      plot(plt)
+    }
+  })
+```
+
+## {-}
+
+ANCOM plots indicate us that there are abundance values that are significantly different between **pass_reads_quantile**, **vaginotype** and **vaginotype_condition** groups. Regarding pass_reads_quantile, these differences are bigger when comparing c_4 group against others (but do not occur on c_1 vs c_2 or c_1 vs c_3 and c_2 vs c_3), and regarding vaginotype, these differences are bigger when comparing **L. Crispatus** and **G. Vaginalis** groups. Abundance values are also significantly different between **Medical center** groups and **Arm** groups.
+
+## Differential Analyisis Lefse {.tabset }
+
+```{r run_lefse, results='asis'}
+# run lefse
+mre_4A <- metar::virgo_lefse(mre_4A, save_files = FALSE)
+
+# plot lefse
+metar::get_cat(mre_4A) %>%
+  dplyr::pull(1) %>%
+  purrr::walk(~ {
+    plt <- metar::get_taxa(mre_4A, "virgo", "lefse") %>%
+      purrr::pluck("ta1", .x, "plot")
+    
+    if (!is.null(plt)) {
+      cat('\n\n### `', .x, '`\n\n')
+      plot(plt)
+    }
+  })
+```
+
+## {-}
+
+If we consider features with LDA scores above 3 as biologically relevant, these plots indicate us that **Lactobacillus Iners**, **Lactobacillus Crispatus** and **Gardnerella Vaginalis** are the species that explain the difference between healthy and vaginosis groups, but also between **Medical center** and study **Arm**.
+
+## Longitudinal Stability of Vaginotype within Individual Patients {.tabset}
+
+At this point, it is clear that the categorical variable "vaginotype" is a significant component of the observed compositional variability. To further investigate this phenotypic characteristic, we ask the question of whether the vaginotype remains stable longitudinally within the same patient. Furthermore, it would be interesting to know if on the treatment arm of the study, there is a switch from a vaginosis to a no vaginosis state.
+
+First, we generated alluvial plots for each categorical variable.
+
+```{r alluvial_plot, results='asis'}
+library(ggalluvial)
+p <- metar::get_meta(mre_4A) %>%
+  dplyr::select(PatientID, vaginotype, Arm, Timepoint) %>%
+  ggplot(
+    aes(
+      as.factor(Timepoint),
+      stratum = !!dplyr::sym("vaginotype"),
+      alluvium = PatientID,
+      fill = !!dplyr::sym("vaginotype"),
+      label = !!dplyr::sym("vaginotype")
+    )
+  ) +
+  scale_x_discrete(expand = c(.1, 0)) +
+  geom_flow(width = 1 / 4) +
+  geom_stratum(alpha = .5, width = 1 / 4) +
+  geom_text(stat = "stratum", size = 4) +
+  theme_minimal() +
+  facet_wrap(~ Arm, scales = "free") +
+  theme(legend.position = "none")
+
+print(p)
+```
+
+
+```{r stratum_samples}
+sample_counts <- metar::get_meta(mre_4A) %>%
+  dplyr::group_by(Arm, Timepoint, vaginotype) %>%
+  dplyr::summarize(count = dplyr::n_distinct(PatientID)) %>%
+  dplyr::ungroup()
+
+ggplot(sample_counts %>%
+         dplyr::mutate(Timepoint = factor(Timepoint)),
+       aes(x = Timepoint, y = count, fill = vaginotype)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_grid(~ Arm, scales = "free") +
+  labs(x = "Timepoint", y = "Sample Count", fill = "Vaginotype") +
+  theme_minimal() +
+  theme(legend.position = "right")
+
+```
+
+## {-}
+
+We can observe that the vaginotype variable does not remain stable over time. Some patients start with a potential vaginosis phenotype and then transition to a healthy phenotype, while others transition from a healthy phenotype to vaginosis. Additionally, some patients go through both stages cyclically. However, no clear vaginotype transition during vaccination regimen is found.
+
+## Beta-Diversity - Species Composition
+
+Let's visualize composition at the species level by each time-point, using barplots.
+
+```{r abundance_timepoints, fig.width=20, fig.height=10}
+met <- metar::get_meta(mre_4A) %>% 
+  dplyr::select(1, Timepoint) %>% 
+  dplyr::right_join(mre_4A@taxa@virgo@barplots$ta1$top_50$rel_abundance$bray_NMDS1_order_barplot$data, met, by = "SampleID")
+
+plot <- mre_4A@taxa@virgo@barplots$ta1$top_50$rel_abundance$bray_NMDS1_order_barplot
+
+plot$data <- met
+
+plot +
+  theme(axis.text.x = element_blank()) +
+  facet_wrap(Timepoint ~ ., scales = "free") +
+  theme_classic() +
+  theme(axis.text.x = element_blank())
+```
+
+The clustering barplots depicting taxonomic diversity per sample at each time-point reveal the presence of the same three distinct groups
+
+* At time-points 0, 14 and 26, most of the samples are dominated by **L. iners** or **L. Crispatus**, while some of them are **G. vaginalis** dominated, with **A. vaginae** codominance and polimicrobial
+* At time-point 50, most of the samples are either **L. iners** or **G. vaginalis** dominated
+* At time-point 62, 2 weeks after the boost, most of the samples are Lactobacillus dominated, either by **L. iners** or **L. crispatus**. Others are **G. vaginalis** dominated and polimicrobial. Surprisingly, some few samples are dominated by other Lactobacillus such as **L. gasseri** or **L. jensii**.
+
+```{r pred_taxa_timepoints}
+## Count of two predominant taxas per sample
+data <- tibble::as_tibble(plot$data)
+data_grouped <- data %>%
+  dplyr::group_by(Timepoint, SampleID) %>%
+  dplyr::slice_max(Abundance, n = 2) %>%
+  dplyr::ungroup()
+
+
+unique_timepoints <- unique(data_grouped$Timepoint)
+for (timepoint in unique_timepoints) {
+  data_timepoint <- data_grouped %>%
+    dplyr::filter(Timepoint == timepoint)
+  taxa_counts <- data_timepoint %>%
+    dplyr::count(Species, sort = TRUE) %>%
+    dplyr::arrange(desc(n))
+  
+  cat("Timepoint:", timepoint, "\n")
+  print(taxa_counts)
+  cat("\n")
+}
+```
+
+In this tables, we can see the to most dominant species of each sample at each time-point summed up. It can be seen that the most abundant species are **Gardnerella vaginalis**, **Lactobacillus iners** and **Lactobacillus crispatus**, but also other species are also reflected, due to the polimicrobiane co-dominance, specially on the **G. Vaginalis** dominated samples.
+
+## Conclusions
+
+After performing all these tests, we can conclude that microbiome composition stays stable at group 4A. Differences between study arms are due to the fact that the placebo samples are dominated by **L. crispatus** and **L. iners**.

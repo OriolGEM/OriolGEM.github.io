@@ -1,0 +1,104 @@
+---
+title: "CHIR HIV RV306 Vaginal - Baseline Timepoints"
+author: "Oriol Careta Borras"
+output: html_document
+output_dir: "`here::here('docs')`"
+site: workflowr::wflow_site
+mainfont: Helvetica
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{lipsum}
+- \pagestyle{fancy}
+- \fancyhead[CO,CE]{Flamingo - CIHR}
+- \fancyfoot[LO,RE]{Oriol Careta Borras}
+- \fancyhead[LE,RO]{\thepage}
+- \fancyfoot[CO,CE]{}
+- \usepackage[default]{sourcesanspro}
+- \usepackage[T1]{fontenc}
+- \usepackage{eso-pic,graphicx,transparent}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE,
+  autodep = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  dpi = 180,
+  fig.align = "center",
+  comment = "#>"
+)
+knitr::opts_knit$set(root.dir = here::here())
+library(magrittr)
+library(ggplot2)
+```
+
+## Introduction
+
+We are interested in comparing samples of the dataset in terms of microbiome composition and function to have a glimpse of gene richness evolution over time. We are using all available samples (481) from all patients (118).
+
+## MRE initialization and filter baseline samples
+
+```{r load_data}
+mre <- readr::read_rds(here::here("data", "preprocessed", "mre_vaginotype.rds"))
+
+## mre init & filter
+mre <- 
+  metar::get_meta(mre) %>%
+  dplyr::pull(SampleID) %>%
+  metar::filter_samples(mre, sample_ids = .)
+
+mre
+```
+
+## Gene richness - Rarefaction {.tabset}
+
+Note that diversity analysis here are delicate to perform due to the limitations in sampling.
+
+We also want to use the VIRGO catalog mapping-derived gene richness. However, this can be problematic for gene richness since the initial reads per sample is very low in some cases. This low numbers may be enough to describe the taxonomic composition, specially if the microbiome is "simple", but may fail to capture richness/diversity.
+
+First, we will assess the evolution of gene richness over time on the different variables.
+
+```{r rarefraction_plots, results='asis'}
+## run rarefaction
+mre <- metar::virgo_rarefaction(mre, save_files = FALSE)
+
+metar::get_cat(mre) %>%
+  dplyr::pull(1) %>%
+  .[-1] %>% # Remove "Treatment_group"
+  purrr::walk(~ {
+    cat('\n\n### `', .x, '`\n\n')
+    metar::get_diversity(mre, type = "virgo", res_slot = "rarefaction") %>%
+      purrr::pluck("longitudinal_abs", .x, "regression") %>%
+      plot()
+  })
+```
+
+It can be seen that gene richness does not significantly change over time on any group. Even though that, gene richness seems to increase in the placebo arm, compared to the active arm
+
+## {-}
+
+## Gene richness - lmm
+
+```{r lmm_plots, results='asis'}
+## run lmm
+mre <- metar::virgo_lmm(mre, save_files = FALSE)
+
+metar::get_diversity(mre, type = "virgo", res_slot = "lmm") %>%
+  purrr::pluck("Timepoint") %>%
+  plot()
+```
+
+This trait can also be observed here.
+
+## Gener richness - NMDS
+
+```{r nmds_timepoints}
+mre <- metar::virgo_nmds(mre, top_n = 50, save_files = FALSE)
+
+metar::get_taxa(mre, "virgo", "nmds") %>%
+  purrr::pluck("ta1", "top_50", "categorical", "Timepoint")
+```
+
+Finally, when performing clustering by time-point, there are no significant differences between groups.

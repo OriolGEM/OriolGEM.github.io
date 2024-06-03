@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Oriol Careta Borràs" />
+
+<meta name="date" content="2024-04-26" />
+
+<title>CHIR HIV RV306 Vaginal - Longitudinal study Group 1</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">2024_cihr_hiv_rv306</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="004_throughput_analysis.html">Throughput Analysis</a>
+</li>
+<li>
+  <a href="005_mre_initialization.html">Init mre object</a>
+</li>
+<li>
+  <a href="007_phylosmith_abundance.html">Phylosmith abundance exploration</a>
+</li>
+<li>
+  <a href="008_phylosmith_diversity.html">Phylosmith diversity exploration</a>
+</li>
+<li>
+  <a href="009_quality_control.html">Quality_control</a>
+</li>
+<li>
+  <a href="100_global_description.html">Global description</a>
+</li>
+<li>
+  <a href="101_baseline_timepoints.html">Baseline timepoints</a>
+</li>
+<li>
+  <a href="102_starting_point_description.html">Starting point description</a>
+</li>
+<li>
+  <a href="103_baseline_description.html">Baseline description</a>
+</li>
+<li>
+  <a href="104_groups_comparison.html">Groups Comparison</a>
+</li>
+<li>
+  <a href="105_longitudinal_sudy_t1.html">Longitudinal Study of Group 1</a>
+</li>
+<li>
+  <a href="105_longitudinal_sudy_t2.html">Longitudinal Study of Group 2</a>
+</li>
+<li>
+  <a href="105_longitudinal_sudy_t3.html">Longitudinal Study of Group 3</a>
+</li>
+<li>
+  <a href="105_longitudinal_sudy_t4A.html">Longitudinal Study of Group 4A</a>
+</li>
+<li>
+  <a href="105_longitudinal_sudy_t4B.html">Longitudinal Study of Group 4B</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">CHIR HIV RV306 Vaginal - Longitudinal study
+Group 1</h1>
+<h4 class="author">Oriol Careta Borràs</h4>
+<h4 class="date">2024-04-26</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2024-04-26
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong>
+<code>2024_chir_hiv_rv306_vaginal/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown is untracked by Git. To know which version of the R
+Markdown file created these results, you’ll want to first commit it to
+the Git repo. If you’re still working on the analysis, you can ignore
+this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20240321code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20240321)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20240321code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20240321)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong412fedd">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong> 412fedd
+</a>
+</p>
+</div>
+<div id="strongRepositoryversionstrong412fedd"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version 412fedd.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    analysis/Study_1.png
+    Ignored:    analysis/Study_2.png
+    Ignored:    analysis/Study_3.png
+    Ignored:    analysis/Study_4A.png
+    Ignored:    analysis/Study_4B.png
+    Ignored:    code/.RData
+    Ignored:    code/.Rhistory
+
+Untracked files:
+    Untracked:  analysis/004_throughput_analysis.Rmd
+    Untracked:  analysis/005_mre_initialization.Rmd
+    Untracked:  analysis/007_phylosmith_abundance.Rmd
+    Untracked:  analysis/008_phylosmith_diversity.Rmd
+    Untracked:  analysis/009_quality_control.Rmd
+    Untracked:  analysis/100_global_description.Rmd
+    Untracked:  analysis/101_baseline_timepoints.Rmd
+    Untracked:  analysis/102_starting_point_description.Rmd
+    Untracked:  analysis/103_baseline_description.Rmd
+    Untracked:  analysis/104_groups_comparison.Rmd
+    Untracked:  analysis/105_longitudinal_sudy_t1.Rmd
+    Untracked:  analysis/105_longitudinal_sudy_t2.Rmd
+    Untracked:  analysis/105_longitudinal_sudy_t3.Rmd
+    Untracked:  analysis/105_longitudinal_sudy_t4A.Rmd
+    Untracked:  analysis/105_longitudinal_sudy_t4B.Rmd
+    Untracked:  analysis/Study.jpg
+    Untracked:  code/000_s3_bucket_initialization.Rmd
+    Untracked:  code/001_metadata_check.Rmd
+    Untracked:  code/002_datatransfer.Rmd
+    Untracked:  code/003_metadata_vars_selection.Rmd
+    Untracked:  code/006_populate_mre.Rmd
+    Untracked:  data/RV306_CVM_2022_11_08_lims.xlsx
+    Untracked:  data/RV306_CVM_ShippingManifest_2022_SB_clinical.xlsx
+    Untracked:  data/preprocessed/
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
+    Modified:   analysis/about.Rmd
+    Modified:   analysis/index.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with
+<code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>We are interested in comparing samples the evolution of microbiome
+composition and function in a specific treatment group to answer the
+question how is the microbiome altered depending on the treatment?.
+Patients on group 1 received the vaccination regime of RV144, without
+any boosts.</p>
+</div>
+<div id="mre-initialization-and-filter-samples" class="section level2">
+<h2>MRE initialization and filter samples</h2>
+<pre class="r"><code>mre &lt;- readr::read_rds(here::here(&quot;data&quot;, &quot;preprocessed&quot;, &quot;mre_vaginotype.rds&quot;))
+
+## mre init &amp; filter
+mre_1 &lt;- 
+  metar::get_meta(mre) %&gt;%
+  dplyr::filter(Treatment_group_1 %in% c(&quot;t_1&quot;)) %&gt;%
+  dplyr::pull(SampleID) %&gt;%
+  metar::filter_samples(mre, sample_ids = .)
+
+mre_1</code></pre>
+<pre><code>#&gt; MetarSet-class experimental-level object 
+#&gt;   [MetadataSet     ]: 40 samples and 5 variables 
+#&gt;   [DiversitySet    ]: 
+#&gt;      ✖ igc: 0 observations and 0 samples 
+#&gt;      ✔ virgo: 1225 observations and 40 samples 
+#&gt;      ✖ dada2: 0 observations and 0 samples 
+#&gt;   [TaxaSet         ]: 
+#&gt;      ✖ metaphlan: no phyloseq object available 
+#&gt;      ✖ kraken: no phyloseq object available 
+#&gt;      ✖ bracken: no phyloseq object available 
+#&gt;      ✖ motus: no phyloseq object available 
+#&gt;      ✔ virgo: phyloseq object with 254 taxa and 40 samples 
+#&gt;      ✖ dada2: no phyloseq object available 
+#&gt;   [GeneFunctionSet ]: 
+#&gt;      ✖ humann: no functional data aviable 
+#&gt;      ✖ igc: no functional data aviable 
+#&gt;      ✔ virgo: 3693 kegg_id, 0 cog_id, 0 eggnog_id, 0 ec_id and 0 metacyc_id 
+#&gt;      ✖ fmap: no functional data aviable 
+#&gt;      ✖ picrust2: no functional data aviable 
+#&gt;      ✖ tax4fun: no functional data aviable 
+#&gt;      ✖ phylolisft: no functional data aviable</code></pre>
+<p>mre_1 contains all samples from group 1, which were collected at
+time-points 0, 14, 26 and 50 and only received vaccination on
+time-points 0, 4, 12 and 24. They are 40 samples from 10 patients. In
+this group, there are 0 samples in the placebo arm and 40 samples in the
+active arm.</p>
+<div class="float">
+<img src="Study_1.png" alt="Group 1" />
+<div class="figcaption">Group 1</div>
+</div>
+</div>
+<div id="gene-richness---rarefaction" class="section level2 tabset">
+<h2 class="tabset">Gene richness - Rarefaction</h2>
+<p>Note that diversity analysis here are delicate to perform due to the
+limitations in sampling.</p>
+<p>From the taxonomic composition we’ll derive some alpha-diversity
+ecological indices and compare them among groups.</p>
+<p>We also want to use the VIRGO catalog mapping-derived gene richness.
+However, this can be problematic for gene richness since the initial
+reads per sample is very low in some cases. This low numbers may be
+enough to describe the taxonomic composition, specially if the
+microbiome is “simple”, but may fail to capture richness/diversity.</p>
+<pre class="r"><code>## run rarefaction
+mre_1 &lt;- metar::virgo_rarefaction(mre_1, save_files = FALSE)
+
+## plot rarefaction
+metar::get_cat(mre_1) %&gt;%
+  dplyr::pull(1) %&gt;%
+  purrr::walk(~ {
+    cat(&#39;\n\n### `&#39;, .x, &#39;`\n\n&#39;)
+    metar::get_diversity(mre_1, type = &quot;virgo&quot;, res_slot = &quot;rarefaction&quot;) %&gt;%
+      purrr::pluck(&quot;categorical&quot;, .x, &quot;rarefaction&quot;) %&gt;%
+      plot()
+  })</code></pre>
+<div id="heme_test" class="section level3">
+<h3><code>Heme_test</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-1.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pass_reads_quantile" class="section level3">
+<h3><code>pass_reads_quantile</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-2.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype" class="section level3">
+<h3><code>vaginotype</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-3.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype_condition" class="section level3">
+<h3><code>vaginotype_condition</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-4.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p>The rarefraction curves (used to present relationship between gene
+richness and sequencing depth) show a difference between groups in terms
+of diversity and sample depth. Samples enriched in <strong>G.
+Vaginalis</strong> (and thus, with a vaginosis profile) seem to have a
+higher sample depth and gene richness compared to the other ones. Of
+note, rarefaction curve shows how far we are from asymptotically
+saturating richness signal from this catalog at the sampling depth we
+have (after filtering human sequences). Thus, we need to be aware of the
+limitations of gene richness analysis and interpret with caution.</p>
+</div>
+<div id="gene-richness---boxplots" class="section level2 tabset">
+<h2 class="tabset">Gene richness - Boxplots</h2>
+<pre class="r"><code>## plot gene richness
+metar::get_cat(mre_1) %&gt;%
+  dplyr::pull(1) %&gt;%
+  purrr::walk(~ {
+    cat(&#39;\n\n### `&#39;, .x, &#39;`\n\n&#39;)
+    metar::get_diversity(mre_1, type = &quot;virgo&quot;, res_slot = &quot;rarefaction&quot;) %&gt;%
+      purrr::pluck(&quot;categorical&quot;, .x, &quot;boxplots&quot;, &quot;GeneNumber&quot;) %&gt;%
+      plot()
+  })</code></pre>
+<div id="heme_test-1" class="section level3">
+<h3><code>Heme_test</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/gene_richness-1.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pass_reads_quantile-1" class="section level3">
+<h3><code>pass_reads_quantile</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/gene_richness-2.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype-1" class="section level3">
+<h3><code>vaginotype</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/gene_richness-3.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype_condition-1" class="section level3">
+<h3><code>vaginotype_condition</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/gene_richness-4.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-1" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p>The gene richness boxplots indicate that there are no significant
+differences between groups in terms of gene richness, except when
+separating by the number of QPass reads by quantiles, where the gene
+richness on the 4th quantile group is significantly higher. This could
+be explained due to the fact that the sample depth is higher on this
+group which favors gene richness. There are also significant differences
+between vaginotype groups.</p>
+</div>
+<div id="pcoa-based-on-bray-curtis" class="section level2">
+<h2>PCoA based on Bray Curtis</h2>
+<pre class="r"><code>ps &lt;- metar::get_phyloseq(mre_1, type = &quot;virgo&quot;)
+ps_RA &lt;- phyloseq::transform_sample_counts(ps, function(x) x / sum(x))
+bray_pcoa  &lt;-
+  phyloseq::ordinate(physeq = ps_RA, method = &quot;PCoA&quot;, distance = &quot;bray&quot;)
+
+create_pcoa_plot &lt;- function(ordination_obj, title, a, b) {
+  plot &lt;- phyloseq::plot_ordination(
+    physeq = ps_RA,
+    ordination = ordination_obj,
+    color = &quot;vaginotype&quot;,
+    shape = &quot;Arm&quot;,
+    axes = c(a,b)
+  ) +
+  geom_point(size = 2.5) +
+  scale_color_manual(values = c(&quot;deeppink4&quot;, &quot;coral&quot;, &quot;cadetblue4&quot;)) +
+  scale_shape_manual(values = c(16, 2)) +
+  theme_light() +
+  ggtitle(title)
+  
+  return(plot)
+}
+
+pcoa_plot_PCo1_PCo2 &lt;- create_pcoa_plot(bray_pcoa, &quot;PCo1 vs PCo2&quot;, 1, 2)
+pcoa_plot_PCo1_PCo3 &lt;- create_pcoa_plot(bray_pcoa, &quot;PCo1 vs PCo3&quot;, 1, 3)
+pcoa_plot_PCo2_PCo3 &lt;- create_pcoa_plot(bray_pcoa, &quot;PCo2 vs PCo3&quot;, 2, 3)
+
+gridExtra::grid.arrange(pcoa_plot_PCo1_PCo2, pcoa_plot_PCo1_PCo3, pcoa_plot_PCo2_PCo3, nrow = 1)</code></pre>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/PCoA-1.png" width="3600" style="display: block; margin: auto;" /></p>
+<p>In the PCoA plots, it can be seen that the compositional variables
+that affect each cluster. PCo 1 and 2 explain the 84.4% of the
+variability (57.9% and 26.5% respectively), while PCo3 only explains the
+8% of the variability. No clear cluster differentiation can be seen.
+Moreover, there are no placebo samples on this group.</p>
+</div>
+<div id="beta-diversity---species-composition" class="section level2">
+<h2>Beta-Diversity - Species Composition</h2>
+<p>Let’s visualize composition at the species level using barplots.</p>
+<pre class="r"><code>## run barplots 
+mre_1 &lt;- metar::virgo_barplots(mre_1, top_n = 50, save_files = FALSE)
+
+## Plot virgo barplots
+mre_1 %&gt;% 
+  metar::get_taxa(&quot;virgo&quot;, &quot;barplots&quot;) %&gt;%
+  purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;rel_abundance&quot;, &quot;bray_NMDS1_order_barplot&quot;) +
+  theme(axis.text.x = element_blank())</code></pre>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/top50_abundance_barplot-1.png" width="3600" style="display: block; margin: auto;" /></p>
+<p>The clustering barplots depicting taxonomic diversity per sample
+reveal the presence of three distinct groups:</p>
+<ul>
+<li>The first group is primarily characterized by the dominance of
+<strong>Gardnerella vaginalis</strong>, occasionally accompanied by
+co-dominance with <strong>Atopobium vaginae</strong>. Notably, this
+group exhibits a higher level of taxonomic diversity compared to the
+other two groups. Both <strong>Gardnerella vaginalis</strong>, a
+gram-negative facultative anaerobic bacterium, and <strong>Atopobium
+vaginae</strong>, a gram-positive strict anaerobic bacterium, have been
+associated with bacterial vaginosis (BV) and its characteristic
+symptoms.</li>
+<li>The second group, is characterized by a strong dominance of
+<strong>Lactobacillus iners</strong>. <strong>Lactobacillus
+iners</strong> is a common bacterium found in the vaginal microbiota,
+playing a vital role in maintaining vaginal health. It helps to maintain
+an acidic pH, creating an unfavorable environment for harmful
+microorganisms. <strong>Lactobacillus iners</strong> contributes to the
+stability and balance of the vaginal microbiota, promoting overall
+vaginal health and potentially protecting against infections like
+bacterial vaginosis.</li>
+<li>The third group is mainly characterized by a dominant presence of
+<strong>Lactobacillus crispatus</strong>, although some samples in this
+group also show high levels of <strong>Lactobacillus jensenii</strong>.
+<strong>Lactobacillus crispatus</strong> is a beneficial bacterium
+commonly found in the vaginal microbiota. It helps maintain a healthy
+vaginal environment by producing lactic acid and supporting acidity.
+<strong>Lactobacillus jensenii</strong> is a gram-positive bacterium
+commonly found in the vaginal microbiota, particularly in women of
+reproductive age. It contributes to maintaining vaginal health by
+producing lactic acid and creating an acidic environment, which helps
+inhibit the growth of harmful bacteria. <strong>Lactobacillus
+jensenii</strong> is known for its ability to adhere to vaginal
+epithelial cells, which may enhance its protective effects against
+infections and maintain the balance of the vaginal microbiota.</li>
+</ul>
+<pre class="r"><code>## Count of two predominant taxas per sample
+mre_1 %&gt;% 
+  metar::get_taxa(&quot;virgo&quot;, &quot;barplots&quot;) %&gt;%
+  purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;rel_abundance&quot;, &quot;bray_NMDS1_order_barplot&quot;, &quot;data&quot;) %&gt;%
+  dplyr::group_by(SampleID) %&gt;%
+  dplyr::slice_max(Abundance, n = 2) %&gt;%
+  dplyr::ungroup() %&gt;%
+  dplyr::count(Species, sort = TRUE)</code></pre>
+<pre><code>#&gt; # A tibble: 12 × 2
+#&gt;    Species                           n
+#&gt;    &lt;fct&gt;                         &lt;int&gt;
+#&gt;  1 Lactobacillus_iners              24
+#&gt;  2 Lactobacillus_crispatus          19
+#&gt;  3 Gardnerella_vaginalis            19
+#&gt;  4 Atopobium_vaginae                 8
+#&gt;  5 Lactobacillus_jensenii            2
+#&gt;  6 Prevotella_timonensis             2
+#&gt;  7 Streptococcus_urinalis            1
+#&gt;  8 Lactobacillus_gasseri             1
+#&gt;  9 Prevotella_bivia                  1
+#&gt; 10 Fusobacterium_nucleatum           1
+#&gt; 11 Lactobacillus_kefiranofaciens     1
+#&gt; 12 Streptococcus_agalactiae          1</code></pre>
+<p>In this table, we can see the to most dominant species of each sample
+summed up. It can be seen that the most abundant species are
+<strong>Gardnerella vaginalis</strong>, <strong>Lactobacillus
+iners</strong> and <strong>Lactobacillus crispatus</strong>, followed by
+<strong>Atopobium vaginae</strong>, which on the abundance barplot was
+found in codominance with <strong>Gardnerella vaginalis</strong> on some
+samples.</p>
+</div>
+<div id="beta-diversity---cluestering" class="section level2">
+<h2>Beta-Diversity - Cluestering</h2>
+<p>In the previous barplots, the x-axis is defined according to ward.D2,
+bray-based clustering. We’ll now transform abundances and project them
+into a heatmap, to be able to visualize association with variables of
+interest.</p>
+<pre class="r"><code>## run heatmap
+mre_1 &lt;- metar::virgo_heatmap(mre_1, top_n = 50, save_files = FALSE)
+
+## plot heatmap
+library(ComplexHeatmap)
+mre_1 %&gt;%
+  metar::get_taxa(&quot;virgo&quot;, &quot;heatmaps&quot;) %&gt;%
+  purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;) %&gt;%
+  ComplexHeatmap::draw(heatmap_legend_side = &quot;left&quot;, annotation_legend_side = &quot;bottom&quot;)</code></pre>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/hierarchical_clustering-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>In this hierarchical clustering heatmap, we can clearly see the three
+groups. It can be seen that the vaginotype <strong>G. Vaginalis</strong>
+is enriched in this specie, while the other two are dominated by
+<strong>L. Crispatus</strong> and <strong>L. Iners</strong>.</p>
+</div>
+<div id="beta-diversity---nmds" class="section level2">
+<h2>Beta Diversity - NMDS</h2>
+<p>NMDS (Non-metric Multidimensional Scaling) analysis is a commonly
+used non-metric ordination technique that helps visualize the similarity
+or dissimilarity between samples based on a distance or similarity
+matrix. In the context of microbiome data, this technique is
+particularly useful for identifying patterns and significant changes in
+microbiome composition among different samples or groups.</p>
+<pre class="r"><code>mre_1 &lt;- metar::virgo_nmds(mre_1, top_n = 50, save_files = FALSE)
+
+metar::get_taxa(mre_1, &quot;virgo&quot;, &quot;nmds&quot;) %&gt;%
+  purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;all_adonis&quot;) %&gt;%
+  dplyr::arrange(Pr..F.)</code></pre>
+<pre><code>#&gt; # A tibble: 5 × 6
+#&gt;   id                      Df SumOfSqs     R2     F Pr..F.
+#&gt;   &lt;chr&gt;                &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+#&gt; 1 pass_reads_quantile      3    4.31  0.302   5.20  0.001
+#&gt; 2 vaginotype               2    5.62  0.395  12.1   0.001
+#&gt; 3 vaginotype_condition     1    3.44  0.242  12.1   0.001
+#&gt; 4 cluster                  8   11.4   0.800  15.5   0.001
+#&gt; 5 Heme_test                1    0.404 0.0284  1.11  0.343</code></pre>
+<p>The Adonis test indicates that there are significant differences in
+the taxonomic composition between the levels of the categorical
+variables: <strong>pass_reads_quantile</strong>,
+<strong>vaginotype</strong> and
+<strong>vaginotype_condition</strong>.</p>
+</div>
+<div id="section-2" class="section level2 tabset">
+<h2 class="tabset"></h2>
+<pre class="r"><code>metar::get_cat(mre_1) %&gt;%
+  dplyr::pull(1) %&gt;%
+  purrr::walk( ~ {
+    cat(&#39;\n\n### `&#39;, .x, &#39;`\n\n&#39;)
+    metar::get_taxa(mre_1, &quot;virgo&quot;, &quot;nmds&quot;) %&gt;%
+      purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;categorical&quot;, .x) %&gt;%
+      plot()
+  })</code></pre>
+<div id="heme_test-2" class="section level3">
+<h3><code>Heme_test</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-1.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pass_reads_quantile-2" class="section level3">
+<h3><code>pass_reads_quantile</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-2.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype-2" class="section level3">
+<h3><code>vaginotype</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-3.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype_condition-2" class="section level3">
+<h3><code>vaginotype_condition</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-4.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-3" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p>The nmds plots also indicate that there are significant differences
+between the levels of the categorical variables:
+<strong>pass_reads_quantile</strong>, <strong>vaginotype</strong>, and
+<strong>vaginotype_condition</strong>.</p>
+</div>
+<div id="differential-analyisis-ancom" class="section level2 tabset">
+<h2 class="tabset">Differential Analyisis ANCOM</h2>
+<pre class="r"><code># run ancom
+mre_1 &lt;- metar::virgo_ancom(mre_1, save_files = FALSE)
+
+# plot ancom
+metar::get_cat(mre_1) %&gt;%
+  dplyr::pull(1) %&gt;%
+  purrr::walk( ~ {
+    plt &lt;- metar::get_taxa(mre_1, &quot;virgo&quot;, &quot;ancom&quot;) %&gt;%
+      purrr::pluck(&quot;ta1&quot;, .x, &quot;plot&quot;)
+    
+    if (!is.null(plt)) {
+      cat(&#39;\n\n### `&#39;, .x, &#39;`\n\n&#39;)
+      plot(plt)
+    }
+  })</code></pre>
+<div id="heme_test-3" class="section level3">
+<h3><code>Heme_test</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_ancom-1.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pass_reads_quantile-3" class="section level3">
+<h3><code>pass_reads_quantile</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_ancom-2.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype-3" class="section level3">
+<h3><code>vaginotype</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_ancom-3.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype_condition-3" class="section level3">
+<h3><code>vaginotype_condition</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_ancom-4.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-4" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p>ANCOM plots indicate us that there are abundance values that are
+significantly different between <strong>pass_reads_quantile</strong>,
+<strong>vaginotype</strong> and <strong>vaginotype_condition</strong>
+groups, but not between <strong>Treatment_group</strong> groups.
+Regarding pass_reads_quantile, these differences are bigger when
+comparing c_4 group against others , and regarding vaginotype, these
+differences are bigger when comparing Lactobacillus-dominated and
+<strong>G. Vaginalis</strong> groups.</p>
+</div>
+<div id="differential-analyisis-lefse" class="section level2 tabset">
+<h2 class="tabset">Differential Analyisis Lefse</h2>
+<pre class="r"><code># run lefse
+mre_1 &lt;- metar::virgo_lefse(mre_1, save_files = FALSE)
+
+# plot lefse
+metar::get_cat(mre_1) %&gt;%
+  dplyr::pull(1) %&gt;%
+  purrr::walk(~ {
+    plt &lt;- metar::get_taxa(mre_1, &quot;virgo&quot;, &quot;lefse&quot;) %&gt;%
+      purrr::pluck(&quot;ta1&quot;, .x, &quot;plot&quot;)
+    
+    if (!is.null(plt)) {
+      cat(&#39;\n\n### `&#39;, .x, &#39;`\n\n&#39;)
+      plot(plt)
+    }
+  })</code></pre>
+<div id="pass_reads_quantile-4" class="section level3">
+<h3><code>pass_reads_quantile</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_lefse-1.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype-4" class="section level3">
+<h3><code>vaginotype</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_lefse-2.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype_condition-4" class="section level3">
+<h3><code>vaginotype_condition</code></h3>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_lefse-3.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-5" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p>If we consider features with LDA scores above 3 as biologically
+relevant, these plots indicate us that <strong>Lactobacillus
+Iners</strong>, <strong>Lactobacillus Crispatus</strong> and
+<strong>Gardnerella Vaginalis</strong> are the species that explain the
+difference between healthy and vaginosis groups.</p>
+</div>
+<div
+id="longitudinal-stability-of-vaginotype-within-individual-patients"
+class="section level2 tabset">
+<h2 class="tabset">Longitudinal Stability of Vaginotype within
+Individual Patients</h2>
+<p>At this point, it is clear that the categorical variable “vaginotype”
+is a significant component of the observed compositional variability. To
+further investigate this phenotypic characteristic, we ask the question
+of whether the vaginotype remains stable longitudinally within the same
+patient. Furthermore, it would be interesting to know if on the
+treatment arm of the study, there is a switch from a vaginosis to a no
+vaginosis state.</p>
+<p>First, we generated alluvial plots for each categorical variable.</p>
+<pre class="r"><code>library(ggalluvial)
+p &lt;- metar::get_meta(mre_1) %&gt;%
+  dplyr::select(PatientID, vaginotype, Arm, Timepoint) %&gt;%
+  ggplot(
+    aes(
+      as.factor(Timepoint),
+      stratum = !!dplyr::sym(&quot;vaginotype&quot;),
+      alluvium = PatientID,
+      fill = !!dplyr::sym(&quot;vaginotype&quot;),
+      label = !!dplyr::sym(&quot;vaginotype&quot;)
+    )
+  ) +
+  scale_x_discrete(expand = c(.1, 0)) +
+  geom_flow(width = 1 / 4) +
+  geom_stratum(alpha = .5, width = 1 / 4) +
+  geom_text(stat = &quot;stratum&quot;, size = 4) +
+  theme_minimal() +
+  facet_wrap(~ Arm, scales = &quot;free&quot;) +
+  theme(legend.position = &quot;none&quot;)
+
+print(p)</code></pre>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/alluvial_plot-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>sample_counts &lt;- metar::get_meta(mre_1) %&gt;%
+  dplyr::group_by(Arm, Timepoint, vaginotype) %&gt;%
+  dplyr::summarize(count = dplyr::n_distinct(PatientID)) %&gt;%
+  dplyr::ungroup()
+
+ggplot(sample_counts %&gt;%
+         dplyr::mutate(Timepoint = factor(Timepoint)),
+       aes(x = Timepoint, y = count, fill = vaginotype)) +
+  geom_bar(stat = &quot;identity&quot;, position = &quot;dodge&quot;) +
+  facet_grid(~ Arm, scales = &quot;free&quot;) +
+  labs(x = &quot;Timepoint&quot;, y = &quot;Sample Count&quot;, fill = &quot;Vaginotype&quot;) +
+  theme_minimal() +
+  theme(legend.position = &quot;right&quot;)</code></pre>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/stratum_samples-1.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-6" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p>We can observe that the vaginotype variable does not remain stable
+over time. Some patients start with a potential vaginosis phenotype and
+then transition to a healthy phenotype, while others transition from a
+healthy phenotype to vaginosis. Additionally, some patients go through
+both stages cyclically. However, no clear vaginotype transition during
+vaccination regimen is found.</p>
+</div>
+<div id="beta-diversity---species-composition-1" class="section level2">
+<h2>Beta-Diversity - Species Composition</h2>
+<p>Let’s visualize composition at the species level by each time-point,
+using barplots.</p>
+<pre class="r"><code>met &lt;- metar::get_meta(mre_1) %&gt;% 
+  dplyr::select(1, Timepoint) %&gt;% 
+  dplyr::right_join(mre_1@taxa@virgo@barplots$ta1$top_50$rel_abundance$bray_NMDS1_order_barplot$data, met, by = &quot;SampleID&quot;)
+
+plot &lt;- mre_1@taxa@virgo@barplots$ta1$top_50$rel_abundance$bray_NMDS1_order_barplot
+
+plot$data &lt;- met
+
+plot +
+  theme(axis.text.x = element_blank()) +
+  facet_wrap(Timepoint ~ ., scales = &quot;free&quot;) +
+  theme_classic() +
+  theme(axis.text.x = element_blank())</code></pre>
+<p><img src="figure/105_longitudinal_sudy_t1.Rmd/abundance_timepoints-1.png" width="3600" style="display: block; margin: auto;" /></p>
+<p>The clustering barplots depicting taxonomic diversity per sample at
+each time-point reveal the presence of the same three distinct
+groups</p>
+<ul>
+<li>At time-point 0 and 14, most of the samples are dominated by
+<strong>L. iners</strong>, while some of them are <strong>G.
+vaginalis</strong> dominated and polimicrobial</li>
+<li>At time-point 26, most of the samples are <strong>G.
+vaginalis</strong> dominated and polimicrobial. Other samples are
+dominated by <strong>L. iners</strong>.</li>
+<li>At time-point 50, 26 weeks after the last vaccine shoot, most of the
+samples are Lactobacillus dominated, either by <strong>L. iners</strong>
+or <strong>L. crispatus</strong>. Others are <strong>G.
+vaginalis</strong> dominated and polimicrobial.</li>
+</ul>
+<pre class="r"><code>## Count of two predominant taxas per sample
+data &lt;- tibble::as_tibble(plot$data)
+data_grouped &lt;- data %&gt;%
+  dplyr::group_by(Timepoint, SampleID) %&gt;%
+  dplyr::slice_max(Abundance, n = 2) %&gt;%
+  dplyr::ungroup()
+
+
+unique_timepoints &lt;- unique(data_grouped$Timepoint)
+for (timepoint in unique_timepoints) {
+  data_timepoint &lt;- data_grouped %&gt;%
+    dplyr::filter(Timepoint == timepoint)
+  taxa_counts &lt;- data_timepoint %&gt;%
+    dplyr::count(Species, sort = TRUE) %&gt;%
+    dplyr::arrange(desc(n))
+  
+  cat(&quot;Timepoint:&quot;, timepoint, &quot;\n&quot;)
+  print(taxa_counts)
+  cat(&quot;\n&quot;)
+}</code></pre>
+<pre><code>#&gt; Timepoint: 0 
+#&gt; # A tibble: 7 × 2
+#&gt;   Species                      n
+#&gt;   &lt;fct&gt;                    &lt;int&gt;
+#&gt; 1 Lactobacillus_iners          7
+#&gt; 2 Lactobacillus_crispatus      5
+#&gt; 3 Gardnerella_vaginalis        4
+#&gt; 4 Streptococcus_urinalis       1
+#&gt; 5 Prevotella_timonensis        1
+#&gt; 6 Atopobium_vaginae            1
+#&gt; 7 Streptococcus_agalactiae     1
+#&gt; 
+#&gt; Timepoint: 14 
+#&gt; # A tibble: 7 × 2
+#&gt;   Species                           n
+#&gt;   &lt;fct&gt;                         &lt;int&gt;
+#&gt; 1 Lactobacillus_iners               6
+#&gt; 2 Lactobacillus_crispatus           5
+#&gt; 3 Gardnerella_vaginalis             4
+#&gt; 4 Atopobium_vaginae                 2
+#&gt; 5 Lactobacillus_gasseri             1
+#&gt; 6 Lactobacillus_jensenii            1
+#&gt; 7 Lactobacillus_kefiranofaciens     1
+#&gt; 
+#&gt; Timepoint: 26 
+#&gt; # A tibble: 5 × 2
+#&gt;   Species                     n
+#&gt;   &lt;fct&gt;                   &lt;int&gt;
+#&gt; 1 Gardnerella_vaginalis       7
+#&gt; 2 Lactobacillus_iners         6
+#&gt; 3 Lactobacillus_crispatus     4
+#&gt; 4 Atopobium_vaginae           2
+#&gt; 5 Prevotella_bivia            1
+#&gt; 
+#&gt; Timepoint: 50 
+#&gt; # A tibble: 7 × 2
+#&gt;   Species                     n
+#&gt;   &lt;fct&gt;                   &lt;int&gt;
+#&gt; 1 Lactobacillus_crispatus     5
+#&gt; 2 Lactobacillus_iners         5
+#&gt; 3 Gardnerella_vaginalis       4
+#&gt; 4 Atopobium_vaginae           3
+#&gt; 5 Lactobacillus_jensenii      1
+#&gt; 6 Fusobacterium_nucleatum     1
+#&gt; 7 Prevotella_timonensis       1</code></pre>
+<p>In this tables, we can see the to most dominant species of each
+sample at each time-point summed up. It can be seen that the most
+abundant species are <strong>Gardnerella vaginalis</strong>,
+<strong>Lactobacillus iners</strong> and <strong>Lactobacillus
+crispatus</strong>, but also other species are also reflected, due to
+the polimicrobiane co-dominance, specially on the <strong>G.
+Vaginalis</strong> dominated samples.</p>
+</div>
+<div id="conclusions" class="section level2">
+<h2>Conclusions</h2>
+<p>After performing the longitudinal study, we can conclude that
+microbiome composition remains stable at group 1, which does not receive
+any vaccine boost after following the RV144 regime.</p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>#&gt; R version 4.1.2 (2021-11-01)
+#&gt; Platform: x86_64-pc-linux-gnu (64-bit)
+#&gt; Running under: Ubuntu 22.04.4 LTS
+#&gt; 
+#&gt; Matrix products: default
+#&gt; BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+#&gt; LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so
+#&gt; 
+#&gt; locale:
+#&gt;  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+#&gt;  [3] LC_TIME=es_ES.UTF-8        LC_COLLATE=en_US.UTF-8    
+#&gt;  [5] LC_MONETARY=es_ES.UTF-8    LC_MESSAGES=en_US.UTF-8   
+#&gt;  [7] LC_PAPER=es_ES.UTF-8       LC_NAME=C                 
+#&gt;  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+#&gt; [11] LC_MEASUREMENT=es_ES.UTF-8 LC_IDENTIFICATION=C       
+#&gt; 
+#&gt; attached base packages:
+#&gt; [1] grid      stats     graphics  grDevices utils     datasets  methods  
+#&gt; [8] base     
+#&gt; 
+#&gt; other attached packages:
+#&gt; [1] ggalluvial_0.12.5     ComplexHeatmap_2.18.0 ggplot2_3.5.0        
+#&gt; [4] magrittr_2.0.3        workflowr_1.7.1      
+#&gt; 
+#&gt; loaded via a namespace (and not attached):
+#&gt;   [1] utf8_1.2.4                  tidyselect_1.2.1           
+#&gt;   [3] htmlwidgets_1.6.4           gmp_0.7-4                  
+#&gt;   [5] munsell_0.5.1               codetools_0.2-19           
+#&gt;   [7] effectsize_0.8.6            future_1.33.1              
+#&gt;   [9] withr_3.0.0                 colorspace_2.1-0           
+#&gt;  [11] Biobase_2.54.0              phyloseq_1.38.0            
+#&gt;  [13] logger_0.3.0                highr_0.10                 
+#&gt;  [15] knitr_1.46                  rstudioapi_0.15.0          
+#&gt;  [17] stats4_4.1.2                robustbase_0.99-2          
+#&gt;  [19] bayesm_3.1-6                ggsignif_0.6.4             
+#&gt;  [21] ggside_0.3.1                listenv_0.9.1              
+#&gt;  [23] MatrixGenerics_1.6.0        labeling_0.4.3             
+#&gt;  [25] git2r_0.33.0                GenomeInfoDbData_1.2.7     
+#&gt;  [27] polyclip_1.10-6             farver_2.1.1               
+#&gt;  [29] datawizard_0.9.1            rhdf5_2.38.1               
+#&gt;  [31] rprojroot_2.0.4             TH.data_1.1-2              
+#&gt;  [33] parallelly_1.37.1           vctrs_0.6.5                
+#&gt;  [35] generics_0.1.3              xfun_0.43                  
+#&gt;  [37] timechange_0.3.0            BWStest_0.2.3              
+#&gt;  [39] R6_2.5.1                    doParallel_1.0.17          
+#&gt;  [41] GenomeInfoDb_1.30.1         clue_0.3-65                
+#&gt;  [43] DelayedArray_0.20.0         bitops_1.0-7               
+#&gt;  [45] rhdf5filters_1.6.0          cachem_1.0.8               
+#&gt;  [47] promises_1.3.0              scales_1.3.0               
+#&gt;  [49] multcomp_1.4-25             gtable_0.3.4               
+#&gt;  [51] globals_0.16.2              multcompView_0.1-9         
+#&gt;  [53] processx_3.8.4              sandwich_3.1-0             
+#&gt;  [55] rlang_1.1.3                 zeallot_0.1.0              
+#&gt;  [57] GlobalOptions_0.1.2         PMCMRplus_1.9.10           
+#&gt;  [59] splines_4.1.2               rstatix_0.7.2              
+#&gt;  [61] lazyeval_0.2.2              broom_1.0.5                
+#&gt;  [63] prismatic_1.1.1             yaml_2.3.8                 
+#&gt;  [65] reshape2_1.4.4              abind_1.4-5                
+#&gt;  [67] backports_1.4.1             httpuv_1.6.14              
+#&gt;  [69] tensorA_0.36.2.1            lava_1.8.0                 
+#&gt;  [71] ggmosaic_0.3.3              tools_4.1.2                
+#&gt;  [73] gplots_3.1.3.1              jquerylib_0.1.4            
+#&gt;  [75] biomformat_1.22.0           RColorBrewer_1.1-3         
+#&gt;  [77] BiocGenerics_0.40.0         Rcpp_1.0.12                
+#&gt;  [79] plyr_1.8.9                  zlibbioc_1.40.0            
+#&gt;  [81] purrr_1.0.2                 RCurl_1.98-1.14            
+#&gt;  [83] ps_1.7.6                    ggpubr_0.6.0               
+#&gt;  [85] GetoptLong_1.0.5            correlation_0.8.4          
+#&gt;  [87] zoo_1.8-12                  S4Vectors_0.32.4           
+#&gt;  [89] SummarizedExperiment_1.24.0 ggrepel_0.9.5              
+#&gt;  [91] cluster_2.1.6               fs_1.6.3                   
+#&gt;  [93] here_1.0.1                  data.table_1.15.4          
+#&gt;  [95] circlize_0.4.16             mvtnorm_1.2-4              
+#&gt;  [97] survcomp_1.44.1             whisker_0.4.1              
+#&gt;  [99] matrixStats_1.2.0           hms_1.1.3                  
+#&gt; [101] patchwork_1.2.0             evaluate_0.23              
+#&gt; [103] IRanges_2.28.0              gridExtra_2.3              
+#&gt; [105] shape_1.4.6.1               compiler_4.1.2             
+#&gt; [107] tibble_3.2.1                ggstatsplot_0.12.2         
+#&gt; [109] KernSmooth_2.23-22          crayon_1.5.2               
+#&gt; [111] htmltools_0.5.8.1           mgcv_1.9-1                 
+#&gt; [113] later_1.3.2                 tzdb_0.4.0                 
+#&gt; [115] libcoin_1.0-10              tidyr_1.3.1                
+#&gt; [117] lubridate_1.9.3             SuppDists_1.1-9.7          
+#&gt; [119] kSamples_1.2-10             tweenr_2.0.3               
+#&gt; [121] MASS_7.3-60.0.1             boot_1.3-30                
+#&gt; [123] compositions_2.0-8          Matrix_1.6-5               
+#&gt; [125] ade4_1.7-22                 car_3.1-2                  
+#&gt; [127] readr_2.1.5                 wesanderson_0.3.7          
+#&gt; [129] rmeta_3.0                   ANCOM_2.2                  
+#&gt; [131] permute_0.9-7               cli_3.6.2                  
+#&gt; [133] parallel_4.1.2              insight_0.19.8             
+#&gt; [135] igraph_2.0.3                GenomicRanges_1.46.1       
+#&gt; [137] forcats_1.0.0               pkgconfig_2.0.3            
+#&gt; [139] metar_0.1.5                 getPass_0.2-4              
+#&gt; [141] statsExpressions_1.5.3      coin_1.4-3                 
+#&gt; [143] plotly_4.10.4               paletteer_1.6.0            
+#&gt; [145] foreach_1.5.2               bslib_0.7.0                
+#&gt; [147] multtest_2.50.0             XVector_0.34.0             
+#&gt; [149] prodlim_2023.08.28          snakecase_0.11.1           
+#&gt; [151] stringr_1.5.1               callr_3.7.6                
+#&gt; [153] digest_0.6.35               parameters_0.21.5          
+#&gt; [155] vegan_2.6-4                 janitor_2.2.0              
+#&gt; [157] Biostrings_2.62.0           rmarkdown_2.26             
+#&gt; [159] modeltools_0.2-23           gtools_3.9.5               
+#&gt; [161] rjson_0.2.21                lifecycle_1.0.4            
+#&gt; [163] nlme_3.1-164                jsonlite_1.8.8             
+#&gt; [165] Rhdf5lib_1.16.0             survivalROC_1.0.3.1        
+#&gt; [167] carData_3.0-5               viridisLite_0.4.2          
+#&gt; [169] fansi_1.0.6                 pillar_1.9.0               
+#&gt; [171] lattice_0.22-5              DEoptimR_1.1-3             
+#&gt; [173] fastmap_1.1.1               httr_1.4.7                 
+#&gt; [175] survival_3.5-8              glue_1.7.0                 
+#&gt; [177] bayestestR_0.13.2           png_0.1-8                  
+#&gt; [179] iterators_1.0.14            ggforce_0.4.2              
+#&gt; [181] stringi_1.8.3               sass_0.4.9                 
+#&gt; [183] bootstrap_2019.6            rematch2_2.1.2             
+#&gt; [185] lefser_1.4.0                caTools_1.18.2             
+#&gt; [187] memoise_2.0.1               Rmpfr_0.9-5                
+#&gt; [189] dplyr_1.1.4                 future.apply_1.11.1        
+#&gt; [191] ape_5.7-1</code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

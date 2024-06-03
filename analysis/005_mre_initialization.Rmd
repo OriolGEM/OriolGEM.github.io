@@ -1,0 +1,114 @@
+---
+title: "CHIR HIV RV306 Vaginal - mre Initialization"
+author: "Francesc Català-Moll & Oriol Careta Borràs"
+output: html_document
+output_dir: "`here::here('docs')`"
+site: workflowr::wflow_site
+mainfont: Helvetica
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{lipsum}
+- \pagestyle{fancy}
+- \fancyhead[CO,CE]{Flamingo - CIHR}
+- \fancyfoot[LO,RE]{Oriol Careta Borras}
+- \fancyhead[LE,RO]{\thepage}
+- \fancyfoot[CO,CE]{}
+- \usepackage[default]{sourcesanspro}
+- \usepackage[T1]{fontenc}
+- \usepackage{eso-pic,graphicx,transparent}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  dpi = 180,
+  fig.align = "center",
+  comment = "#>",
+  fig.width = 8,
+  fig.height = 6
+)
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+## Introduction
+
+This code obtains different data from different sources:
+
+* Taxonomical Composition data derived from Metaphlan3/motus2/kraken2/dada2 analysis. This data is obtained through the execution of the AWS/Batch/WMGS pipeline as standard R::phyloseq objects
+* Gene Function Data, derived from FMAP/HUMANN3/IGC/VIRGO catalogs or tools. This data is obtained through the execution of the AWS/Batch/WMGS pipeline as standard R::phyloseq objects
+* Gene Richness or diversity, obtained from either IGC/VIRGO catalogs or dada2.
+* Metadata, obtained from the study data source. Metadata is probably formatted and curated beforehand and linked to taxonomic and function data during the construction of the two previous data sources.
+* Other: In this code, it is the moment to alter the original data sources in any way: modification, removal, or addition of variables.
+
+Data is obtained, merged and provided a consistent starting point for statistical analysis. Metadata is also described separately to produce a metadata-only report.
+
+Finally, a MRE object is created that is used downstream as the starting point for all analysis and (automatic) reporting.
+
+## Vars & path definitions & libs
+
+```{r load_library_&_define_variables}
+library(magrittr)
+
+bucket <- "s3://cihr-hiv-rv306/vaginal/metagenome/WMGS"
+out_dir <- here::here("data/preprocessed/")
+dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+```
+
+## MRE object initialization
+
+A metar (MRE) object contains different slots, each one containing different types of data for the study being analysed. A brief description of the available data for this project is:
+
+```{r initialize_mre}
+mre <- metar::metarExperiment_aws(bucket = bucket, wd = out_dir)
+
+mre
+```
+
+It can be seen that there are only data obtained from the VIRGO catalog, as it is the best tool to analyse human vaginal microbiome.
+
+## MRE metadata modificatiopn
+
+```{r modify_var}
+# Create new dataframe with the variable to add
+df <- mre@metadata@metadata_df
+new_df <- df %>% 
+  dplyr::select(SampleID, Treatment_group) %>% 
+  dplyr::mutate(
+    Treatment_group_1 = dplyr::case_when(
+      Treatment_group %in% "t_4" ~ "t_4A",
+      Treatment_group %in% "t_no_boost" ~ "t_4A",
+      TRUE ~ as.character (Treatment_group)
+    )
+  ) %>% 
+  dplyr::select(SampleID, Treatment_group_1)
+
+# Add the new var to the mre
+mre <- metar::add_metadata_var(mre, new_df, id_col = "SampleID")
+
+# Add the new var as categorical var
+mre <- metar::add_cat(mre, "Treatment_group_1", "Set1")
+```
+
+## Save MRE
+
+The MRE object will be saved with the name "mre.rds" if no previous file exists, but as the date plus mre.rds (as an example, "20241231_mre.rds") if it already exists (as the file called "mre.rds" will already be populated by a set of multiple analysis). Furthermore, any previous file with a name consistent of a previous date plus mre.rds (following the example, "20241230_mre.rds") will be removed.
+
+```{r save_mre}
+existing_mre_files <- list.files(path = out_dir, pattern = "^\\d{8}_mre\\.rds$")
+
+if (length(existing_mre_files) > 0) {
+  file.remove(file.path(out_dir, existing_mre_files))
+}
+
+if ("mre.rds" %in% list.files(path = out_dir)) {
+  today <- format(Sys.Date(), "%Y%m%d")
+  filename <- paste0(today, "_mre.rds")
+} else {
+  filename <- "mre.rds"
+}
+
+readr::write_rds(mre, file = here::here(out_dir, filename))
+```

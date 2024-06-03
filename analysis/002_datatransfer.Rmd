@@ -1,0 +1,84 @@
+---
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## CiHR rv306 fastq from datatransfer to project bucket
+****
+
+```{r}
+if (!requireNamespace("MISTRALDM", quietly = TRUE)) {
+  install.packages("aws.sqs", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
+  remotes::install_github("MicrobialGenomics/MISTRALDM@dev")
+}
+
+library(MISTRALDM)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = here::here(),
+  out.width = "100%"
+)
+```
+
+### Variable definition
+
+```{r}
+# Input data path
+inp_bucket <- "s3://gemirsi-datatransfer"
+prefix <- "RawData/Amazon" 
+    
+# Output data path
+out_bucket <- "s3://cihr-hiv-rv306" # This bucket already exists
+out_prefix <- "vaginal/metagenome/WMGS/RawData/"
+
+# Backup data path
+bk_bucket <- "s3://glacier-rawdata/cihr-hiv-rv306/vaginal"
+
+## Pattern for filtering
+pattern <- ".*fastq.gz"
+```
+
+### Listing files to transfer, renaming and new path definition
+
+```{r preprocess}
+dat <- 
+    aws.s3::get_bucket_df(bucket = inp_bucket, prefix = prefix, max = Inf) %>% 
+    tibble::as_tibble() %>% 
+    dplyr::select(Key) %>% 
+    dplyr::filter(stringr::str_detect(Key, pattern = pattern)) %>% 
+    dplyr::mutate(
+        new_name = Key, 
+        new_name = stringr::str_remove_all(new_name, ".*/"), 
+        new_name = stringr::str_c(out_prefix, new_name), 
+        new_name = stringr::str_replace_all(new_name, "_", "_R")
+    ) %>% 
+    dplyr::filter(!duplicated(new_name))
+
+## Head
+dat 
+```
+
+### Transfer
+
+```{r transfer}
+## Transfer
+MISTRALDM::copy_s3Objects(
+  df = dat, 
+  inp_bucket = inp_bucket,
+  out_bucket = out_bucket, 
+  rewrite = FALSE
+)
+```
+
+### Backup 
+
+```{r}
+command <- glue::glue(
+  "/Users/fcatala/miniconda3/envs/mendel/bin/aws s3 sync {out_bucket} {bk_bucket} --exclude metadata*"
+)
+
+system(command = command)
+```
+

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Oriol Careta Borràs" />
+
+<meta name="date" content="2024-04-18" />
+
+<title>CHIR HIV RV306 Vaginal - Starting Point Description</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">CHIR HIV RV306 Vaginal - Starting Point
+Description</h1>
+<h4 class="author">Oriol Careta Borràs</h4>
+<h4 class="date">2024-04-18</h4>
+
+</div>
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>We are interested in evaluating microbiome composition and function
+at the starting point of the study (time-point 0).</p>
+<div id="mre-initialization-and-filter-baseline-samples"
+class="section level2">
+<h2>MRE initialization and filter baseline samples</h2>
+<pre class="r"><code>mre &lt;- readr::read_rds(here::here(&quot;data&quot;, &quot;preprocessed&quot;, &quot;mre_vaginotype.rds&quot;))
+
+## mre init &amp; filter
+mre &lt;- 
+  metar::get_meta(mre) %&gt;%
+  dplyr::filter(Timepoint %in% c(0)) %&gt;%
+  dplyr::pull(SampleID) %&gt;%
+  metar::filter_samples(mre, sample_ids = .)
+
+mre</code></pre>
+<pre><code>#&gt; MetarSet-class experimental-level object 
+#&gt;   [MetadataSet     ]: 118 samples and 8 variables 
+#&gt;   [DiversitySet    ]: 
+#&gt;      ✖ igc: 0 observations and 0 samples 
+#&gt;      ✔ virgo: 3641 observations and 118 samples 
+#&gt;      ✖ dada2: 0 observations and 0 samples 
+#&gt;   [TaxaSet         ]: 
+#&gt;      ✖ metaphlan: no phyloseq object available 
+#&gt;      ✖ kraken: no phyloseq object available 
+#&gt;      ✖ bracken: no phyloseq object available 
+#&gt;      ✖ motus: no phyloseq object available 
+#&gt;      ✔ virgo: phyloseq object with 255 taxa and 118 samples 
+#&gt;      ✖ dada2: no phyloseq object available 
+#&gt;   [GeneFunctionSet ]: 
+#&gt;      ✖ humann: no functional data aviable 
+#&gt;      ✖ igc: no functional data aviable 
+#&gt;      ✔ virgo: 4089 kegg_id, 0 cog_id, 0 eggnog_id, 0 ec_id and 0 metacyc_id 
+#&gt;      ✖ fmap: no functional data aviable 
+#&gt;      ✖ picrust2: no functional data aviable 
+#&gt;      ✖ tax4fun: no functional data aviable 
+#&gt;      ✖ phylolisft: no functional data aviable</code></pre>
+<p>There are 118 samples from 118 patients which were collected at
+time-point 0.</p>
+</div>
+<div id="gene-richness---rarefaction" class="section level2 tabset">
+<h2 class="tabset">Gene richness - Rarefaction</h2>
+<p>Note that diversity analysis here are delicate to perform due to the
+limitations in sampling.</p>
+<p>From the taxonomic composition we’ll derive some alpha-diversity
+ecological indices and compare them among groups.</p>
+<p>We also want to use the VIRGO catalog mapping-derived gene richness.
+However, this can be problematic for gene richness since the initial
+reads per sample is very low in some cases. This low numbers may be
+enough to describe the taxonomic composition, specially if the
+microbiome is “simple”, but may fail to capture richness/diversity.</p>
+<pre class="r"><code>## run rarefaction
+mre &lt;- metar::virgo_rarefaction(mre, save_files = FALSE)
+
+## plot rarefaction
+metar::get_cat(mre) %&gt;%
+  dplyr::pull(1) %&gt;%
+  purrr::walk(~ {
+    cat(&#39;\n\n### `&#39;, .x, &#39;`\n\n&#39;)
+    metar::get_diversity(mre, type = &quot;virgo&quot;, res_slot = &quot;rarefaction&quot;) %&gt;%
+      purrr::pluck(&quot;categorical&quot;, .x, &quot;rarefaction&quot;) %&gt;%
+      plot()
+  })</code></pre>
+<div id="treatment_group" class="section level3">
+<h3><code>Treatment_group</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/rarefraction_plots-1.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="arm" class="section level3">
+<h3><code>Arm</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/rarefraction_plots-2.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="heme_test" class="section level3">
+<h3><code>Heme_test</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/rarefraction_plots-3.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="medical_center" class="section level3">
+<h3><code>Medical_center</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/rarefraction_plots-4.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pass_reads_quantile" class="section level3">
+<h3><code>pass_reads_quantile</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/rarefraction_plots-5.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype" class="section level3">
+<h3><code>vaginotype</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/rarefraction_plots-6.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype_condition" class="section level3">
+<h3><code>vaginotype_condition</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/rarefraction_plots-7.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p>The rarefraction curves (used to present relationship between gene
+richness and sequencing depth) show no apparent difference between
+groups in terms of diversity. Of note, rarefaction curve shows how far
+we are from asymptotically saturating richness signal from this catalog
+at the sampling depth we have (after filtering human sequences). Thus,
+we need to be aware of the limitations of gene richness analysis and
+interpret with caution. Samples enriched in <strong>G.
+Vaginalis</strong> (and thus, with a vaginosis profile) seem to have a
+higher sample depth and gene richness compared to the other ones.</p>
+</div>
+<div id="gene-richness---boxplots" class="section level2 tabset">
+<h2 class="tabset">Gene richness - Boxplots</h2>
+<pre class="r"><code>## plot gene richness
+metar::get_cat(mre) %&gt;%
+  dplyr::pull(1) %&gt;%
+  purrr::walk(~ {
+    cat(&#39;\n\n### `&#39;, .x, &#39;`\n\n&#39;)
+    metar::get_diversity(mre, type = &quot;virgo&quot;, res_slot = &quot;rarefaction&quot;) %&gt;%
+      purrr::pluck(&quot;categorical&quot;, .x, &quot;boxplots&quot;, &quot;GeneNumber&quot;) %&gt;%
+      plot()
+  })</code></pre>
+<div id="treatment_group-1" class="section level3">
+<h3><code>Treatment_group</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/gene_richness-1.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="arm-1" class="section level3">
+<h3><code>Arm</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/gene_richness-2.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="heme_test-1" class="section level3">
+<h3><code>Heme_test</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/gene_richness-3.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="medical_center-1" class="section level3">
+<h3><code>Medical_center</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/gene_richness-4.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pass_reads_quantile-1" class="section level3">
+<h3><code>pass_reads_quantile</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/gene_richness-5.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype-1" class="section level3">
+<h3><code>vaginotype</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/gene_richness-6.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype_condition-1" class="section level3">
+<h3><code>vaginotype_condition</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/gene_richness-7.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-1" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p>The gene richness boxplots indicate that there are no significant
+differences between groups in terms of gene richness, except when
+separating by the number of QPass reads by quantiles, where the gene
+richness on the 4th quantile group is significantly higher. This could
+be explained due to the fact that the sample depth is higher on this
+group which favors gene richness. There are also significant differences
+between vaginotype groups. More importantly, the differences regarding
+treatment groups that could be observed when analysing all time-points
+have disappeared.</p>
+</div>
+<div id="pcoa-based-on-bray-curtis" class="section level2">
+<h2>PCoA based on Bray Curtis</h2>
+<pre class="r"><code>ps &lt;- metar::get_phyloseq(mre, type = &quot;virgo&quot;)
+ps_RA &lt;- phyloseq::transform_sample_counts(ps, function(x) x / sum(x))
+bray_pcoa  &lt;-
+  phyloseq::ordinate(physeq = ps_RA, method = &quot;PCoA&quot;, distance = &quot;bray&quot;)
+
+create_pcoa_plot &lt;- function(ordination_obj, title, a, b) {
+  plot &lt;- phyloseq::plot_ordination(
+    physeq = ps_RA,
+    ordination = ordination_obj,
+    color = &quot;vaginotype&quot;,
+    shape = &quot;Arm&quot;,
+    axes = c(a,b)
+  ) +
+  geom_point(size = 2.5) +
+  scale_color_manual(values = c(&quot;deeppink4&quot;, &quot;coral&quot;, &quot;cadetblue4&quot;)) +
+  scale_shape_manual(values = c(16, 2)) +
+  theme_light() +
+  ggtitle(title)
+  
+  return(plot)
+}
+
+pcoa_plot_PCo1_PCo2 &lt;- create_pcoa_plot(bray_pcoa, &quot;PCo1 vs PCo2&quot;, 1, 2)
+pcoa_plot_PCo1_PCo3 &lt;- create_pcoa_plot(bray_pcoa, &quot;PCo1 vs PCo3&quot;, 1, 3)
+pcoa_plot_PCo2_PCo3 &lt;- create_pcoa_plot(bray_pcoa, &quot;PCo2 vs PCo3&quot;, 2, 3)
+
+gridExtra::grid.arrange(pcoa_plot_PCo1_PCo2, pcoa_plot_PCo1_PCo3, pcoa_plot_PCo2_PCo3, nrow = 1)</code></pre>
+<p><img src="102_starting_point_description-_files/figure-html/PCoA-1.png" width="3600" style="display: block; margin: auto;" /></p>
+<p>In the PCoA plots, it can be seen that the compositional variables
+that affect each cluster. PCo 1 and 2 explain the 83,3% of the
+variability (46.8% and 34.7% respectively), while PCo3 only explains the
+5% of the variability. From the plots we can see that PCo1 is the one
+that explains the separation of cluster 2 (G. Vaginalis) from cluster 1
+(L. Crispatus) and cluster 3 (L. Iners), while PCo2 explains the
+separation of cluster 1 from cluster 2 and 3. On the other hand, PCo3 is
+not useful to discriminate between clusters. It can also be seen
+that</p>
+</div>
+<div id="beta-diversity---species-composition" class="section level2">
+<h2>Beta-Diversity - Species Composition</h2>
+<p>Let’s visualize composition at the species level using barplots.</p>
+<pre class="r"><code>## run barplots 
+mre &lt;- metar::virgo_barplots(mre, top_n = 50, save_files = FALSE)
+
+## Plot virgo barplots
+mre %&gt;% 
+  metar::get_taxa(&quot;virgo&quot;, &quot;barplots&quot;) %&gt;%
+  purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;rel_abundance&quot;, &quot;bray_NMDS1_order_barplot&quot;) +
+  theme(axis.text.x = element_blank())</code></pre>
+<p><img src="102_starting_point_description-_files/figure-html/top50_abundance_barplot-1.png" width="3600" style="display: block; margin: auto;" /></p>
+<p>The clustering barplots depicting taxonomic diversity per sample
+reveal the presence of three distinct groups:</p>
+<ul>
+<li>The first group is primarily characterized by the dominance of
+<strong>Gardnerella vaginalis</strong>, occasionally accompanied by
+co-dominance with <strong>Atopobium vaginae</strong>. Notably, this
+group exhibits a higher level of taxonomic diversity compared to the
+other two groups. Both <strong>Gardnerella vaginalis</strong>, a
+gram-negative facultative anaerobic bacterium, and <strong>Atopobium
+vaginae</strong>, a gram-positive strict anaerobic bacterium, have been
+associated with bacterial vaginosis (BV) and its characteristic
+symptoms.</li>
+<li>The second group, is characterized by a strong dominance of
+<strong>Lactobacillus iners</strong>. <strong>Lactobacillus
+iners</strong> is a common bacterium found in the vaginal microbiota,
+playing a vital role in maintaining vaginal health. It helps to maintain
+an acidic pH, creating an unfavorable environment for harmful
+microorganisms. <strong>Lactobacillus iners</strong> contributes to the
+stability and balance of the vaginal microbiota, promoting overall
+vaginal health and potentially protecting against infections like
+bacterial vaginosis.</li>
+<li>The third group is mainly characterized by a dominant presence of
+<strong>Lactobacillus crispatus</strong>. <strong>Lactobacillus
+crispatus</strong> is a beneficial bacterium commonly found in the
+vaginal microbiota. It helps maintain a healthy vaginal environment by
+producing lactic acid and supporting acidity.</li>
+</ul>
+<pre class="r"><code>## Count of two predominant taxas per sample
+mre %&gt;% 
+  metar::get_taxa(&quot;virgo&quot;, &quot;barplots&quot;) %&gt;%
+  purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;rel_abundance&quot;, &quot;bray_NMDS1_order_barplot&quot;, &quot;data&quot;) %&gt;%
+  dplyr::group_by(SampleID) %&gt;%
+  dplyr::slice_max(Abundance, n = 2) %&gt;%
+  dplyr::ungroup() %&gt;%
+  dplyr::count(Species, sort = TRUE)</code></pre>
+<pre><code>#&gt; # A tibble: 16 × 2
+#&gt;    Species                        n
+#&gt;    &lt;fct&gt;                      &lt;int&gt;
+#&gt;  1 Lactobacillus_iners           61
+#&gt;  2 Gardnerella_vaginalis         55
+#&gt;  3 Lactobacillus_crispatus       52
+#&gt;  4 Atopobium_vaginae             27
+#&gt;  5 Lactobacillus_jensenii        18
+#&gt;  6 BVAB1                          4
+#&gt;  7 Prevotella_bivia               3
+#&gt;  8 Lactobacillus_gasseri          3
+#&gt;  9 Prevotella_amnii               3
+#&gt; 10 Prevotella_timonensis          2
+#&gt; 11 Streptococcus_agalactiae       2
+#&gt; 12 Streptococcus_anginosus        2
+#&gt; 13 Staphylococcus_epidermidis     1
+#&gt; 14 Ureaplasma_urealyticum         1
+#&gt; 15 Streptococcus_urinalis         1
+#&gt; 16 Mobiluncus_mulieris            1</code></pre>
+<p>In this table, we can see the to most dominant species of each sample
+summed up. It can be seen that the most abundant species are
+<strong>Gardnerella vaginalis</strong>, <strong>Lactobacillus
+iners</strong> and <strong>Lactobacillus crispatus</strong>, followed by
+<strong>Atopobium vaginae</strong>, which on the abundance barplot was
+found in codominance with <strong>Gardnerella vaginalis</strong> on some
+samples.</p>
+</div>
+<div id="beta-diversity---cluestering" class="section level2">
+<h2>Beta-Diversity - Cluestering</h2>
+<p>In the previous barplots, the x-axis is defined according to ward.D2,
+bray-based clustering. We’ll now transform abundances and project them
+into a heatmap, to be able to visualize association with variables of
+interes.</p>
+<pre class="r"><code>## run heatmap
+mre &lt;- metar::virgo_heatmap(mre, top_n = 50, save_files = FALSE)
+
+## plot heatmap
+library(ComplexHeatmap)
+mre %&gt;%
+  metar::get_taxa(&quot;virgo&quot;, &quot;heatmaps&quot;) %&gt;%
+  purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;) %&gt;%
+  ComplexHeatmap::draw(heatmap_legend_side = &quot;left&quot;, annotation_legend_side = &quot;bottom&quot;)</code></pre>
+<p><img src="102_starting_point_description-_files/figure-html/hierarchical_clustering-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>In this hierarchical clustering, we can clearly see the three groups,
+and their association with the vaginotype and vaginotype_condition
+variables.</p>
+</div>
+<div id="beta-diversity---nmds" class="section level2">
+<h2>Beta Diversity - NMDS</h2>
+<p>NMDS (Non-metric Multidimensional Scaling) analysis is a commonly
+used non-metric ordination technique that helps visualize the similarity
+or dissimilarity between samples based on a distance or similarity
+matrix. In the context of microbiome data, this technique is
+particularly useful for identifying patterns and significant changes in
+microbiome composition among different samples or groups.</p>
+<pre class="r"><code>mre &lt;- metar::virgo_nmds(mre, top_n = 50, save_files = FALSE)
+
+metar::get_taxa(mre, &quot;virgo&quot;, &quot;nmds&quot;) %&gt;%
+  purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;all_adonis&quot;) %&gt;%
+  dplyr::arrange(Pr..F.)</code></pre>
+<pre><code>#&gt; # A tibble: 8 × 6
+#&gt;   id                      Df SumOfSqs      R2      F Pr..F.
+#&gt;   &lt;chr&gt;                &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+#&gt; 1 pass_reads_quantile      3   8.78   0.209   10.0    0.001
+#&gt; 2 vaginotype               2  19.4    0.463   49.5    0.001
+#&gt; 3 vaginotype_condition     1  11.4    0.272   43.4    0.001
+#&gt; 4 cluster                  2  19.1    0.454   47.8    0.001
+#&gt; 5 Arm                      1   0.626  0.0149   1.75   0.115
+#&gt; 6 Treatment_group          6   2.59   0.0617   1.22   0.151
+#&gt; 7 Medical_center           1   0.410  0.00975  1.14   0.327
+#&gt; 8 Heme_test                1   0.0955 0.00227  0.264  0.984</code></pre>
+<p>The Adonis test indicates that there are significant differences in
+the taxonomic composition between the levels of the categorical
+variables <strong>pass_reads_quantile</strong>,
+<strong>vaginotype</strong>, and
+<strong>vaginotype_condition</strong>.</p>
+</div>
+<div id="section-2" class="section level2 tabset">
+<h2 class="tabset"></h2>
+<pre class="r"><code>metar::get_cat(mre) %&gt;%
+  dplyr::pull(1) %&gt;%
+  purrr::walk( ~ {
+    cat(&#39;\n\n### `&#39;, .x, &#39;`\n\n&#39;)
+    metar::get_taxa(mre, &quot;virgo&quot;, &quot;nmds&quot;) %&gt;%
+      purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;categorical&quot;, .x) %&gt;%
+      plot()
+  })</code></pre>
+<div id="treatment_group-2" class="section level3">
+<h3><code>Treatment_group</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/nmds_groups-1.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="arm-2" class="section level3">
+<h3><code>Arm</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/nmds_groups-2.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="heme_test-2" class="section level3">
+<h3><code>Heme_test</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/nmds_groups-3.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="medical_center-2" class="section level3">
+<h3><code>Medical_center</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/nmds_groups-4.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pass_reads_quantile-2" class="section level3">
+<h3><code>pass_reads_quantile</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/nmds_groups-5.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype-2" class="section level3">
+<h3><code>vaginotype</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/nmds_groups-6.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype_condition-2" class="section level3">
+<h3><code>vaginotype_condition</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/nmds_groups-7.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-3" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p>The nmds plots also indicate that there are significant differences
+between the levels of the categorical variables:
+<strong>pass_reads_quantile</strong>, <strong>vaginotype</strong>, and
+<strong>vaginotype_condition</strong></p>
+</div>
+<div id="differential-analyisis-ancom" class="section level2 tabset">
+<h2 class="tabset">Differential Analyisis ANCOM</h2>
+<pre class="r"><code># run ancom
+mre &lt;- metar::virgo_ancom(mre, save_files = FALSE)
+
+# plot ancom
+metar::get_cat(mre) %&gt;%
+  dplyr::pull(1) %&gt;%
+  purrr::walk( ~ {
+    plt &lt;- metar::get_taxa(mre, &quot;virgo&quot;, &quot;ancom&quot;) %&gt;%
+      purrr::pluck(&quot;ta1&quot;, .x, &quot;plot&quot;)
+    
+    if (!is.null(plt)) {
+      cat(&#39;\n\n### `&#39;, .x, &#39;`\n\n&#39;)
+      plot(plt)
+    }
+  })</code></pre>
+<div id="treatment_group-3" class="section level3">
+<h3><code>Treatment_group</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_ancom-1.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="arm-3" class="section level3">
+<h3><code>Arm</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_ancom-2.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="heme_test-3" class="section level3">
+<h3><code>Heme_test</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_ancom-3.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="medical_center-3" class="section level3">
+<h3><code>Medical_center</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_ancom-4.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pass_reads_quantile-3" class="section level3">
+<h3><code>pass_reads_quantile</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_ancom-5.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype-3" class="section level3">
+<h3><code>vaginotype</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_ancom-6.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype_condition-3" class="section level3">
+<h3><code>vaginotype_condition</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_ancom-7.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-4" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p>ANCOM is a statistical method designed specifically for the
+compositional analysis of microbiome data. It’s used when you have
+microbiome abundance data and want to identify features that are
+differentially abundant across different groups or conditions.</p>
+<p>W Statistic: In ANCOM, the “W statistic” is a measure used to assess
+the significance of differential abundance for each feature (taxa or
+OTUs). The W statistic measures how many times the abundance of a
+particular feature is significantly different from the abundance
+expected by chance across the groups being compared.</p>
+<p>CLR (Centered Log-Ratio) Mean Difference: The CLR mean difference
+represents the mean difference in the log-ratio transformed abundances
+of a feature between two groups. The log-ratio transformation is applied
+to the relative abundances of features to handle compositional data
+properly. The mean difference indicates the average change in abundance
+of a feature between the groups after applying the log-ratio
+transformation.</p>
+<p>In conclusion, when using ANCOM with a categorical variable, the W
+statistic helps identify significant differences in feature abundance
+across groups, while the CLR mean difference provides additional insight
+into the direction and magnitude of these differences after applying the
+log-ratio transformation.</p>
+<p>Features with high W statistic values are considered significantly
+differentially abundant between groups. The CLR mean difference helps to
+understand the direction and magnitude of the difference in abundance
+between groups after transformation.</p>
+<p>Thus, these plots indicate us that there are abundance values that
+are significantly different between
+<strong>pass_reads_quantile</strong>, <strong>vaginotype</strong> and
+<strong>vaginotype_condition</strong> groups. Regarding
+pass_reads_quantile, these differences are bigger when comparing c_4
+group against others (but do not occur on c_1 vs c_2 or c_1 vs c_3 and
+c_2 vs c_3), and regarding vaginotype, these differences are bigger when
+comparing <strong>G. Vaginalis</strong> against Lactobacillus-dominated
+groups.</p>
+</div>
+<div id="differential-analyisis-lefse" class="section level2 tabset">
+<h2 class="tabset">Differential Analyisis Lefse</h2>
+<pre class="r"><code># run lefse
+mre &lt;- metar::virgo_lefse(mre, save_files = FALSE)
+
+# plot lefse
+metar::get_cat(mre) %&gt;%
+  dplyr::pull(1) %&gt;%
+  purrr::walk(~ {
+    plt &lt;- metar::get_taxa(mre, &quot;virgo&quot;, &quot;lefse&quot;) %&gt;%
+      purrr::pluck(&quot;ta1&quot;, .x, &quot;plot&quot;)
+    
+    if (!is.null(plt)) {
+      cat(&#39;\n\n### `&#39;, .x, &#39;`\n\n&#39;)
+      plot(plt)
+    }
+  })</code></pre>
+<div id="treatment_group-4" class="section level3">
+<h3><code>Treatment_group</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_lefse-1.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="arm-4" class="section level3">
+<h3><code>Arm</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_lefse-2.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="heme_test-4" class="section level3">
+<h3><code>Heme_test</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_lefse-3.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pass_reads_quantile-4" class="section level3">
+<h3><code>pass_reads_quantile</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_lefse-4.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype-4" class="section level3">
+<h3><code>vaginotype</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_lefse-5.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vaginotype_condition-4" class="section level3">
+<h3><code>vaginotype_condition</code></h3>
+<p><img src="102_starting_point_description-_files/figure-html/run_lefse-6.png" width="1260" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-5" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p>LEfSe is a method used for identifying features that are
+differentially abundant between two or more biological classes. It
+combines the statistical rigor of linear discriminant analysis (LDA)
+with the biological relevance of effect size estimation.</p>
+<p>reorder(names, scores): In the context of LEfSe results, the
+“reorder(names, scores)” refers to the reordering of the features based
+on their scores. The scores represent the effect size of each feature in
+discriminating between the biological classes. By reordering the
+features based on their scores, you can visually prioritize the most
+discriminative features.</p>
+<p>LDA score (log10): The LDA score represents the effect size of a
+feature in discriminating between the biological classes. It’s
+calculated based on the combination of mean differences and standard
+deviations of feature abundances between classes, as assessed by linear
+discriminant analysis (LDA). The log10 transformation of the LDA score
+is often used to make the distribution of scores more symmetric and
+easier to interpret.</p>
+<p>In conclusion, when using LEfSe results with a categorical variable,
+reordering features based on their LDA scores and visualizing them using
+log10-transformed scores can help prioritize and interpret the most
+discriminative features associated with the biological classes.</p>
+<p>Features with higher LDA scores (either positive or negative) are
+considered more discriminative between the biological classes. By
+sorting and visualizing the features based on their LDA scores, you can
+identify the most biologically relevant and statistically significant
+features associated with the categorical variable of interest.</p>
+<p>If we consider features with LDA scores above 4 as biologically
+relevant, these plots indicate us that <strong>Lactobacillus
+Iners</strong>, <strong>Lactobacillus Crispatus</strong> and
+<strong>Gardnerella Vaginalis</strong> are the species that explain the
+difference between vaginotype groups.</p>
+</div>
+<div id="conclusions" class="section level2">
+<h2>Conclusions</h2>
+<p>After performing all these tests, we can conclude that there are no
+differences between treatment groups or between study arms at time-point
+0, and that there are three different groups, one dominated by
+<strong>Lactobacillus Crispatus</strong>, another by
+<strong>Lactobacillus Iners</strong>, and a third one dominated by
+<strong>Gardnerella vaginalis</strong>. This allows us to ensure that
+possible differences observed between treatment groups at posterior
+time-points are due to differences in the vaccination regimes.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

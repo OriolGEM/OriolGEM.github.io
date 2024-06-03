@@ -1,0 +1,248 @@
+---
+title: "CHIR HIV RV306 Vaginal - Quality Control"
+author: "Francesc Català-Moll & Oriol Careta Borràs"
+output: html_document
+output_dir: "`here::here('docs')`"
+site: workflowr::wflow_site
+mainfont: Helvetica
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{lipsum}
+- \pagestyle{fancy}
+- \fancyhead[CO,CE]{Flamingo - CIHR}
+- \fancyfoot[LO,RE]{Oriol Careta Borras}
+- \fancyhead[LE,RO]{\thepage}
+- \fancyfoot[CO,CE]{}
+- \usepackage[default]{sourcesanspro}
+- \usepackage[T1]{fontenc}
+- \usepackage{eso-pic,graphicx,transparent}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE,
+  autodep = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  dpi = 180,
+  fig.align = "center",
+  comment = "#>"
+)
+knitr::opts_knit$set(root.dir = here::here())
+library(magrittr)
+library(ggplot2)
+```
+
+## Introduction
+
+We are interested in a general description of the dataset in terms quality control and also of microbiome composition and function. We are using all available samples (481) from all patients (118).
+
+## Load mre
+
+```{r, load_mre}
+## mre init & filter
+mre <- readr::read_rds(here::here("data", "preprocessed", "mre.rds"))
+```
+
+## QC 
+
+```{r treatment_group_followup, fig.width=15, fig.height=10}
+## def vars
+bucket <- "s3://cihr-hiv-rv306"
+filt_data_obj <- "vaginal/metagenome/WMGS/RawData/DataFiltering_Boxplot.rds"
+
+## load seq analysis data
+df <- 
+  aws.s3::s3readRDS(filt_data_obj, bucket) %>%
+  .[[1]] %>%
+  tibble::as_tibble()
+
+# generate metadataDF from mre
+metadataDF <- data.frame(mre@metadata@metadata_df)
+
+# plot longitudinal sampling per each Arm
+metadataDF$Collection_date <- as.Date(metadataDF$Collection_date)
+ggplot(metadataDF, aes(x = Collection_date, y = PatientID, color = Treatment_group_1, shape = Arm)) +
+  geom_point(size = 1.5) +
+  geom_line() +
+  labs(x = "Date", y = "ID") +
+  scale_shape_manual(name = 'Arm', values = c('Placebo' = 1, 'Active' = 2)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+The dates of the collection of each sample can be seen here. It can be seen that depending on the treatment group, samples were collected at different time-points.
+
+```{r medical_center_all}
+con1 <- table(metadataDF$Medical_center, metadataDF$Visit_Week)
+addmargins(con1)
+
+# Create a ggplot object
+p <- ggplot(metadataDF, aes(x = Visit_Week, fill = Medical_center)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~ Arm) +
+  labs(title = "Histogram of Medical Center Visits by Week",
+       x = "Visit Week",
+       y = "Number of patients") +
+  scale_fill_manual(values = c("deeppink4", "darkslategray4")) +
+  theme_minimal() +
+  theme(panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank())
+
+p
+```
+
+We can also see the number of patient's samples extracted each week, separated by medical center. There is a drop in number of patient's samples extracted between week 50 and week 62, because groups 1, 2 and 3 had samples taken only up until week 50. We can also observe that there are very few patients on the placebo arm.
+
+```{r plot_abs_qreads, fig.width=15, fig.height=10}
+# filter seq analysis data
+sub_df <- dplyr::filter(df, SampleID %in% metadataDF$SampleID)
+
+# dcast sub_df and merge with metadata
+sub_df_dcast <- reshape2::dcast(sub_df, SampleID ~ Step, value.var = "value")
+all_df <- base::merge(metadataDF, sub_df_dcast, by = "SampleID")
+
+all_df$Visit_Week <- gsub('Wk ', 'wk', all_df$Visit_Week)
+
+all_df$Concentration_ng_ul[all_df$Concentration_ng_ul == 10000.0] <- 100
+all_df2 <-
+  all_df %>% dplyr::select(
+    SampleID,
+    PatientID,
+    Visit_Week,
+    Arm,
+    QFailReads,
+    Human,
+    QPassReads
+  )
+
+# melt df_all
+all_df_melt <- reshape2::melt(all_df2)
+
+# barplot
+ggplot(all_df_melt, aes(x = SampleID, y = value, fill = variable)) +
+  geom_bar(stat = "identity") +
+  ylab("PE reads") +
+  theme_bw() +
+  scale_fill_manual(values = c("azure3", "darkslateblue", "yellow")) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 3),
+    axis.title.x = element_blank()
+  )
+```
+
+Here we can see the total number of pair-ended reads (PE reads) of each sample separated by QFail reads, QPass reads and Human reads.
+
+- QFail reads: These are sequencing reads that have failed quality control (QC) metrics or filters during the sequencing process. This could be due to low sequencing quality, adapter contamination, or other technical issues.
+
+- QPass reads: These are sequencing reads that have passed quality control metrics and are considered to meet the quality standards set for the sequencing run.
+
+- Human reads: These are sequencing reads that have passed quality control metrics and align to the human genome.
+
+```{r QPass_summary}
+# Summary QPass N reads
+x <- summary(all_df$QPassReads)
+x
+```
+
+The summary statics of the QPass reads can be seen here. Quality pass reads are low with a mean value of approximately `r paste0(round(x[4]/1e6), "M")` reads but a median value of around  `r paste0(round(x[3]/1e6), "M")`.
+
+```{r plot_Qpassreads_arm, fig.width=15, fig.height=10}
+# plot qPass reads for each arm
+ggplot(all_df, aes(x = reorder(PatientID, +QPassReads), y = QPassReads)) +
+  geom_bar(aes(fill = Arm), stat = "identity") +
+  ylab("QPass reads") +
+  facet_wrap( ~ Visit_Week) +
+  scale_fill_manual(values = c("azure3", "darkslateblue")) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 3),
+    axis.title.x = element_blank()
+  )
+```
+
+Here we can see the total number of QPass reads depending if they belong to the active or placebo arm, separated by time-point. The number of QPass reads is very variable among samples but it does not seem that there is any correlation between the number of QPass reads and time-point or arm.
+
+```{r boxplot_Qpassreads_arm}
+ggplot(all_df, aes(x = Arm, y = QPassReads, color = Arm)) +
+  geom_boxplot(size = 0.5, outlier.size = 0.9, alpha = 0.8) +
+  geom_point(size = 0.3, color = "gray35") +
+  ylab("QPass reads") +
+  scale_fill_manual(values = c("snow")) +
+  scale_color_manual(values = c("deeppink4", "darkslategray4")) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 8),
+    axis.title.x = element_blank()
+  ) + 
+  ggpubr::stat_compare_means()
+```
+
+Here we can see the total number of QPass reads depending if they belong to the active or placebo group, there are no differences between groups.
+
+```{r DNA_qPass}
+# correlation DNA concentration and final N reads
+ggpubr::ggscatter(
+  all_df,
+  y = "Concentration_ng_ul",
+  x = "QPassReads",
+  color = "blue",
+  size = 2,
+  add = "reg.line",
+  conf.int = TRUE,
+  cor.coef = FALSE,
+  cor.method = "spearman",
+  add.params = list(color = "gray25", fill = "gray75"),
+  # Customize reg. line
+  ylab = "DNA",
+  xlab = "QPass reads"
+) +
+  ggpubr::stat_cor(method = "spearman", label.x = 0, label.y = 150)
+```
+
+Here we can see a scatter plot on the DNA concentration against the number of QPass reads. The spearmann correlation indicates that there is some negative correlation between the DNA concentration and the number of reads that have passed the QC control. At higher DNA concentration, less number of QPass reads. This is because a higher DNA concentration is most of the times due to the presence of contamination.
+
+```{r absolute_counts, fig.width=15, fig.height=10}
+## Plot absolute
+df %>%
+  ggplot(aes(SampleID, value, fill = Step)) +
+  geom_bar(position = "stack", stat = "identity", alpha = 0.8, colour = 0.0, width = 0.8) +
+  scale_fill_brewer(palette = "Set1") +
+  theme_minimal() +
+  theme(axis.text.x = element_blank())
+```
+
+Here we can see the total number of pair-ended reads (PE reads) of each sample separated by QFail reads, QPass reads and Human reads. Samples appear ordered depending on the amount of Qpass reads. This plot is useful to determine a threshold of QPass reads to determine which samples to use on posterior analyses. The proposal now is a minimum number of 100,000 QPass reads per sample.
+
+It has been suggested by bibliography that it is best to perform a cutoff of the samples where the max number of mapped reads are less than 100,000. I we do so, we lose 7 samples:
+
+```{r absolute_counts_cutoff, , fig.width=15, fig.height=10}
+mre@diversity@virgo@dataTable %>%
+  dplyr::group_by(SampleID) %>%
+  dplyr::summarise(NumberMappedReads = max(NumberMappedReads)) %>%
+  dplyr::filter(NumberMappedReads < 100000)
+
+selected_samples <- c("S014117", "S014196", "S014255", "S014264", "S014287", "S014288", "S014521")
+
+df %>%
+  ggplot(aes(SampleID, value, fill = Step)) +
+  geom_bar(position = "stack", stat = "identity", alpha = 0.8, colour = 0.0, width = 0.8) +
+  scale_fill_brewer(palette = "Set1") +
+  theme_minimal() +
+  theme(axis.text.x = element_blank()) +
+  geom_point(data = subset(df, SampleID %in% selected_samples), aes(SampleID, value), shape = 21, fill = "red", color = "black", size = 1, show.legend = FALSE)
+```
+
+```{r relative_counts, fig.width=15, fig.height=10}
+## Plot relative
+df %>%
+  ggplot(aes(SampleID, value, fill = Step)) +
+  geom_bar(position = "fill", stat = "identity", alpha = 0.8, colour = 0.0) +
+  scale_fill_brewer(palette = "Set1") +
+  theme_minimal() +
+  theme(axis.text.x = element_blank())
+```
+
+Here we can see the relative number of pair-ended reads (PE reads) of each sample separated by QFail reads, QPass reads and Human reads. Samples appear ordered depending on the total amount of Qpass reads.
+
+## {-}

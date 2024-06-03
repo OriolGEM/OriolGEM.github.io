@@ -1,0 +1,130 @@
+---
+title: "CHIR HIV RV306 Vaginal - Throughput Analysis"
+author: "Francesc Català-Moll & Oriol Careta Borràs"
+output: html_document
+output_dir: "`here::here('docs')`"
+site: workflowr::wflow_site
+mainfont: Helvetica
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{lipsum}
+- \pagestyle{fancy}
+- \fancyhead[CO,CE]{Flamingo - CIHR}
+- \fancyfoot[LO,RE]{Oriol Careta Borras}
+- \fancyhead[LE,RO]{\thepage}
+- \fancyfoot[CO,CE]{}
+- \usepackage[default]{sourcesanspro}
+- \usepackage[T1]{fontenc}
+- \usepackage{eso-pic,graphicx,transparent}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  dpi = 180,
+  fig.align = "center",
+  comment = "#>",
+  fig.width = 8,
+  fig.height = 6
+)
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+## Vars & path definitions & libs
+
+```{r load_library_&_define_variables}
+library(magrittr)
+
+bucket <- "s3://cihr-hiv-rv306"
+filt_data_obj <- "vaginal/metagenome/WMGS/RawData/DataFiltering_Boxplot.rds"
+```
+
+## Throughput analysis
+
+This is a pre-analysis of **CHIR HIV RV306 Vaginal** Shotgun data, aimed to assess the bacterial yield in the raw data in order to be able to make informed decisions downstream and on other projects with similar samples.
+
+#### Load and Preprocessing data
+
+```{r obtain_data}
+## Load data
+df <- 
+  aws.s3::s3readRDS(filt_data_obj, bucket) %>%
+  .[[1]] %>%
+  tibble::as_tibble()
+
+df
+
+## Preprocessing of data
+df <- 
+  df %>% 
+  tidyr::pivot_wider(id_cols = SampleID, names_from = Step, values_from = value) %>%
+  dplyr::rowwise() %>% 
+  dplyr::mutate(TotalReads = sum(dplyr::c_across(where(is.numeric)))) %>%
+  tidyr::pivot_longer(names_to = "Step", cols = where(is.numeric)) %>%
+  dplyr::arrange(SampleID) %>%
+  dplyr::mutate(
+    Step = forcats::fct_relevel(Step, c("TotalReads", "Human", "QFailReads", "QPassReads")), 
+    counts = value
+  )
+```
+
+#### Absolute Counts (%)
+
+```{r absolute_counts_plot}
+abs_plt <- ggstatsplot::ggwithinstats(
+  df,
+  x = Step,
+  y = counts,
+  pairwise.display = "none",
+  title = "Absolute Throughput",
+  subtitle = NULL 
+)
+
+abs_means <- aggregate(counts ~ Step, data = df, FUN = mean)
+abs_medians <- aggregate(counts ~ Step, data = df, FUN = median)
+
+abs_plt
+```
+
+#### Relative Counts 
+
+```{r relative_counts_plot}
+df1 <- df %>%
+  tidyr::pivot_wider(id_cols = SampleID, names_from = Step, values_from = value) %>% 
+  dplyr::mutate(dplyr::across(where(is.numeric), ~ .x / TotalReads * 100)) %>%
+  tidyr::pivot_longer(names_to = "Step", cols = where(is.numeric)) %>%
+  dplyr::mutate(
+    Step = forcats::fct_relevel(Step, c("TotalReads", "Human", "QFailReads", "QPassReads")),
+    counts = value
+  )
+
+rel_plt <-df1%>% 
+  ggstatsplot::ggwithinstats(
+    x = Step,
+    y = counts,
+    pairwise.display = "none",
+    title = "Relative Throughput",
+    subtitle = NULL
+  )
+
+rel_means <- aggregate(counts ~ Step, data = df1, FUN = mean)
+rel_medians <- aggregate(counts ~ Step, data = df1, FUN = median)
+
+rel_plt
+```
+
+#### Numerical Analysis 
+
+```{r qpass_quantiles}
+df %>% 
+  dplyr::filter(Step == "QPassReads") %>%
+  dplyr::pull(value) %>%
+  stats::quantile()
+```
+
+#### Interpretation
+
+As expected, there is a large percentage of reads coming from human content (mean value = ~`r paste0(round(rel_means$counts[rel_means$Step=="Human"],0), "%")`, similar to Flamingo dataset). Quality pass reads are low with a mean value of approximately `r paste0(round(abs_means$counts[abs_means$Step=="QPassReads"] / 1e6), "M")` reads but a median value of around `r paste0(round(abs_medians$counts[abs_medians$Step=="QPassReads"] / 1e6), "M")` reads. This will probably affect our taxonomical characterization capabilities using marker-gene approaches, since by definition they only use a small portion of the QPass reads. Thus, non-dominant species may be frequently missed and general taxonomical characterization may be poor.

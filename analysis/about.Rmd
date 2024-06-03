@@ -1,0 +1,12 @@
+---
+title: "About"
+output:
+  workflowr::wflow_html:
+    toc: false
+editor_options:
+  chunk_output_type: console
+---
+
+This project is focused on assessing the composition and dynamics of the vaginal microbiome in participants of a clinical trial comprising the vaccination with ALVAC and AIDSVAX. 
+
+![Study design](Study.jpg)

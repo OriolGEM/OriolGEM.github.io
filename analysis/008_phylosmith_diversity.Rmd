@@ -1,0 +1,120 @@
+---
+title: "CHIR HIV RV306 Vaginal - Phylosmith Diversity"
+author: "Francesc Català-Moll & Oriol Careta Borràs"
+output: html_document
+output_dir: "`here::here('docs')`"
+site: workflowr::wflow_site
+mainfont: Helvetica
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{lipsum}
+- \pagestyle{fancy}
+- \fancyhead[CO,CE]{Flamingo - CIHR}
+- \fancyfoot[LO,RE]{Oriol Careta Borras}
+- \fancyhead[LE,RO]{\thepage}
+- \fancyfoot[CO,CE]{}
+- \usepackage[default]{sourcesanspro}
+- \usepackage[T1]{fontenc}
+- \usepackage{eso-pic,graphicx,transparent}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  dpi = 180,
+  fig.align = "center",
+  comment = "#>",
+  fig.width = 20,
+  fig.height = 10
+)
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+
+## Introduction 
+
+For this study, an initial analysis of differential abundance will be conducted using the **CHIR HIV RV306 Vaginal** dataset. The aim is to identify microbial taxa that are differentially abundant between groups of interest, such as individuals which have received the vaccine and individuals which have received the placebo. The analysis will provide a foundation for further investigations into potential associations between differential abundance and disease outcomes. Specifically, four different tests will be applied:
+
+- Alpha-diversity graph: displays alpha diversity measures across different samples or groups. The graph display Shannon diversity index. Each data point on the graph represents agroup, and the y-axis represents the diversity metric. This graph helps visualize the variation in diversity within and between different groups.
+
+- Dendrogram based on phylogenetic diversity: a tree-like diagram that displays the evolutionary relationships between different taxa in a microbial community. It shows how closely related microbial communities are based on their evolutionary history. The length of the branches represents the degree of dissimilarity between communities, with shorter branches indicating greater similarity.
+
+- PCoA plot: it is a method used to visualize and explore patterns in multivariate data sets. It shows the similarity or dissimilarity between microbial communities across different  groups. Each point on the plot represents a sample, and the distance between points reflects the similarity or dissimilarity in microbial composition. It helps to visualize clustering patterns and identify potential relationships between samples.
+
+- t-SNE plot: it is a dimensionality reduction technique commonly used for visualizing high-dimensional data sets. It is used to visualize the relationships between samples based on microbial composition. It projects high-dimensional microbial data into a lower-dimensional space while preserving local similarities. The plot often reveals clusters or patterns in the data that might not be apparent in the original high-dimensional space, helping to identify distinct microbial communities or sample groups.
+
+## Extract and preprocess phyloseq object from the mre
+
+```{r load_data_&_obtain_phyloseq}
+library(dplyr)
+
+## Load mre
+mre <- readr::read_rds(here::here("data", "preprocessed", "mre.rds"))
+
+mre
+
+## Get Phyloseq from virgo slot & preprocess
+phy <- 
+  metar::get_phyloseq(mre, type = "virgo") %>%
+  microbiome::transform(transform = "compositional") %>%
+  microbiome::core(detection = 0.001, prevalence = 0.1)
+
+phy
+```
+
+## Generate abundance plots for all categorical variables and also for Timepoint var
+
+```{r list_for_abundance_plots}
+library(phylosmith)
+plts <-
+  c(metar::get_cat(mre)$CategoricalVariable, "Timepoint") %>%
+  purrr::set_names() %>%
+  purrr::map(~ {
+    print(.x)
+    list(
+      alpha_diversity_graph = alpha_diversity_graph(phy, treatment = .x),
+      dendrogram_phyloseq = dendrogram_phyloseq(phy, treatment = .x),
+      pcoa_phyloseq = pcoa_phyloseq(phy, treatment = .x),
+      tsne_phyloseq = tsne_phyloseq(phy, treatment = .x)
+    )
+})
+```
+
+## Results {.tabset}
+
+### Treatment_group {.active}
+
+```{r treatment_group_plots}
+purrr::walk(plts$Treatment_group_1, plot)
+```
+
+### Arm
+
+```{r arm_plots}
+purrr::walk(plts$Arm, plot) # Apply the plot() function to each element in the plts$Arm list
+```
+
+### Heme_test
+
+```{r heme_test_plots}
+purrr::walk(plts$Heme_test, plot) # Apply the plot() function to each element in the plts$Heme_test list
+```
+
+### Medical_center
+
+```{r medical_center_plots}
+purrr::walk(plts$Medical_center, plot) # Apply the plot() function to each element in the plts$Medical_center
+```
+
+### Timepoint
+
+```{r timepoint_plots}
+purrr::walk(plts$Timepoint, plot)  # Apply the plot() function to each element in the plts$Timepoint list
+```
+
+## {-}
+
+In any of the categorical variables explored, the number of species was not found to be significantly different, and no clear clusters were shown.

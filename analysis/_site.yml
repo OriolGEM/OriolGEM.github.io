@@ -1,0 +1,45 @@
+name: "2024_cihr_hiv_rv306"
+output_dir: ../docs
+navbar:
+  title: "2024_cihr_hiv_rv306"
+  left:
+  - text: Home
+    href: index.html
+  - text: Throughput Analysis
+    href: 004_throughput_analysis.html
+  - text: Init mre object
+    href: 005_mre_initialization.html
+  - text: Phylosmith abundance exploration
+    href: 007_phylosmith_abundance.html
+  - text: Phylosmith diversity exploration
+    href: 008_phylosmith_diversity.html
+  - text: Quality_control
+    href: 009_quality_control.html
+  - text: Global description
+    href: 100_global_description.html
+  - text: Baseline timepoints
+    href: 101_baseline_timepoints.html
+  - text: Starting point description
+    href: 102_starting_point_description.html
+  - text: Baseline description
+    href: 103_baseline_description.html
+  - text: Groups Comparison
+    href: 104_groups_comparison.html
+  - text: Longitudinal Study of Group 1
+    href: 105_longitudinal_sudy_t1.html
+  - text: Longitudinal Study of Group 2
+    href: 105_longitudinal_sudy_t2.html
+  - text: Longitudinal Study of Group 3
+    href: 105_longitudinal_sudy_t3.html
+  - text: Longitudinal Study of Group 4A
+    href: 105_longitudinal_sudy_t4A.html
+  - text: Longitudinal Study of Group 4B
+    href: 105_longitudinal_sudy_t4B.html
+
+
+output:
+  workflowr::wflow_html:
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+    highlight: textmate

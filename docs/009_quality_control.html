@@ -11,11 +11,11 @@
 
 <meta name="author" content="Francesc Català-Moll &amp; Oriol Careta Borràs" />
 
-<meta name="date" content="2024-04-26" />
+<meta name="date" content="2024-06-04" />
 
 <title>CHIR HIV RV306 Vaginal - Quality Control</title>
 
-<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -37,6 +37,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -318,7 +320,7 @@ div.tocify {
 
 
 
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
@@ -331,52 +333,96 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
 </li>
 <li>
-  <a href="004_throughput_analysis.html">Throughput Analysis</a>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
 </li>
-<li>
-  <a href="005_mre_initialization.html">Init mre object</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-check-square"></span>
+     
+    Quality control and initial microbiome exploration
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="004_throughput_analysis.html">Throughput Analysis</a>
+    </li>
+    <li>
+      <a href="005_mre_initialization.html">Init mre object</a>
+    </li>
+    <li>
+      <a href="007_phylosmith_abundance.html">Phylosmith abundance exploration</a>
+    </li>
+    <li>
+      <a href="008_phylosmith_diversity.html">Phylosmith diversity exploration</a>
+    </li>
+    <li>
+      <a href="009_quality_control.html">Quality_control</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="007_phylosmith_abundance.html">Phylosmith abundance exploration</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-flag-checkered"></span>
+     
+    Analysis of baseline
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="100_global_description.html">Global description</a>
+    </li>
+    <li>
+      <a href="101_baseline_timepoints.html">Baseline timepoints</a>
+    </li>
+    <li>
+      <a href="102_starting_point_description.html">Starting point description</a>
+    </li>
+    <li>
+      <a href="103_baseline_description.html">Baseline description</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="008_phylosmith_diversity.html">Phylosmith diversity exploration</a>
-</li>
-<li>
-  <a href="009_quality_control.html">Quality_control</a>
-</li>
-<li>
-  <a href="100_global_description.html">Global description</a>
-</li>
-<li>
-  <a href="101_baseline_timepoints.html">Baseline timepoints</a>
-</li>
-<li>
-  <a href="102_starting_point_description.html">Starting point description</a>
-</li>
-<li>
-  <a href="103_baseline_description.html">Baseline description</a>
-</li>
-<li>
-  <a href="104_groups_comparison.html">Groups Comparison</a>
-</li>
-<li>
-  <a href="105_longitudinal_sudy_t1.html">Longitudinal Study of Group 1</a>
-</li>
-<li>
-  <a href="105_longitudinal_sudy_t2.html">Longitudinal Study of Group 2</a>
-</li>
-<li>
-  <a href="105_longitudinal_sudy_t3.html">Longitudinal Study of Group 3</a>
-</li>
-<li>
-  <a href="105_longitudinal_sudy_t4A.html">Longitudinal Study of Group 4A</a>
-</li>
-<li>
-  <a href="105_longitudinal_sudy_t4B.html">Longitudinal Study of Group 4B</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-flask"></span>
+     
+    Analysis of vaccination effects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="104_groups_comparison.html">Groups Comparison</a>
+    </li>
+    <li>
+      <a href="105_longitudinal_sudy_t1.html">Longitudinal Study of Group 1</a>
+    </li>
+    <li>
+      <a href="105_longitudinal_sudy_t2.html">Longitudinal Study of Group 2</a>
+    </li>
+    <li>
+      <a href="105_longitudinal_sudy_t3.html">Longitudinal Study of Group 3</a>
+    </li>
+    <li>
+      <a href="105_longitudinal_sudy_t4A.html">Longitudinal Study of Group 4A</a>
+    </li>
+    <li>
+      <a href="105_longitudinal_sudy_t4B.html">Longitudinal Study of Group 4B</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -393,7 +439,7 @@ div.tocify {
 <h1 class="title toc-ignore">CHIR HIV RV306 Vaginal - Quality
 Control</h1>
 <h4 class="author">Francesc Català-Moll &amp; Oriol Careta Borràs</h4>
-<h4 class="date">2024-04-26</h4>
+<h4 class="date">2024-06-04</h4>
 
 </div>
 
@@ -401,7 +447,7 @@ Control</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -412,8 +458,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -422,17 +468,16 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2024-04-26
+<strong>Last updated:</strong> 2024-06-04
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
-<strong>Knit directory:</strong>
-<code>2024_chir_hiv_rv306_vaginal/</code> <span
+<strong>Knit directory:</strong> <code>OriolGEM.github.io/</code> <span
 class="glyphicon glyphicon-question-sign" aria-hidden="true"
 title="This is the local directory in which the code in this file was executed.">
 </span>
@@ -452,21 +497,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R
-Markdown file created these results, you’ll want to first commit it to
-the Git repo. If you’re still working on the analysis, you can ignore
-this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -557,13 +599,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong412fedd">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOriolGEMOriolGEMgithubiotree64c7378a0d3b7cd42b953f017d91ed4ba18aca01targetblank64c7378a">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 412fedd
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/tree/64c7378a0d3b7cd42b953f017d91ed4ba18aca01" target="_blank">64c7378</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong412fedd"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomOriolGEMOriolGEMgithubiotree64c7378a0d3b7cd42b953f017d91ed4ba18aca01targetblank64c7378a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -572,7 +616,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 412fedd.
+The results in this page were generated with repository version
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/tree/64c7378a0d3b7cd42b953f017d91ed4ba18aca01" target="_blank">64c7378</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -589,44 +634,9 @@ were generated:
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/Study_1.png
-    Ignored:    analysis/Study_2.png
-    Ignored:    analysis/Study_3.png
-    Ignored:    analysis/Study_4A.png
-    Ignored:    analysis/Study_4B.png
     Ignored:    code/.RData
     Ignored:    code/.Rhistory
-
-Untracked files:
-    Untracked:  analysis/004_throughput_analysis.Rmd
-    Untracked:  analysis/005_mre_initialization.Rmd
-    Untracked:  analysis/007_phylosmith_abundance.Rmd
-    Untracked:  analysis/008_phylosmith_diversity.Rmd
-    Untracked:  analysis/009_quality_control.Rmd
-    Untracked:  analysis/100_global_description.Rmd
-    Untracked:  analysis/101_baseline_timepoints.Rmd
-    Untracked:  analysis/102_starting_point_description.Rmd
-    Untracked:  analysis/103_baseline_description.Rmd
-    Untracked:  analysis/104_groups_comparison.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t1.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t2.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t3.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t4A.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t4B.Rmd
-    Untracked:  analysis/Study.jpg
-    Untracked:  code/000_s3_bucket_initialization.Rmd
-    Untracked:  code/001_metadata_check.Rmd
-    Untracked:  code/002_datatransfer.Rmd
-    Untracked:  code/003_metadata_vars_selection.Rmd
-    Untracked:  code/006_populate_mre.Rmd
-    Untracked:  data/RV306_CVM_2022_11_08_lims.xlsx
-    Untracked:  data/RV306_CVM_ShippingManifest_2022_SB_clinical.xlsx
-    Untracked:  data/preprocessed/
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
-    Modified:   analysis/about.Rmd
-    Modified:   analysis/index.Rmd
+    Ignored:    data/
 
 </code></pre>
 <p>
@@ -641,10 +651,74 @@ have uncommitted changes.
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with
-<code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/009_quality_control.Rmd</code>)
+and HTML (<code>docs/009_quality_control.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/analysis/009_quality_control.Rmd" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/OriolGEM/OriolGEM.github.io/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/009_quality_control.html" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -684,6 +758,43 @@ ggplot(metadataDF, aes(x = Collection_date, y = PatientID, color = Treatment_gro
   scale_shape_manual(name = &#39;Arm&#39;, values = c(&#39;Placebo&#39; = 1, &#39;Active&#39; = 2)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
 <p><img src="figure/009_quality_control.Rmd/treatment_group_followup-1.png" width="2700" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-treatment_group_followup-1">
+Past versions of treatment_group_followup-1.png
+</button>
+</p>
+<div id="fig-treatment_group_followup-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/009_quality_control.Rmd/treatment_group_followup-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>The dates of the collection of each sample can be seen here. It can
 be seen that depending on the treatment group, samples were collected at
 different time-points.</p>
@@ -708,6 +819,43 @@ p &lt;- ggplot(metadataDF, aes(x = Visit_Week, fill = Medical_center)) +
 
 p</code></pre>
 <p><img src="figure/009_quality_control.Rmd/medical_center_all-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-medical_center_all-1">
+Past versions of medical_center_all-1.png
+</button>
+</p>
+<div id="fig-medical_center_all-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/009_quality_control.Rmd/medical_center_all-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>We can also see the number of patient’s samples extracted each week,
 separated by medical center. There is a drop in number of patient’s
 samples extracted between week 50 and week 62, because groups 1, 2 and 3
@@ -748,6 +896,43 @@ ggplot(all_df_melt, aes(x = SampleID, y = value, fill = variable)) +
     axis.title.x = element_blank()
   )</code></pre>
 <p><img src="figure/009_quality_control.Rmd/plot_abs_qreads-1.png" width="2700" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plot_abs_qreads-1">
+Past versions of plot_abs_qreads-1.png
+</button>
+</p>
+<div id="fig-plot_abs_qreads-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/009_quality_control.Rmd/plot_abs_qreads-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Here we can see the total number of pair-ended reads (PE reads) of
 each sample separated by QFail reads, QPass reads and Human reads.</p>
 <ul>
@@ -781,6 +966,43 @@ ggplot(all_df, aes(x = reorder(PatientID, +QPassReads), y = QPassReads)) +
     axis.title.x = element_blank()
   )</code></pre>
 <p><img src="figure/009_quality_control.Rmd/plot_Qpassreads_arm-1.png" width="2700" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plot_Qpassreads_arm-1">
+Past versions of plot_Qpassreads_arm-1.png
+</button>
+</p>
+<div id="fig-plot_Qpassreads_arm-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/009_quality_control.Rmd/plot_Qpassreads_arm-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Here we can see the total number of QPass reads depending if they
 belong to the active or placebo arm, separated by time-point. The number
 of QPass reads is very variable among samples but it does not seem that
@@ -799,6 +1021,43 @@ time-point or arm.</p>
   ) + 
   ggpubr::stat_compare_means()</code></pre>
 <p><img src="figure/009_quality_control.Rmd/boxplot_Qpassreads_arm-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-boxplot_Qpassreads_arm-1">
+Past versions of boxplot_Qpassreads_arm-1.png
+</button>
+</p>
+<div id="fig-boxplot_Qpassreads_arm-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/009_quality_control.Rmd/boxplot_Qpassreads_arm-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Here we can see the total number of QPass reads depending if they
 belong to the active or placebo group, there are no differences between
 groups.</p>
@@ -820,6 +1079,43 @@ ggpubr::ggscatter(
 ) +
   ggpubr::stat_cor(method = &quot;spearman&quot;, label.x = 0, label.y = 150)</code></pre>
 <p><img src="figure/009_quality_control.Rmd/DNA_qPass-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-DNA_qPass-1">
+Past versions of DNA_qPass-1.png
+</button>
+</p>
+<div id="fig-DNA_qPass-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/009_quality_control.Rmd/DNA_qPass-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Here we can see a scatter plot on the DNA concentration against the
 number of QPass reads. The spearmann correlation indicates that there is
 some negative correlation between the DNA concentration and the number
@@ -834,6 +1130,43 @@ df %&gt;%
   theme_minimal() +
   theme(axis.text.x = element_blank())</code></pre>
 <p><img src="figure/009_quality_control.Rmd/absolute_counts-1.png" width="2700" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-absolute_counts-1">
+Past versions of absolute_counts-1.png
+</button>
+</p>
+<div id="fig-absolute_counts-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/009_quality_control.Rmd/absolute_counts-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Here we can see the total number of pair-ended reads (PE reads) of
 each sample separated by QFail reads, QPass reads and Human reads.
 Samples appear ordered depending on the amount of Qpass reads. This plot
@@ -867,6 +1200,43 @@ df %&gt;%
   theme(axis.text.x = element_blank()) +
   geom_point(data = subset(df, SampleID %in% selected_samples), aes(SampleID, value), shape = 21, fill = &quot;red&quot;, color = &quot;black&quot;, size = 1, show.legend = FALSE)</code></pre>
 <p><img src="figure/009_quality_control.Rmd/absolute_counts_cutoff,%20-1.png" width="2700" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-absolute_counts_cutoff,--1">
+Past versions of "absolute_counts_cutoff, -1.png"
+</button>
+</p>
+<div id="fig-no-spaces-absolute_counts_cutoff,--1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/009_quality_control.Rmd/absolute_counts_cutoff, -1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>## Plot relative
 df %&gt;%
   ggplot(aes(SampleID, value, fill = Step)) +
@@ -875,6 +1245,43 @@ df %&gt;%
   theme_minimal() +
   theme(axis.text.x = element_blank())</code></pre>
 <p><img src="figure/009_quality_control.Rmd/relative_counts-1.png" width="2700" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-relative_counts-1">
+Past versions of relative_counts-1.png
+</button>
+</p>
+<div id="fig-relative_counts-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/009_quality_control.Rmd/relative_counts-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Here we can see the relative number of pair-ended reads (PE reads) of
 each sample separated by QFail reads, QPass reads and Human reads.
 Samples appear ordered depending on the total amount of Qpass reads.</p>
@@ -910,7 +1317,7 @@ Session information
 #&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     
 #&gt; 
 #&gt; other attached packages:
-#&gt; [1] ggplot2_3.5.0   magrittr_2.0.3  workflowr_1.7.1
+#&gt; [1] ggplot2_3.5.1  magrittr_2.0.3
 #&gt; 
 #&gt; loaded via a namespace (and not attached):
 #&gt;   [1] utf8_1.2.4                  tidyselect_1.2.1           
@@ -918,92 +1325,91 @@ Session information
 #&gt;   [5] htmlwidgets_1.6.4           grid_4.1.2                 
 #&gt;   [7] BiocParallel_1.28.3         aws.signature_0.6.0        
 #&gt;   [9] pROC_1.18.5                 munsell_0.5.1              
-#&gt;  [11] codetools_0.2-19            withr_3.0.0                
-#&gt;  [13] colorspace_2.1-0            Biobase_2.54.0             
-#&gt;  [15] phyloseq_1.38.0             highr_0.10                 
-#&gt;  [17] knitr_1.46                  rstudioapi_0.15.0          
-#&gt;  [19] stats4_4.1.2                ggsignif_0.6.4             
-#&gt;  [21] ggside_0.3.1                labeling_0.4.3             
-#&gt;  [23] MatrixGenerics_1.6.0        git2r_0.33.0               
-#&gt;  [25] GenomeInfoDbData_1.2.7      polyclip_1.10-6            
-#&gt;  [27] bit64_4.0.5                 farver_2.1.1               
-#&gt;  [29] datawizard_0.9.1            rhdf5_2.38.1               
-#&gt;  [31] rprojroot_2.0.4             vctrs_0.6.5                
-#&gt;  [33] generics_0.1.3              TH.data_1.1-2              
-#&gt;  [35] xfun_0.43                   R6_2.5.1                   
-#&gt;  [37] doParallel_1.0.17           GenomeInfoDb_1.30.1        
-#&gt;  [39] clue_0.3-65                 locfit_1.5-9.9             
-#&gt;  [41] bitops_1.0-7                rhdf5filters_1.6.0         
-#&gt;  [43] cachem_1.0.8                DelayedArray_0.20.0        
-#&gt;  [45] promises_1.3.0              scales_1.3.0               
-#&gt;  [47] multcomp_1.4-25             gtable_0.3.4               
-#&gt;  [49] processx_3.8.4              sandwich_3.1-0             
-#&gt;  [51] rlang_1.1.3                 zeallot_0.1.0              
-#&gt;  [53] genefilter_1.76.0           GlobalOptions_0.1.2        
-#&gt;  [55] splines_4.1.2               rstatix_0.7.2              
-#&gt;  [57] lazyeval_0.2.2              broom_1.0.5                
-#&gt;  [59] yaml_2.3.8                  reshape2_1.4.4             
-#&gt;  [61] abind_1.4-5                 backports_1.4.1            
-#&gt;  [63] httpuv_1.6.14               ggmosaic_0.3.3             
-#&gt;  [65] tools_4.1.2                 jquerylib_0.1.4            
-#&gt;  [67] biomformat_1.22.0           selbal_0.1.0               
-#&gt;  [69] RColorBrewer_1.1-3          BiocGenerics_0.40.0        
-#&gt;  [71] Rcpp_1.0.12                 plyr_1.8.9                 
-#&gt;  [73] base64enc_0.1-3             zlibbioc_1.40.0            
-#&gt;  [75] purrr_1.0.2                 RCurl_1.98-1.14            
-#&gt;  [77] ps_1.7.6                    ggpubr_0.6.0               
+#&gt;  [11] codetools_0.2-20            effectsize_0.8.8           
+#&gt;  [13] withr_3.0.0                 colorspace_2.1-0           
+#&gt;  [15] Biobase_2.54.0              phyloseq_1.38.0            
+#&gt;  [17] highr_0.10                  knitr_1.46                 
+#&gt;  [19] rstudioapi_0.16.0           stats4_4.1.2               
+#&gt;  [21] ggsignif_0.6.4              ggside_0.3.1               
+#&gt;  [23] labeling_0.4.3              MatrixGenerics_1.6.0       
+#&gt;  [25] git2r_0.33.0                GenomeInfoDbData_1.2.7     
+#&gt;  [27] polyclip_1.10-6             bit64_4.0.5                
+#&gt;  [29] farver_2.1.2                datawizard_0.10.0          
+#&gt;  [31] rhdf5_2.38.1                rprojroot_2.0.4            
+#&gt;  [33] vctrs_0.6.5                 generics_0.1.3             
+#&gt;  [35] TH.data_1.1-2               xfun_0.44                  
+#&gt;  [37] R6_2.5.1                    doParallel_1.0.17          
+#&gt;  [39] GenomeInfoDb_1.30.1         clue_0.3-65                
+#&gt;  [41] locfit_1.5-9.9              bitops_1.0-7               
+#&gt;  [43] rhdf5filters_1.6.0          cachem_1.1.0               
+#&gt;  [45] DelayedArray_0.20.0         promises_1.3.0             
+#&gt;  [47] scales_1.3.0                multcomp_1.4-25            
+#&gt;  [49] gtable_0.3.5                sandwich_3.1-0             
+#&gt;  [51] workflowr_1.7.1             rlang_1.1.3                
+#&gt;  [53] zeallot_0.1.0               genefilter_1.76.0          
+#&gt;  [55] GlobalOptions_0.1.2         splines_4.1.2              
+#&gt;  [57] rstatix_0.7.2               lazyeval_0.2.2             
+#&gt;  [59] broom_1.0.6                 yaml_2.3.8                 
+#&gt;  [61] reshape2_1.4.4              abind_1.4-5                
+#&gt;  [63] backports_1.5.0             httpuv_1.6.15              
+#&gt;  [65] ggmosaic_0.3.3              tools_4.1.2                
+#&gt;  [67] jquerylib_0.1.4             biomformat_1.22.0          
+#&gt;  [69] selbal_0.1.0                RColorBrewer_1.1-3         
+#&gt;  [71] BiocGenerics_0.40.0         Rcpp_1.0.12                
+#&gt;  [73] plyr_1.8.9                  base64enc_0.1-3            
+#&gt;  [75] zlibbioc_1.40.0             purrr_1.0.2                
+#&gt;  [77] RCurl_1.98-1.14             ggpubr_0.6.0               
 #&gt;  [79] GetoptLong_1.0.5            correlation_0.8.4          
 #&gt;  [81] S4Vectors_0.32.4            zoo_1.8-12                 
 #&gt;  [83] SummarizedExperiment_1.24.0 ggrepel_0.9.5              
-#&gt;  [85] cluster_2.1.6               fs_1.6.3                   
+#&gt;  [85] cluster_2.1.6               fs_1.6.4                   
 #&gt;  [87] here_1.0.1                  data.table_1.15.4          
 #&gt;  [89] RSpectra_0.16-1             circlize_0.4.16            
-#&gt;  [91] mvtnorm_1.2-4               whisker_0.4.1              
-#&gt;  [93] matrixStats_1.2.0           hms_1.1.3                  
+#&gt;  [91] mvtnorm_1.2-5               whisker_0.4.1              
+#&gt;  [93] matrixStats_1.3.0           hms_1.1.3                  
 #&gt;  [95] patchwork_1.2.0             evaluate_0.23              
 #&gt;  [97] xtable_1.8-4                XML_3.99-0.16.1            
 #&gt;  [99] IRanges_2.28.0              gridExtra_2.3              
 #&gt; [101] shape_1.4.6.1               compiler_4.1.2             
 #&gt; [103] ellipse_0.5.0               tibble_3.2.1               
-#&gt; [105] ggstatsplot_0.12.2          crayon_1.5.2               
+#&gt; [105] ggstatsplot_0.12.3          crayon_1.5.2               
 #&gt; [107] htmltools_0.5.8.1           mgcv_1.9-1                 
 #&gt; [109] corpcor_1.6.10              later_1.3.2                
 #&gt; [111] tzdb_0.4.0                  geneplotter_1.72.0         
 #&gt; [113] tidyr_1.3.1                 libcoin_1.0-10             
 #&gt; [115] aws.s3_0.3.21               DBI_1.2.2                  
 #&gt; [117] tweenr_2.0.3                ComplexHeatmap_2.18.0      
-#&gt; [119] MASS_7.3-60.0.1             Matrix_1.6-5               
+#&gt; [119] MASS_7.3-60.0.1             Matrix_1.3-4               
 #&gt; [121] ade4_1.7-22                 car_3.1-2                  
 #&gt; [123] readr_2.1.5                 permute_0.9-7              
 #&gt; [125] cli_3.6.2                   parallel_4.1.2             
-#&gt; [127] insight_0.19.8              igraph_2.0.3               
+#&gt; [127] insight_0.19.11             igraph_2.0.3               
 #&gt; [129] GenomicRanges_1.46.1        pkgconfig_2.0.3            
-#&gt; [131] metar_0.1.5                 getPass_0.2-4              
-#&gt; [133] statsExpressions_1.5.3      coin_1.4-3                 
-#&gt; [135] plotly_4.10.4               xml2_1.3.6                 
-#&gt; [137] paletteer_1.6.0             foreach_1.5.2              
-#&gt; [139] rARPACK_0.11-0              annotate_1.72.0            
-#&gt; [141] bslib_0.7.0                 multtest_2.50.0            
-#&gt; [143] XVector_0.34.0              stringr_1.5.1              
-#&gt; [145] callr_3.7.6                 digest_0.6.35              
-#&gt; [147] parameters_0.21.5           vegan_2.6-4                
-#&gt; [149] Biostrings_2.62.0           rmarkdown_2.26             
-#&gt; [151] curl_5.2.1                  modeltools_0.2-23          
-#&gt; [153] rjson_0.2.21                lifecycle_1.0.4            
-#&gt; [155] nlme_3.1-164                jsonlite_1.8.8             
-#&gt; [157] Rhdf5lib_1.16.0             carData_3.0-5              
-#&gt; [159] mixOmics_6.18.1             viridisLite_0.4.2          
-#&gt; [161] fansi_1.0.6                 pillar_1.9.0               
-#&gt; [163] lattice_0.22-5              KEGGREST_1.34.0            
-#&gt; [165] fastmap_1.1.1               httr_1.4.7                 
-#&gt; [167] survival_3.5-8              glue_1.7.0                 
-#&gt; [169] bayestestR_0.13.2           png_0.1-8                  
-#&gt; [171] iterators_1.0.14            bit_4.0.5                  
-#&gt; [173] ggforce_0.4.2               stringi_1.8.3              
-#&gt; [175] sass_0.4.9                  blob_1.2.4                 
-#&gt; [177] rematch2_2.1.2              DESeq2_1.34.0              
-#&gt; [179] lefser_1.4.0                memoise_2.0.1              
-#&gt; [181] dplyr_1.1.4                 ape_5.7-1</code></pre>
+#&gt; [131] metar_0.1.5                 statsExpressions_1.5.4     
+#&gt; [133] coin_1.4-3                  plotly_4.10.4              
+#&gt; [135] xml2_1.3.6                  paletteer_1.6.0            
+#&gt; [137] foreach_1.5.2               rARPACK_0.11-0             
+#&gt; [139] annotate_1.72.0             bslib_0.7.0                
+#&gt; [141] multtest_2.50.0             XVector_0.34.0             
+#&gt; [143] stringr_1.5.1               digest_0.6.35              
+#&gt; [145] parameters_0.21.7           vegan_2.6-6.1              
+#&gt; [147] Biostrings_2.62.0           rmarkdown_2.27             
+#&gt; [149] curl_5.2.1                  modeltools_0.2-23          
+#&gt; [151] rjson_0.2.21                lifecycle_1.0.4            
+#&gt; [153] nlme_3.1-164                jsonlite_1.8.8             
+#&gt; [155] Rhdf5lib_1.16.0             carData_3.0-5              
+#&gt; [157] mixOmics_6.18.1             viridisLite_0.4.2          
+#&gt; [159] fansi_1.0.6                 pillar_1.9.0               
+#&gt; [161] lattice_0.22-6              KEGGREST_1.34.0            
+#&gt; [163] fastmap_1.2.0               httr_1.4.7                 
+#&gt; [165] survival_3.6-4              glue_1.7.0                 
+#&gt; [167] bayestestR_0.13.2           png_0.1-8                  
+#&gt; [169] iterators_1.0.14            bit_4.0.5                  
+#&gt; [171] ggforce_0.4.2               stringi_1.8.4              
+#&gt; [173] sass_0.4.9                  blob_1.2.4                 
+#&gt; [175] rematch2_2.1.2              DESeq2_1.34.0              
+#&gt; [177] lefser_1.4.0                memoise_2.0.1              
+#&gt; [179] dplyr_1.1.4                 ape_5.8</code></pre>
 </div>
 </div>
 

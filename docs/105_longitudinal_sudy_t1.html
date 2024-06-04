@@ -11,11 +11,11 @@
 
 <meta name="author" content="Oriol Careta Borràs" />
 
-<meta name="date" content="2024-04-26" />
+<meta name="date" content="2024-06-04" />
 
 <title>CHIR HIV RV306 Vaginal - Longitudinal study Group 1</title>
 
-<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -37,6 +37,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -318,7 +320,7 @@ div.tocify {
 
 
 
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
@@ -331,52 +333,96 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
 </li>
 <li>
-  <a href="004_throughput_analysis.html">Throughput Analysis</a>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
 </li>
-<li>
-  <a href="005_mre_initialization.html">Init mre object</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-check-square"></span>
+     
+    Quality control and initial microbiome exploration
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="004_throughput_analysis.html">Throughput Analysis</a>
+    </li>
+    <li>
+      <a href="005_mre_initialization.html">Init mre object</a>
+    </li>
+    <li>
+      <a href="007_phylosmith_abundance.html">Phylosmith abundance exploration</a>
+    </li>
+    <li>
+      <a href="008_phylosmith_diversity.html">Phylosmith diversity exploration</a>
+    </li>
+    <li>
+      <a href="009_quality_control.html">Quality_control</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="007_phylosmith_abundance.html">Phylosmith abundance exploration</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-flag-checkered"></span>
+     
+    Analysis of baseline
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="100_global_description.html">Global description</a>
+    </li>
+    <li>
+      <a href="101_baseline_timepoints.html">Baseline timepoints</a>
+    </li>
+    <li>
+      <a href="102_starting_point_description.html">Starting point description</a>
+    </li>
+    <li>
+      <a href="103_baseline_description.html">Baseline description</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="008_phylosmith_diversity.html">Phylosmith diversity exploration</a>
-</li>
-<li>
-  <a href="009_quality_control.html">Quality_control</a>
-</li>
-<li>
-  <a href="100_global_description.html">Global description</a>
-</li>
-<li>
-  <a href="101_baseline_timepoints.html">Baseline timepoints</a>
-</li>
-<li>
-  <a href="102_starting_point_description.html">Starting point description</a>
-</li>
-<li>
-  <a href="103_baseline_description.html">Baseline description</a>
-</li>
-<li>
-  <a href="104_groups_comparison.html">Groups Comparison</a>
-</li>
-<li>
-  <a href="105_longitudinal_sudy_t1.html">Longitudinal Study of Group 1</a>
-</li>
-<li>
-  <a href="105_longitudinal_sudy_t2.html">Longitudinal Study of Group 2</a>
-</li>
-<li>
-  <a href="105_longitudinal_sudy_t3.html">Longitudinal Study of Group 3</a>
-</li>
-<li>
-  <a href="105_longitudinal_sudy_t4A.html">Longitudinal Study of Group 4A</a>
-</li>
-<li>
-  <a href="105_longitudinal_sudy_t4B.html">Longitudinal Study of Group 4B</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-flask"></span>
+     
+    Analysis of vaccination effects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="104_groups_comparison.html">Groups Comparison</a>
+    </li>
+    <li>
+      <a href="105_longitudinal_sudy_t1.html">Longitudinal Study of Group 1</a>
+    </li>
+    <li>
+      <a href="105_longitudinal_sudy_t2.html">Longitudinal Study of Group 2</a>
+    </li>
+    <li>
+      <a href="105_longitudinal_sudy_t3.html">Longitudinal Study of Group 3</a>
+    </li>
+    <li>
+      <a href="105_longitudinal_sudy_t4A.html">Longitudinal Study of Group 4A</a>
+    </li>
+    <li>
+      <a href="105_longitudinal_sudy_t4B.html">Longitudinal Study of Group 4B</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -393,7 +439,7 @@ div.tocify {
 <h1 class="title toc-ignore">CHIR HIV RV306 Vaginal - Longitudinal study
 Group 1</h1>
 <h4 class="author">Oriol Careta Borràs</h4>
-<h4 class="date">2024-04-26</h4>
+<h4 class="date">2024-06-04</h4>
 
 </div>
 
@@ -401,7 +447,7 @@ Group 1</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -412,8 +458,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -422,17 +468,16 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2024-04-26
+<strong>Last updated:</strong> 2024-06-04
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
-<strong>Knit directory:</strong>
-<code>2024_chir_hiv_rv306_vaginal/</code> <span
+<strong>Knit directory:</strong> <code>OriolGEM.github.io/</code> <span
 class="glyphicon glyphicon-question-sign" aria-hidden="true"
 title="This is the local directory in which the code in this file was executed.">
 </span>
@@ -452,21 +497,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R
-Markdown file created these results, you’ll want to first commit it to
-the Git repo. If you’re still working on the analysis, you can ignore
-this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -557,13 +599,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong412fedd">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOriolGEMOriolGEMgithubiotree64c7378a0d3b7cd42b953f017d91ed4ba18aca01targetblank64c7378a">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 412fedd
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/tree/64c7378a0d3b7cd42b953f017d91ed4ba18aca01" target="_blank">64c7378</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong412fedd"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomOriolGEMOriolGEMgithubiotree64c7378a0d3b7cd42b953f017d91ed4ba18aca01targetblank64c7378a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -572,7 +616,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 412fedd.
+The results in this page were generated with repository version
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/tree/64c7378a0d3b7cd42b953f017d91ed4ba18aca01" target="_blank">64c7378</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -589,44 +634,9 @@ were generated:
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/Study_1.png
-    Ignored:    analysis/Study_2.png
-    Ignored:    analysis/Study_3.png
-    Ignored:    analysis/Study_4A.png
-    Ignored:    analysis/Study_4B.png
     Ignored:    code/.RData
     Ignored:    code/.Rhistory
-
-Untracked files:
-    Untracked:  analysis/004_throughput_analysis.Rmd
-    Untracked:  analysis/005_mre_initialization.Rmd
-    Untracked:  analysis/007_phylosmith_abundance.Rmd
-    Untracked:  analysis/008_phylosmith_diversity.Rmd
-    Untracked:  analysis/009_quality_control.Rmd
-    Untracked:  analysis/100_global_description.Rmd
-    Untracked:  analysis/101_baseline_timepoints.Rmd
-    Untracked:  analysis/102_starting_point_description.Rmd
-    Untracked:  analysis/103_baseline_description.Rmd
-    Untracked:  analysis/104_groups_comparison.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t1.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t2.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t3.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t4A.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t4B.Rmd
-    Untracked:  analysis/Study.jpg
-    Untracked:  code/000_s3_bucket_initialization.Rmd
-    Untracked:  code/001_metadata_check.Rmd
-    Untracked:  code/002_datatransfer.Rmd
-    Untracked:  code/003_metadata_vars_selection.Rmd
-    Untracked:  code/006_populate_mre.Rmd
-    Untracked:  data/RV306_CVM_2022_11_08_lims.xlsx
-    Untracked:  data/RV306_CVM_ShippingManifest_2022_SB_clinical.xlsx
-    Untracked:  data/preprocessed/
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
-    Modified:   analysis/about.Rmd
-    Modified:   analysis/index.Rmd
+    Ignored:    data/
 
 </code></pre>
 <p>
@@ -641,10 +651,92 @@ have uncommitted changes.
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with
-<code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were
+made to the R Markdown
+(<code>analysis/105_longitudinal_sudy_t1.Rmd</code>) and HTML
+(<code>docs/105_longitudinal_sudy_t1.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/2a85fa76788e4564afb6975d25032f9669ef98e2/analysis/105_longitudinal_sudy_t1.Rmd" target="_blank">2a85fa7</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-04
+</td>
+<td>
+updated images
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/analysis/105_longitudinal_sudy_t1.Rmd" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/OriolGEM/OriolGEM.github.io/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/105_longitudinal_sudy_t1.html" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -696,7 +788,7 @@ time-points 0, 4, 12 and 24. They are 40 samples from 10 patients. In
 this group, there are 0 samples in the placebo arm and 40 samples in the
 active arm.</p>
 <div class="float">
-<img src="Study_1.png" alt="Group 1" />
+<img src="assets/Study_1.png" alt="Group 1" />
 <div class="figcaption">Group 1</div>
 </div>
 </div>
@@ -726,18 +818,166 @@ metar::get_cat(mre_1) %&gt;%
 <div id="heme_test" class="section level3">
 <h3><code>Heme_test</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-rarefraction_plots-1">
+Past versions of rarefraction_plots-1.png
+</button>
+</p>
+<div id="fig-rarefraction_plots-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="pass_reads_quantile" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-rarefraction_plots-2">
+Past versions of rarefraction_plots-2.png
+</button>
+</p>
+<div id="fig-rarefraction_plots-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype" class="section level3">
 <h3><code>vaginotype</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-rarefraction_plots-3">
+Past versions of rarefraction_plots-3.png
+</button>
+</p>
+<div id="fig-rarefraction_plots-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype_condition" class="section level3">
 <h3><code>vaginotype_condition</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-rarefraction_plots-4">
+Past versions of rarefraction_plots-4.png
+</button>
+</p>
+<div id="fig-rarefraction_plots-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/rarefraction_plots-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section" class="section level2 unnumbered">
@@ -766,18 +1006,166 @@ metar::get_cat(mre_1) %&gt;%
 <div id="heme_test-1" class="section level3">
 <h3><code>Heme_test</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/gene_richness-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-gene_richness-1">
+Past versions of gene_richness-1.png
+</button>
+</p>
+<div id="fig-gene_richness-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/gene_richness-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="pass_reads_quantile-1" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/gene_richness-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-gene_richness-2">
+Past versions of gene_richness-2.png
+</button>
+</p>
+<div id="fig-gene_richness-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/gene_richness-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype-1" class="section level3">
 <h3><code>vaginotype</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/gene_richness-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-gene_richness-3">
+Past versions of gene_richness-3.png
+</button>
+</p>
+<div id="fig-gene_richness-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/gene_richness-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype_condition-1" class="section level3">
 <h3><code>vaginotype_condition</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/gene_richness-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-gene_richness-4">
+Past versions of gene_richness-4.png
+</button>
+</p>
+<div id="fig-gene_richness-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/gene_richness-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section-1" class="section level2 unnumbered">
@@ -820,6 +1208,43 @@ pcoa_plot_PCo2_PCo3 &lt;- create_pcoa_plot(bray_pcoa, &quot;PCo2 vs PCo3&quot;, 
 
 gridExtra::grid.arrange(pcoa_plot_PCo1_PCo2, pcoa_plot_PCo1_PCo3, pcoa_plot_PCo2_PCo3, nrow = 1)</code></pre>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/PCoA-1.png" width="3600" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-PCoA-1">
+Past versions of PCoA-1.png
+</button>
+</p>
+<div id="fig-PCoA-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/PCoA-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>In the PCoA plots, it can be seen that the compositional variables
 that affect each cluster. PCo 1 and 2 explain the 84.4% of the
 variability (57.9% and 26.5% respectively), while PCo3 only explains the
@@ -838,6 +1263,43 @@ mre_1 %&gt;%
   purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;rel_abundance&quot;, &quot;bray_NMDS1_order_barplot&quot;) +
   theme(axis.text.x = element_blank())</code></pre>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/top50_abundance_barplot-1.png" width="3600" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top50_abundance_barplot-1">
+Past versions of top50_abundance_barplot-1.png
+</button>
+</p>
+<div id="fig-top50_abundance_barplot-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/top50_abundance_barplot-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>The clustering barplots depicting taxonomic diversity per sample
 reveal the presence of three distinct groups:</p>
 <ul>
@@ -921,6 +1383,43 @@ mre_1 %&gt;%
   purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;) %&gt;%
   ComplexHeatmap::draw(heatmap_legend_side = &quot;left&quot;, annotation_legend_side = &quot;bottom&quot;)</code></pre>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/hierarchical_clustering-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-hierarchical_clustering-1">
+Past versions of hierarchical_clustering-1.png
+</button>
+</p>
+<div id="fig-hierarchical_clustering-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/hierarchical_clustering-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>In this hierarchical clustering heatmap, we can clearly see the three
 groups. It can be seen that the vaginotype <strong>G. Vaginalis</strong>
 is enriched in this specie, while the other two are dominated by
@@ -966,18 +1465,166 @@ variables: <strong>pass_reads_quantile</strong>,
 <div id="heme_test-2" class="section level3">
 <h3><code>Heme_test</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nmds_groups-1">
+Past versions of nmds_groups-1.png
+</button>
+</p>
+<div id="fig-nmds_groups-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="pass_reads_quantile-2" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nmds_groups-2">
+Past versions of nmds_groups-2.png
+</button>
+</p>
+<div id="fig-nmds_groups-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype-2" class="section level3">
 <h3><code>vaginotype</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nmds_groups-3">
+Past versions of nmds_groups-3.png
+</button>
+</p>
+<div id="fig-nmds_groups-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype_condition-2" class="section level3">
 <h3><code>vaginotype_condition</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nmds_groups-4">
+Past versions of nmds_groups-4.png
+</button>
+</p>
+<div id="fig-nmds_groups-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/nmds_groups-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section-3" class="section level2 unnumbered">
@@ -1007,18 +1654,166 @@ metar::get_cat(mre_1) %&gt;%
 <div id="heme_test-3" class="section level3">
 <h3><code>Heme_test</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_ancom-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-run_ancom-1">
+Past versions of run_ancom-1.png
+</button>
+</p>
+<div id="fig-run_ancom-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/run_ancom-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="pass_reads_quantile-3" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_ancom-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-run_ancom-2">
+Past versions of run_ancom-2.png
+</button>
+</p>
+<div id="fig-run_ancom-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/run_ancom-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype-3" class="section level3">
 <h3><code>vaginotype</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_ancom-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-run_ancom-3">
+Past versions of run_ancom-3.png
+</button>
+</p>
+<div id="fig-run_ancom-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/run_ancom-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype_condition-3" class="section level3">
 <h3><code>vaginotype_condition</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_ancom-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-run_ancom-4">
+Past versions of run_ancom-4.png
+</button>
+</p>
+<div id="fig-run_ancom-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/run_ancom-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section-4" class="section level2 unnumbered">
@@ -1052,14 +1847,125 @@ metar::get_cat(mre_1) %&gt;%
 <div id="pass_reads_quantile-4" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_lefse-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-run_lefse-1">
+Past versions of run_lefse-1.png
+</button>
+</p>
+<div id="fig-run_lefse-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/run_lefse-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype-4" class="section level3">
 <h3><code>vaginotype</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_lefse-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-run_lefse-2">
+Past versions of run_lefse-2.png
+</button>
+</p>
+<div id="fig-run_lefse-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/run_lefse-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype_condition-4" class="section level3">
 <h3><code>vaginotype_condition</code></h3>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/run_lefse-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-run_lefse-3">
+Past versions of run_lefse-3.png
+</button>
+</p>
+<div id="fig-run_lefse-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/run_lefse-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section-5" class="section level2 unnumbered">
@@ -1105,6 +2011,43 @@ p &lt;- metar::get_meta(mre_1) %&gt;%
 
 print(p)</code></pre>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/alluvial_plot-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alluvial_plot-1">
+Past versions of alluvial_plot-1.png
+</button>
+</p>
+<div id="fig-alluvial_plot-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/alluvial_plot-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>sample_counts &lt;- metar::get_meta(mre_1) %&gt;%
   dplyr::group_by(Arm, Timepoint, vaginotype) %&gt;%
   dplyr::summarize(count = dplyr::n_distinct(PatientID)) %&gt;%
@@ -1119,6 +2062,43 @@ ggplot(sample_counts %&gt;%
   theme_minimal() +
   theme(legend.position = &quot;right&quot;)</code></pre>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/stratum_samples-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-stratum_samples-1">
+Past versions of stratum_samples-1.png
+</button>
+</p>
+<div id="fig-stratum_samples-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/stratum_samples-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="section-6" class="section level2 unnumbered">
 <h2 class="unnumbered"></h2>
@@ -1147,6 +2127,43 @@ plot +
   theme_classic() +
   theme(axis.text.x = element_blank())</code></pre>
 <p><img src="figure/105_longitudinal_sudy_t1.Rmd/abundance_timepoints-1.png" width="3600" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-abundance_timepoints-1">
+Past versions of abundance_timepoints-1.png
+</button>
+</p>
+<div id="fig-abundance_timepoints-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/105_longitudinal_sudy_t1.Rmd/abundance_timepoints-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>The clustering barplots depicting taxonomic diversity per sample at
 each time-point reveal the presence of the same three distinct
 groups</p>
@@ -1270,44 +2287,44 @@ Session information
 #&gt; [8] base     
 #&gt; 
 #&gt; other attached packages:
-#&gt; [1] ggalluvial_0.12.5     ComplexHeatmap_2.18.0 ggplot2_3.5.0        
-#&gt; [4] magrittr_2.0.3        workflowr_1.7.1      
+#&gt; [1] ggalluvial_0.12.5     ComplexHeatmap_2.18.0 ggplot2_3.5.1        
+#&gt; [4] magrittr_2.0.3       
 #&gt; 
 #&gt; loaded via a namespace (and not attached):
 #&gt;   [1] utf8_1.2.4                  tidyselect_1.2.1           
 #&gt;   [3] htmlwidgets_1.6.4           gmp_0.7-4                  
-#&gt;   [5] munsell_0.5.1               codetools_0.2-19           
-#&gt;   [7] effectsize_0.8.6            future_1.33.1              
+#&gt;   [5] munsell_0.5.1               codetools_0.2-20           
+#&gt;   [7] effectsize_0.8.8            future_1.33.2              
 #&gt;   [9] withr_3.0.0                 colorspace_2.1-0           
 #&gt;  [11] Biobase_2.54.0              phyloseq_1.38.0            
 #&gt;  [13] logger_0.3.0                highr_0.10                 
-#&gt;  [15] knitr_1.46                  rstudioapi_0.15.0          
+#&gt;  [15] knitr_1.46                  rstudioapi_0.16.0          
 #&gt;  [17] stats4_4.1.2                robustbase_0.99-2          
 #&gt;  [19] bayesm_3.1-6                ggsignif_0.6.4             
 #&gt;  [21] ggside_0.3.1                listenv_0.9.1              
 #&gt;  [23] MatrixGenerics_1.6.0        labeling_0.4.3             
 #&gt;  [25] git2r_0.33.0                GenomeInfoDbData_1.2.7     
-#&gt;  [27] polyclip_1.10-6             farver_2.1.1               
-#&gt;  [29] datawizard_0.9.1            rhdf5_2.38.1               
+#&gt;  [27] polyclip_1.10-6             farver_2.1.2               
+#&gt;  [29] datawizard_0.10.0           rhdf5_2.38.1               
 #&gt;  [31] rprojroot_2.0.4             TH.data_1.1-2              
 #&gt;  [33] parallelly_1.37.1           vctrs_0.6.5                
-#&gt;  [35] generics_0.1.3              xfun_0.43                  
+#&gt;  [35] generics_0.1.3              xfun_0.44                  
 #&gt;  [37] timechange_0.3.0            BWStest_0.2.3              
 #&gt;  [39] R6_2.5.1                    doParallel_1.0.17          
 #&gt;  [41] GenomeInfoDb_1.30.1         clue_0.3-65                
 #&gt;  [43] DelayedArray_0.20.0         bitops_1.0-7               
-#&gt;  [45] rhdf5filters_1.6.0          cachem_1.0.8               
+#&gt;  [45] rhdf5filters_1.6.0          cachem_1.1.0               
 #&gt;  [47] promises_1.3.0              scales_1.3.0               
-#&gt;  [49] multcomp_1.4-25             gtable_0.3.4               
-#&gt;  [51] globals_0.16.2              multcompView_0.1-9         
-#&gt;  [53] processx_3.8.4              sandwich_3.1-0             
+#&gt;  [49] multcomp_1.4-25             gtable_0.3.5               
+#&gt;  [51] globals_0.16.3              multcompView_0.1-10        
+#&gt;  [53] sandwich_3.1-0              workflowr_1.7.1            
 #&gt;  [55] rlang_1.1.3                 zeallot_0.1.0              
 #&gt;  [57] GlobalOptions_0.1.2         PMCMRplus_1.9.10           
 #&gt;  [59] splines_4.1.2               rstatix_0.7.2              
-#&gt;  [61] lazyeval_0.2.2              broom_1.0.5                
-#&gt;  [63] prismatic_1.1.1             yaml_2.3.8                 
+#&gt;  [61] lazyeval_0.2.2              broom_1.0.6                
+#&gt;  [63] prismatic_1.1.2             yaml_2.3.8                 
 #&gt;  [65] reshape2_1.4.4              abind_1.4-5                
-#&gt;  [67] backports_1.4.1             httpuv_1.6.14              
+#&gt;  [67] backports_1.5.0             httpuv_1.6.15              
 #&gt;  [69] tensorA_0.36.2.1            lava_1.8.0                 
 #&gt;  [71] ggmosaic_0.3.3              tools_4.1.2                
 #&gt;  [73] gplots_3.1.3.1              jquerylib_0.1.4            
@@ -1315,61 +2332,60 @@ Session information
 #&gt;  [77] BiocGenerics_0.40.0         Rcpp_1.0.12                
 #&gt;  [79] plyr_1.8.9                  zlibbioc_1.40.0            
 #&gt;  [81] purrr_1.0.2                 RCurl_1.98-1.14            
-#&gt;  [83] ps_1.7.6                    ggpubr_0.6.0               
-#&gt;  [85] GetoptLong_1.0.5            correlation_0.8.4          
-#&gt;  [87] zoo_1.8-12                  S4Vectors_0.32.4           
-#&gt;  [89] SummarizedExperiment_1.24.0 ggrepel_0.9.5              
-#&gt;  [91] cluster_2.1.6               fs_1.6.3                   
-#&gt;  [93] here_1.0.1                  data.table_1.15.4          
-#&gt;  [95] circlize_0.4.16             mvtnorm_1.2-4              
+#&gt;  [83] ggpubr_0.6.0                GetoptLong_1.0.5           
+#&gt;  [85] correlation_0.8.4           zoo_1.8-12                 
+#&gt;  [87] S4Vectors_0.32.4            SummarizedExperiment_1.24.0
+#&gt;  [89] ggrepel_0.9.5               cluster_2.1.6              
+#&gt;  [91] fs_1.6.4                    here_1.0.1                 
+#&gt;  [93] data.table_1.15.4           magick_2.8.3               
+#&gt;  [95] circlize_0.4.16             mvtnorm_1.2-5              
 #&gt;  [97] survcomp_1.44.1             whisker_0.4.1              
-#&gt;  [99] matrixStats_1.2.0           hms_1.1.3                  
+#&gt;  [99] matrixStats_1.3.0           hms_1.1.3                  
 #&gt; [101] patchwork_1.2.0             evaluate_0.23              
 #&gt; [103] IRanges_2.28.0              gridExtra_2.3              
 #&gt; [105] shape_1.4.6.1               compiler_4.1.2             
-#&gt; [107] tibble_3.2.1                ggstatsplot_0.12.2         
-#&gt; [109] KernSmooth_2.23-22          crayon_1.5.2               
+#&gt; [107] tibble_3.2.1                ggstatsplot_0.12.3         
+#&gt; [109] KernSmooth_2.23-24          crayon_1.5.2               
 #&gt; [111] htmltools_0.5.8.1           mgcv_1.9-1                 
 #&gt; [113] later_1.3.2                 tzdb_0.4.0                 
 #&gt; [115] libcoin_1.0-10              tidyr_1.3.1                
 #&gt; [117] lubridate_1.9.3             SuppDists_1.1-9.7          
 #&gt; [119] kSamples_1.2-10             tweenr_2.0.3               
 #&gt; [121] MASS_7.3-60.0.1             boot_1.3-30                
-#&gt; [123] compositions_2.0-8          Matrix_1.6-5               
+#&gt; [123] compositions_2.0-8          Matrix_1.3-4               
 #&gt; [125] ade4_1.7-22                 car_3.1-2                  
 #&gt; [127] readr_2.1.5                 wesanderson_0.3.7          
 #&gt; [129] rmeta_3.0                   ANCOM_2.2                  
 #&gt; [131] permute_0.9-7               cli_3.6.2                  
-#&gt; [133] parallel_4.1.2              insight_0.19.8             
+#&gt; [133] parallel_4.1.2              insight_0.19.11            
 #&gt; [135] igraph_2.0.3                GenomicRanges_1.46.1       
 #&gt; [137] forcats_1.0.0               pkgconfig_2.0.3            
-#&gt; [139] metar_0.1.5                 getPass_0.2-4              
-#&gt; [141] statsExpressions_1.5.3      coin_1.4-3                 
-#&gt; [143] plotly_4.10.4               paletteer_1.6.0            
-#&gt; [145] foreach_1.5.2               bslib_0.7.0                
-#&gt; [147] multtest_2.50.0             XVector_0.34.0             
-#&gt; [149] prodlim_2023.08.28          snakecase_0.11.1           
-#&gt; [151] stringr_1.5.1               callr_3.7.6                
-#&gt; [153] digest_0.6.35               parameters_0.21.5          
-#&gt; [155] vegan_2.6-4                 janitor_2.2.0              
-#&gt; [157] Biostrings_2.62.0           rmarkdown_2.26             
-#&gt; [159] modeltools_0.2-23           gtools_3.9.5               
-#&gt; [161] rjson_0.2.21                lifecycle_1.0.4            
-#&gt; [163] nlme_3.1-164                jsonlite_1.8.8             
-#&gt; [165] Rhdf5lib_1.16.0             survivalROC_1.0.3.1        
-#&gt; [167] carData_3.0-5               viridisLite_0.4.2          
-#&gt; [169] fansi_1.0.6                 pillar_1.9.0               
-#&gt; [171] lattice_0.22-5              DEoptimR_1.1-3             
-#&gt; [173] fastmap_1.1.1               httr_1.4.7                 
-#&gt; [175] survival_3.5-8              glue_1.7.0                 
-#&gt; [177] bayestestR_0.13.2           png_0.1-8                  
-#&gt; [179] iterators_1.0.14            ggforce_0.4.2              
-#&gt; [181] stringi_1.8.3               sass_0.4.9                 
-#&gt; [183] bootstrap_2019.6            rematch2_2.1.2             
-#&gt; [185] lefser_1.4.0                caTools_1.18.2             
-#&gt; [187] memoise_2.0.1               Rmpfr_0.9-5                
-#&gt; [189] dplyr_1.1.4                 future.apply_1.11.1        
-#&gt; [191] ape_5.7-1</code></pre>
+#&gt; [139] metar_0.1.5                 statsExpressions_1.5.4     
+#&gt; [141] coin_1.4-3                  plotly_4.10.4              
+#&gt; [143] paletteer_1.6.0             foreach_1.5.2              
+#&gt; [145] bslib_0.7.0                 multtest_2.50.0            
+#&gt; [147] XVector_0.34.0              prodlim_2023.08.28         
+#&gt; [149] snakecase_0.11.1            stringr_1.5.1              
+#&gt; [151] digest_0.6.35               parameters_0.21.7          
+#&gt; [153] vegan_2.6-6.1               janitor_2.2.0              
+#&gt; [155] Biostrings_2.62.0           rmarkdown_2.27             
+#&gt; [157] modeltools_0.2-23           gtools_3.9.5               
+#&gt; [159] rjson_0.2.21                lifecycle_1.0.4            
+#&gt; [161] nlme_3.1-164                jsonlite_1.8.8             
+#&gt; [163] Rhdf5lib_1.16.0             survivalROC_1.0.3.1        
+#&gt; [165] carData_3.0-5               viridisLite_0.4.2          
+#&gt; [167] fansi_1.0.6                 pillar_1.9.0               
+#&gt; [169] lattice_0.22-6              DEoptimR_1.1-3             
+#&gt; [171] fastmap_1.2.0               httr_1.4.7                 
+#&gt; [173] survival_3.6-4              glue_1.7.0                 
+#&gt; [175] bayestestR_0.13.2           png_0.1-8                  
+#&gt; [177] iterators_1.0.14            ggforce_0.4.2              
+#&gt; [179] stringi_1.8.4               sass_0.4.9                 
+#&gt; [181] bootstrap_2019.6            rematch2_2.1.2             
+#&gt; [183] lefser_1.4.0                caTools_1.18.2             
+#&gt; [185] memoise_2.0.1               Rmpfr_0.9-5                
+#&gt; [187] dplyr_1.1.4                 future.apply_1.11.2        
+#&gt; [189] ape_5.8</code></pre>
 </div>
 </div>
 

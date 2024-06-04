@@ -55,7 +55,7 @@ mre_3
 
 mre_3 contains all samples from group 3, which were collected at time-points 0, 14, 26 and 50 and received vaccination on time-points 0, 4, 12, 24 and 48. They are 121 samples from 32 patients. In this group, there are `r sum(mre_3@metadata@metadata_df$Arm=="Placebo")` samples in the placebo arm and `r sum(mre_3@metadata@metadata_df$Arm=="Active")` samples in the active arm.
 
-![Group 3](Study_3.png)
+![Group 3](assets/Study_3.png)
 
 ## Gene richness - Rarefaction {.tabset}
 

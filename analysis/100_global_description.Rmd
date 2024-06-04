@@ -38,7 +38,7 @@ library(ggplot2)
 
 We are interested in a general description of the dataset in terms of microbiome composition and function. We are using all available samples (481) from all patients (118). The dataset is contains vaginal microbiome data extracted 2 weeks after administering the vaccine regimen at the corresponding study time-points, following the RV306 trial:
 
-![Sudy Design](Study.jpg)
+![Sudy Design](assets/Study.jpg)
 
 ## Load mre
 

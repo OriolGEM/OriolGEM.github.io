@@ -55,7 +55,7 @@ mre_1
 
 mre_1 contains all samples from group 1, which were collected at time-points 0, 14, 26 and 50 and only received vaccination on time-points 0, 4, 12 and 24. They are 40 samples from 10 patients. In this group, there are `r sum(mre_1@metadata@metadata_df$Arm=="Placebo")` samples in the placebo arm and `r sum(mre_1@metadata@metadata_df$Arm=="Active")` samples in the active arm.
 
-![Group 1](Study_1.png)
+![Group 1](assets/Study_1.png)
 
 ## Gene richness - Rarefaction {.tabset}
 

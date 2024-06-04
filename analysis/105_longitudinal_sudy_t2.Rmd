@@ -55,7 +55,7 @@ mre_2
 
 mre_2 contains all samples from group 2, which were collected at time-points 0, 14, 26 and 50 and received vaccination on time-points 0, 4, 12, 24 and 48. They are 144 samples from 38 patients. In this group, there are `r sum(mre_2@metadata@metadata_df$Arm=="Placebo")` samples in the placebo arm and `r sum(mre_2@metadata@metadata_df$Arm=="Active")` samples in the active arm.
 
-![Group 2](Study_2.png)
+![Group 2](assets/Study_2.png)
 
 ## Gene richness - Rarefaction {.tabset}
 

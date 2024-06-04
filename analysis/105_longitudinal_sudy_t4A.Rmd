@@ -56,7 +56,7 @@ mre_4A
 mre_4A contains all samples from group 4A, which were collected at time-points 0, 14, 26, 50 and 62 and received vaccination on time-points 0, 4, 12, 24 and 60. They are 102 samples from 23 patients. In this group, there are `r sum(mre_4A@metadata@metadata_df$Arm=="Placebo")` samples in the placebo arm and `r sum(mre_4A@metadata@metadata_df$Arm=="Active")` samples in the active arm.
 
 
-![Group 4A](Study_4A.png)
+![Group 4A](assets/Study_4A.png)
 
 ## Gene richness - Rarefaction {.tabset}
 

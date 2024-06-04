@@ -11,11 +11,11 @@
 
 <meta name="author" content="Francesc Català-Moll &amp; Oriol Careta Borràs" />
 
-<meta name="date" content="2024-04-26" />
+<meta name="date" content="2024-06-04" />
 
 <title>CHIR HIV RV306 Vaginal - Global Description</title>
 
-<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -37,6 +37,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -318,7 +320,7 @@ div.tocify {
 
 
 
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
@@ -331,22 +333,44 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
 </li>
 <li>
-  <a href="004_throughput_analysis.html">Throughput Analysis</a>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
 </li>
-<li>
-  <a href="005_mre_initialization.html">Init mre object</a>
-</li>
-<li>
-  <a href="007_phylosmith_abundance.html">Phylosmith abundance exploration</a>
-</li>
-<li>
-  <a href="008_phylosmith_diversity.html">Phylosmith diversity exploration</a>
-</li>
-<li>
-  <a href="009_quality_control.html">Quality_control</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-check-square"></span>
+     
+    Quality control and initial exploration
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="004_throughput_analysis.html">Throughput Analysis</a>
+    </li>
+    <li>
+      <a href="005_mre_initialization.html">Init mre object</a>
+    </li>
+    <li>
+      <a href="007_phylosmith_abundance.html">Phylosmith abundance exploration</a>
+    </li>
+    <li>
+      <a href="008_phylosmith_diversity.html">Phylosmith diversity exploration</a>
+    </li>
+    <li>
+      <a href="009_quality_control.html">Quality_control</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="100_global_description.html">Global description</a>
@@ -393,7 +417,7 @@ div.tocify {
 <h1 class="title toc-ignore">CHIR HIV RV306 Vaginal - Global
 Description</h1>
 <h4 class="author">Francesc Català-Moll &amp; Oriol Careta Borràs</h4>
-<h4 class="date">2024-04-26</h4>
+<h4 class="date">2024-06-04</h4>
 
 </div>
 
@@ -422,7 +446,7 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2024-04-26
+<strong>Last updated:</strong> 2024-06-04
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -431,8 +455,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 aria-hidden="true"></span> 1
 </p>
 <p>
-<strong>Knit directory:</strong>
-<code>2024_chir_hiv_rv306_vaginal/</code> <span
+<strong>Knit directory:</strong> <code>OriolGEM.github.io/</code> <span
 class="glyphicon glyphicon-question-sign" aria-hidden="true"
 title="This is the local directory in which the code in this file was executed.">
 </span>
@@ -461,10 +484,10 @@ changes </a>
 <div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R
-Markdown file created these results, you’ll want to first commit it to
-the Git repo. If you’re still working on the analysis, you can ignore
-this warning. When you’re finished, you can run
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
 <code>wflow_publish</code> to commit the R Markdown file and build the
 HTML.</p>
 </div>
@@ -557,13 +580,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong412fedd">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOriolGEMOriolGEMgithubiotree0e293e12cb3c44a73cc4686f829e2854bcdd5f33targetblank0e293e1a">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 412fedd
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/tree/0e293e12cb3c44a73cc4686f829e2854bcdd5f33" target="_blank">0e293e1</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong412fedd"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomOriolGEMOriolGEMgithubiotree0e293e12cb3c44a73cc4686f829e2854bcdd5f33targetblank0e293e1a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -572,7 +597,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 412fedd.
+The results in this page were generated with repository version
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/tree/0e293e12cb3c44a73cc4686f829e2854bcdd5f33" target="_blank">0e293e1</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -589,43 +615,13 @@ were generated:
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/Study_1.png
-    Ignored:    analysis/Study_2.png
-    Ignored:    analysis/Study_3.png
-    Ignored:    analysis/Study_4A.png
-    Ignored:    analysis/Study_4B.png
     Ignored:    code/.RData
     Ignored:    code/.Rhistory
-
-Untracked files:
-    Untracked:  analysis/004_throughput_analysis.Rmd
-    Untracked:  analysis/005_mre_initialization.Rmd
-    Untracked:  analysis/007_phylosmith_abundance.Rmd
-    Untracked:  analysis/008_phylosmith_diversity.Rmd
-    Untracked:  analysis/009_quality_control.Rmd
-    Untracked:  analysis/100_global_description.Rmd
-    Untracked:  analysis/101_baseline_timepoints.Rmd
-    Untracked:  analysis/102_starting_point_description.Rmd
-    Untracked:  analysis/103_baseline_description.Rmd
-    Untracked:  analysis/104_groups_comparison.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t1.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t2.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t3.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t4A.Rmd
-    Untracked:  analysis/105_longitudinal_sudy_t4B.Rmd
-    Untracked:  analysis/Study.jpg
-    Untracked:  code/000_s3_bucket_initialization.Rmd
-    Untracked:  code/001_metadata_check.Rmd
-    Untracked:  code/002_datatransfer.Rmd
-    Untracked:  code/003_metadata_vars_selection.Rmd
-    Untracked:  code/006_populate_mre.Rmd
-    Untracked:  data/RV306_CVM_2022_11_08_lims.xlsx
-    Untracked:  data/RV306_CVM_ShippingManifest_2022_SB_clinical.xlsx
-    Untracked:  data/preprocessed/
+    Ignored:    data/
 
 Unstaged changes:
+    Modified:   analysis/100_global_description.Rmd
     Modified:   analysis/_site.yml
-    Modified:   analysis/about.Rmd
     Modified:   analysis/index.Rmd
 
 </code></pre>
@@ -641,10 +637,75 @@ have uncommitted changes.
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with
-<code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were
+made to the R Markdown
+(<code>analysis/100_global_description.Rmd</code>) and HTML
+(<code>docs/100_global_description.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/analysis/100_global_description.Rmd" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/OriolGEM/OriolGEM.github.io/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/100_global_description.html" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -658,7 +719,7 @@ microbiome data extracted 2 weeks after administering the vaccine
 regimen at the corresponding study time-points, following the RV306
 trial:</p>
 <div class="float">
-<img src="Study.jpg" alt="Sudy Design" />
+<img src="assets/Study.jpg" alt="Sudy Design" />
 <div class="figcaption">Sudy Design</div>
 </div>
 </div>
@@ -740,6 +801,43 @@ df %&gt;%
   theme_minimal() +
   theme(axis.text.x = element_blank())</code></pre>
 <p><img src="figure/100_global_description.Rmd/absolute_counts-1.png" width="2700" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-absolute_counts-1">
+Past versions of absolute_counts-1.png
+</button>
+</p>
+<div id="fig-absolute_counts-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/absolute_counts-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Here we can see the total number of pair-ended reads (PE reads) of
 each sample separated by QFail reads, QPass reads and Human reads.
 Samples appear ordered depending on the amount of Qpass reads. Thus,
@@ -753,6 +851,43 @@ df %&gt;%
   theme_minimal() +
   theme(axis.text.x = element_blank())</code></pre>
 <p><img src="figure/100_global_description.Rmd/relative_counts-1.png" width="2700" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-relative_counts-1">
+Past versions of relative_counts-1.png
+</button>
+</p>
+<div id="fig-relative_counts-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/relative_counts-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Here we can see the relative number of pair-ended reads (PE reads) of
 each sample separated by QFail reads, QPass reads and Human reads.
 Samples appear ordered depending on the total amount of Qpass reads. As
@@ -806,22 +941,207 @@ metar::get_cat(mre) %&gt;%
 <div id="arm" class="section level3">
 <h3><code>Arm</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction-1">
+Past versions of alpha_d_rarefraction-1.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="heme_test" class="section level3">
 <h3><code>Heme_test</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction-2">
+Past versions of alpha_d_rarefraction-2.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="medical_center" class="section level3">
 <h3><code>Medical_center</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction-3">
+Past versions of alpha_d_rarefraction-3.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="treatment_group_1" class="section level3">
 <h3><code>Treatment_group_1</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction-4">
+Past versions of alpha_d_rarefraction-4.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="pass_reads_quantile" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction-5.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction-5">
+Past versions of alpha_d_rarefraction-5.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction-5.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section-1" class="section level2 unnumbered">
@@ -850,22 +1170,207 @@ metar::get_cat(mre) %&gt;%
 <div id="arm-1" class="section level3">
 <h3><code>Arm</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots-1">
+Past versions of alpha_d_boxplots-1.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="heme_test-1" class="section level3">
 <h3><code>Heme_test</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots-2">
+Past versions of alpha_d_boxplots-2.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="medical_center-1" class="section level3">
 <h3><code>Medical_center</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots-3">
+Past versions of alpha_d_boxplots-3.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="treatment_group_1-1" class="section level3">
 <h3><code>Treatment_group_1</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots-4">
+Past versions of alpha_d_boxplots-4.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="pass_reads_quantile-1" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots-5.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots-5">
+Past versions of alpha_d_boxplots-5.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots-5.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section-2" class="section level2 unnumbered">
@@ -895,22 +1400,207 @@ variables.</p>
 <div id="arm-2" class="section level3">
 <h3><code>Arm</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness-1">
+Past versions of lon_gene_richness-1.png
+</button>
+</p>
+<div id="fig-lon_gene_richness-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="heme_test-2" class="section level3">
 <h3><code>Heme_test</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness-2">
+Past versions of lon_gene_richness-2.png
+</button>
+</p>
+<div id="fig-lon_gene_richness-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="medical_center-2" class="section level3">
 <h3><code>Medical_center</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness-3">
+Past versions of lon_gene_richness-3.png
+</button>
+</p>
+<div id="fig-lon_gene_richness-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="treatment_group_1-2" class="section level3">
 <h3><code>Treatment_group_1</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness-4">
+Past versions of lon_gene_richness-4.png
+</button>
+</p>
+<div id="fig-lon_gene_richness-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="pass_reads_quantile-2" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness-5.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness-5">
+Past versions of lon_gene_richness-5.png
+</button>
+</p>
+<div id="fig-lon_gene_richness-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness-5.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section-3" class="section level2 unnumbered">
@@ -932,6 +1622,43 @@ mre %&gt;%
   metar::get_taxa(&quot;virgo&quot;, &quot;barplots&quot;) %&gt;%
   purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;rel_abundance&quot;, &quot;bray_hclust_order_barplot&quot;)</code></pre>
 <p><img src="figure/100_global_description.Rmd/abundance_barplots-1.png" width="3600" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-abundance_barplots-1">
+Past versions of abundance_barplots-1.png
+</button>
+</p>
+<div id="fig-abundance_barplots-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/abundance_barplots-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>The relative abundance barplots in hierarchical clustering order
 depicting taxonomic diversity per sample reveal the presence of three
 distinct groups:</p>
@@ -1006,6 +1733,43 @@ mre %&gt;%
   purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;) %&gt;%
   ComplexHeatmap::draw(heatmap_legend_side = &quot;left&quot;, annotation_legend_side = &quot;bottom&quot;)</code></pre>
 <p><img src="figure/100_global_description.Rmd/clust_heatmap-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-clust_heatmap-1">
+Past versions of clust_heatmap-1.png
+</button>
+</p>
+<div id="fig-clust_heatmap-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/clust_heatmap-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>In this heatmap with hierarchical clustering, we can clearly see the
 three groups, but there is no apparent association between composition
 and metadata variables. In some samples dominated by <strong>Gardnerella
@@ -1039,6 +1803,43 @@ mre %&gt;%
   metar::get_taxa(&quot;virgo&quot;, &quot;nmds&quot;) %&gt;%
   purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;clustering_results&quot;, &quot;silhouette_plt&quot;)</code></pre>
 <p><img src="figure/100_global_description.Rmd/clusters-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-clusters-1">
+Past versions of clusters-1.png
+</button>
+</p>
+<div id="fig-clusters-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/clusters-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>The Silhouette plot shows that the silhouette coefficient is highest
 when k=3, suggesting that’s the optimal number of clusters. This may be
 pointing to 3 different vaginotypes in the entire sample set. Moreover,
@@ -1064,6 +1865,43 @@ mre %&gt;%
   metar::get_taxa(&quot;virgo&quot;, &quot;nmds&quot;) %&gt;%
   purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;, &quot;categorical&quot;, &quot;cluster&quot;)</code></pre>
 <p><img src="figure/100_global_description.Rmd/cluster_nmds-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cluster_nmds-1">
+Past versions of cluster_nmds-1.png
+</button>
+</p>
+<div id="fig-cluster_nmds-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/cluster_nmds-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Apparently:</p>
 <ul>
 <li><p>Cluster 1: Is enriched with <strong>L. crispatus</strong>,
@@ -1121,30 +1959,289 @@ metar::get_cat(mre) %&gt;%
 <div id="arm-3" class="section level3">
 <h3><code>Arm</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction_2-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction_2-1">
+Past versions of alpha_d_rarefraction_2-1.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction_2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction_2-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="heme_test-3" class="section level3">
 <h3><code>Heme_test</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction_2-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction_2-2">
+Past versions of alpha_d_rarefraction_2-2.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction_2-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction_2-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="medical_center-3" class="section level3">
 <h3><code>Medical_center</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction_2-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction_2-3">
+Past versions of alpha_d_rarefraction_2-3.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction_2-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction_2-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="treatment_group_1-3" class="section level3">
 <h3><code>Treatment_group_1</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction_2-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction_2-4">
+Past versions of alpha_d_rarefraction_2-4.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction_2-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction_2-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="pass_reads_quantile-3" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction_2-5.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction_2-5">
+Past versions of alpha_d_rarefraction_2-5.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction_2-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction_2-5.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype" class="section level3">
 <h3><code>vaginotype</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction_2-6.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction_2-6">
+Past versions of alpha_d_rarefraction_2-6.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction_2-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction_2-6.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype_condition" class="section level3">
 <h3><code>vaginotype_condition</code></h3>
 <p><img src="figure/100_global_description.Rmd/alpha_d_rarefraction_2-7.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_rarefraction_2-7">
+Past versions of alpha_d_rarefraction_2-7.png
+</button>
+</p>
+<div id="fig-alpha_d_rarefraction_2-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_rarefraction_2-7.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section-4" class="section level2 unnumbered">
@@ -1171,30 +2268,289 @@ metar::get_cat(mre) %&gt;%
 #&gt; 
 #&gt; ### ` Arm `</code></pre>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots_2-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots_2-1">
+Past versions of alpha_d_boxplots_2-1.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots_2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots_2-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre><code>#&gt; 
 #&gt; 
 #&gt; ### ` Heme_test `</code></pre>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots_2-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots_2-2">
+Past versions of alpha_d_boxplots_2-2.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots_2-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots_2-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre><code>#&gt; 
 #&gt; 
 #&gt; ### ` Medical_center `</code></pre>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots_2-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots_2-3">
+Past versions of alpha_d_boxplots_2-3.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots_2-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots_2-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre><code>#&gt; 
 #&gt; 
 #&gt; ### ` Treatment_group_1 `</code></pre>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots_2-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots_2-4">
+Past versions of alpha_d_boxplots_2-4.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots_2-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots_2-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre><code>#&gt; 
 #&gt; 
 #&gt; ### ` pass_reads_quantile `</code></pre>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots_2-5.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots_2-5">
+Past versions of alpha_d_boxplots_2-5.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots_2-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots_2-5.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre><code>#&gt; 
 #&gt; 
 #&gt; ### ` vaginotype `</code></pre>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots_2-6.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots_2-6">
+Past versions of alpha_d_boxplots_2-6.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots_2-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots_2-6.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre><code>#&gt; 
 #&gt; 
 #&gt; ### ` vaginotype_condition `</code></pre>
 <p><img src="figure/100_global_description.Rmd/alpha_d_boxplots_2-7.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alpha_d_boxplots_2-7">
+Past versions of alpha_d_boxplots_2-7.png
+</button>
+</p>
+<div id="fig-alpha_d_boxplots_2-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alpha_d_boxplots_2-7.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="section-5" class="section level2 unnumbered">
 <h2 class="unnumbered"></h2>
@@ -1225,30 +2581,289 @@ variables.</p>
 <div id="arm-4" class="section level3">
 <h3><code>Arm</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness_2-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness_2-1">
+Past versions of lon_gene_richness_2-1.png
+</button>
+</p>
+<div id="fig-lon_gene_richness_2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness_2-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="heme_test-4" class="section level3">
 <h3><code>Heme_test</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness_2-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness_2-2">
+Past versions of lon_gene_richness_2-2.png
+</button>
+</p>
+<div id="fig-lon_gene_richness_2-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness_2-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="medical_center-4" class="section level3">
 <h3><code>Medical_center</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness_2-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness_2-3">
+Past versions of lon_gene_richness_2-3.png
+</button>
+</p>
+<div id="fig-lon_gene_richness_2-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness_2-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="treatment_group_1-4" class="section level3">
 <h3><code>Treatment_group_1</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness_2-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness_2-4">
+Past versions of lon_gene_richness_2-4.png
+</button>
+</p>
+<div id="fig-lon_gene_richness_2-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness_2-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="pass_reads_quantile-4" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness_2-5.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness_2-5">
+Past versions of lon_gene_richness_2-5.png
+</button>
+</p>
+<div id="fig-lon_gene_richness_2-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness_2-5.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype-1" class="section level3">
 <h3><code>vaginotype</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness_2-6.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness_2-6">
+Past versions of lon_gene_richness_2-6.png
+</button>
+</p>
+<div id="fig-lon_gene_richness_2-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness_2-6.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype_condition-1" class="section level3">
 <h3><code>vaginotype_condition</code></h3>
 <p><img src="figure/100_global_description.Rmd/lon_gene_richness_2-7.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-lon_gene_richness_2-7">
+Past versions of lon_gene_richness_2-7.png
+</button>
+</p>
+<div id="fig-lon_gene_richness_2-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/lon_gene_richness_2-7.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section-6" class="section level2 unnumbered">
@@ -1272,6 +2887,43 @@ mre %&gt;%
   purrr::pluck(&quot;ta1&quot;, &quot;top_50&quot;) %&gt;%
   ComplexHeatmap::draw(heatmap_legend_side = &quot;left&quot;, annotation_legend_side = &quot;bottom&quot;)</code></pre>
 <p><img src="figure/100_global_description.Rmd/hierarchical_clustering_new_vars-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-hierarchical_clustering_new_vars-1">
+Past versions of hierarchical_clustering_new_vars-1.png
+</button>
+</p>
+<div id="fig-hierarchical_clustering_new_vars-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/hierarchical_clustering_new_vars-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>In this heatmap with hierarchical clustering, we can clearly see that
 the three bacterial groups correspond to the defined clusters. Moreover,
 we can clearly see the association between the variables vaginotype and
@@ -1325,30 +2977,289 @@ variables: <strong>Treatment_group_1</strong>,
 <div id="arm-5" class="section level3">
 <h3><code>Arm</code></h3>
 <p><img src="figure/100_global_description.Rmd/nmds_groups-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nmds_groups-1">
+Past versions of nmds_groups-1.png
+</button>
+</p>
+<div id="fig-nmds_groups-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/nmds_groups-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="heme_test-5" class="section level3">
 <h3><code>Heme_test</code></h3>
 <p><img src="figure/100_global_description.Rmd/nmds_groups-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nmds_groups-2">
+Past versions of nmds_groups-2.png
+</button>
+</p>
+<div id="fig-nmds_groups-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/nmds_groups-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="medical_center-5" class="section level3">
 <h3><code>Medical_center</code></h3>
 <p><img src="figure/100_global_description.Rmd/nmds_groups-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nmds_groups-3">
+Past versions of nmds_groups-3.png
+</button>
+</p>
+<div id="fig-nmds_groups-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/nmds_groups-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="treatment_group_1-5" class="section level3">
 <h3><code>Treatment_group_1</code></h3>
 <p><img src="figure/100_global_description.Rmd/nmds_groups-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nmds_groups-4">
+Past versions of nmds_groups-4.png
+</button>
+</p>
+<div id="fig-nmds_groups-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/nmds_groups-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="pass_reads_quantile-5" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/100_global_description.Rmd/nmds_groups-5.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nmds_groups-5">
+Past versions of nmds_groups-5.png
+</button>
+</p>
+<div id="fig-nmds_groups-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/nmds_groups-5.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype-2" class="section level3">
 <h3><code>vaginotype</code></h3>
 <p><img src="figure/100_global_description.Rmd/nmds_groups-6.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nmds_groups-6">
+Past versions of nmds_groups-6.png
+</button>
+</p>
+<div id="fig-nmds_groups-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/nmds_groups-6.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype_condition-2" class="section level3">
 <h3><code>vaginotype_condition</code></h3>
 <p><img src="figure/100_global_description.Rmd/nmds_groups-7.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nmds_groups-7">
+Past versions of nmds_groups-7.png
+</button>
+</p>
+<div id="fig-nmds_groups-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/nmds_groups-7.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section-9" class="section level2 unnumbered">
@@ -1404,30 +3315,289 @@ metar::get_cat(mre) %&gt;%
 <div id="arm-6" class="section level3">
 <h3><code>Arm</code></h3>
 <p><img src="figure/100_global_description.Rmd/alluvial_plot-1.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alluvial_plot-1">
+Past versions of alluvial_plot-1.png
+</button>
+</p>
+<div id="fig-alluvial_plot-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alluvial_plot-1.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="heme_test-6" class="section level3">
 <h3><code>Heme_test</code></h3>
 <p><img src="figure/100_global_description.Rmd/alluvial_plot-2.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alluvial_plot-2">
+Past versions of alluvial_plot-2.png
+</button>
+</p>
+<div id="fig-alluvial_plot-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alluvial_plot-2.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="medical_center-6" class="section level3">
 <h3><code>Medical_center</code></h3>
 <p><img src="figure/100_global_description.Rmd/alluvial_plot-3.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alluvial_plot-3">
+Past versions of alluvial_plot-3.png
+</button>
+</p>
+<div id="fig-alluvial_plot-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alluvial_plot-3.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="treatment_group_1-6" class="section level3">
 <h3><code>Treatment_group_1</code></h3>
 <p><img src="figure/100_global_description.Rmd/alluvial_plot-4.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alluvial_plot-4">
+Past versions of alluvial_plot-4.png
+</button>
+</p>
+<div id="fig-alluvial_plot-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alluvial_plot-4.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="pass_reads_quantile-6" class="section level3">
 <h3><code>pass_reads_quantile</code></h3>
 <p><img src="figure/100_global_description.Rmd/alluvial_plot-5.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alluvial_plot-5">
+Past versions of alluvial_plot-5.png
+</button>
+</p>
+<div id="fig-alluvial_plot-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alluvial_plot-5.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype-3" class="section level3">
 <h3><code>vaginotype</code></h3>
 <p><img src="figure/100_global_description.Rmd/alluvial_plot-6.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alluvial_plot-6">
+Past versions of alluvial_plot-6.png
+</button>
+</p>
+<div id="fig-alluvial_plot-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alluvial_plot-6.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="vaginotype_condition-3" class="section level3">
 <h3><code>vaginotype_condition</code></h3>
 <p><img src="figure/100_global_description.Rmd/alluvial_plot-7.png" width="1260" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-alluvial_plot-7">
+Past versions of alluvial_plot-7.png
+</button>
+</p>
+<div id="fig-alluvial_plot-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/OriolGEM/OriolGEM.github.io/blob/e36d2e8b7f46d25c1a7f20e09311bf664f4787c7/docs/figure/100_global_description.Rmd/alluvial_plot-7.png" target="_blank">e36d2e8</a>
+</td>
+<td>
+OriolGEM
+</td>
+<td>
+2024-06-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="section-10" class="section level2 unnumbered">
@@ -1466,43 +3636,43 @@ Session information
 #&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     
 #&gt; 
 #&gt; other attached packages:
-#&gt; [1] ggalluvial_0.12.5 ggplot2_3.5.0     magrittr_2.0.3    workflowr_1.7.1  
+#&gt; [1] ggalluvial_0.12.5 ggplot2_3.5.1     magrittr_2.0.3   
 #&gt; 
 #&gt; loaded via a namespace (and not attached):
 #&gt;   [1] utf8_1.2.4             tidyselect_1.2.1       htmlwidgets_1.6.4     
 #&gt;   [4] grid_4.1.2             gmp_0.7-4              aws.signature_0.6.0   
-#&gt;   [7] munsell_0.5.1          codetools_0.2-19       effectsize_0.8.6      
+#&gt;   [7] munsell_0.5.1          codetools_0.2-20       effectsize_0.8.8      
 #&gt;  [10] withr_3.0.0            colorspace_2.1-0       Biobase_2.54.0        
 #&gt;  [13] phyloseq_1.38.0        logger_0.3.0           highr_0.10            
-#&gt;  [16] knitr_1.46             rstudioapi_0.15.0      stats4_4.1.2          
+#&gt;  [16] knitr_1.46             rstudioapi_0.16.0      stats4_4.1.2          
 #&gt;  [19] ggsignif_0.6.4         ggside_0.3.1           labeling_0.4.3        
 #&gt;  [22] git2r_0.33.0           GenomeInfoDbData_1.2.7 polyclip_1.10-6       
-#&gt;  [25] bit64_4.0.5            farver_2.1.1           datawizard_0.9.1      
+#&gt;  [25] bit64_4.0.5            farver_2.1.2           datawizard_0.10.0     
 #&gt;  [28] rhdf5_2.38.1           rprojroot_2.0.4        vctrs_0.6.5           
-#&gt;  [31] generics_0.1.3         xfun_0.43              timechange_0.3.0      
+#&gt;  [31] generics_0.1.3         xfun_0.44              timechange_0.3.0      
 #&gt;  [34] BWStest_0.2.3          R6_2.5.1               doParallel_1.0.17     
 #&gt;  [37] GenomeInfoDb_1.30.1    clue_0.3-65            bitops_1.0-7          
-#&gt;  [40] rhdf5filters_1.6.0     cachem_1.0.8           promises_1.3.0        
+#&gt;  [40] rhdf5filters_1.6.0     cachem_1.1.0           promises_1.3.0        
 #&gt;  [43] scales_1.3.0           vroom_1.6.5            nnet_7.3-19           
-#&gt;  [46] gtable_0.3.4           multcompView_0.1-9     processx_3.8.4        
+#&gt;  [46] gtable_0.3.5           multcompView_0.1-10    workflowr_1.7.1       
 #&gt;  [49] rlang_1.1.3            zeallot_0.1.0          GlobalOptions_0.1.2   
 #&gt;  [52] PMCMRplus_1.9.10       splines_4.1.2          rstatix_0.7.2         
-#&gt;  [55] lazyeval_0.2.2         broom_1.0.5            prismatic_1.1.1       
+#&gt;  [55] lazyeval_0.2.2         broom_1.0.6            prismatic_1.1.2       
 #&gt;  [58] checkmate_2.3.1        yaml_2.3.8             reshape2_1.4.4        
-#&gt;  [61] abind_1.4-5            backports_1.4.1        httpuv_1.6.14         
-#&gt;  [64] Hmisc_5.1-1            ggmosaic_0.3.3         tools_4.1.2           
+#&gt;  [61] abind_1.4-5            backports_1.5.0        httpuv_1.6.15         
+#&gt;  [64] Hmisc_5.1-2            ggmosaic_0.3.3         tools_4.1.2           
 #&gt;  [67] gplots_3.1.3.1         jquerylib_0.1.4        biomformat_1.22.0     
 #&gt;  [70] RColorBrewer_1.1-3     BiocGenerics_0.40.0    Rcpp_1.0.12           
 #&gt;  [73] plyr_1.8.9             base64enc_0.1-3        zlibbioc_1.40.0       
-#&gt;  [76] purrr_1.0.2            RCurl_1.98-1.14        ps_1.7.6              
-#&gt;  [79] ggpubr_0.6.0           rpart_4.1.23           GetoptLong_1.0.5      
-#&gt;  [82] correlation_0.8.4      S4Vectors_0.32.4       ggrepel_0.9.5         
-#&gt;  [85] cluster_2.1.6          fs_1.6.3               here_1.0.1            
-#&gt;  [88] data.table_1.15.4      circlize_0.4.16        mvtnorm_1.2-4         
-#&gt;  [91] whisker_0.4.1          matrixStats_1.2.0      hms_1.1.3             
+#&gt;  [76] purrr_1.0.2            RCurl_1.98-1.14        ggpubr_0.6.0          
+#&gt;  [79] rpart_4.1.23           GetoptLong_1.0.5       correlation_0.8.4     
+#&gt;  [82] S4Vectors_0.32.4       ggrepel_0.9.5          cluster_2.1.6         
+#&gt;  [85] fs_1.6.4               here_1.0.1             magick_2.8.3          
+#&gt;  [88] data.table_1.15.4      circlize_0.4.16        mvtnorm_1.2-5         
+#&gt;  [91] whisker_0.4.1          matrixStats_1.3.0      hms_1.1.3             
 #&gt;  [94] patchwork_1.2.0        evaluate_0.23          IRanges_2.28.0        
 #&gt;  [97] gridExtra_2.3          shape_1.4.6.1          compiler_4.1.2        
-#&gt; [100] tibble_3.2.1           KernSmooth_2.23-22     ggstatsplot_0.12.2    
+#&gt; [100] tibble_3.2.1           KernSmooth_2.23-24     ggstatsplot_0.12.3    
 #&gt; [103] crayon_1.5.2           htmltools_0.5.8.1      mgcv_1.9-1            
 #&gt; [106] later_1.3.2            tzdb_0.4.0             Formula_1.2-5         
 #&gt; [109] tidyr_1.3.1            lubridate_1.9.3        aws.s3_0.3.21         
@@ -1510,25 +3680,25 @@ Session information
 #&gt; [115] ComplexHeatmap_2.18.0  MASS_7.3-60.0.1        boot_1.3-30           
 #&gt; [118] readr_2.1.5            Matrix_1.6-5           ade4_1.7-22           
 #&gt; [121] car_3.1-2              wesanderson_0.3.7      permute_0.9-7         
-#&gt; [124] cli_3.6.2              parallel_4.1.2         insight_0.19.8        
+#&gt; [124] cli_3.6.2              parallel_4.1.2         insight_0.19.11       
 #&gt; [127] igraph_2.0.3           forcats_1.0.0          pkgconfig_2.0.3       
-#&gt; [130] metar_0.1.5            getPass_0.2-4          statsExpressions_1.5.3
-#&gt; [133] foreign_0.8-86         plotly_4.10.4          xml2_1.3.6            
-#&gt; [136] paletteer_1.6.0        foreach_1.5.2          bslib_0.7.0           
-#&gt; [139] multtest_2.50.0        XVector_0.34.0         snakecase_0.11.1      
-#&gt; [142] stringr_1.5.1          callr_3.7.6            digest_0.6.35         
-#&gt; [145] parameters_0.21.5      janitor_2.2.0          vegan_2.6-4           
-#&gt; [148] Biostrings_2.62.0      rmarkdown_2.26         htmlTable_2.4.2       
-#&gt; [151] curl_5.2.1             gtools_3.9.5           rjson_0.2.21          
-#&gt; [154] lifecycle_1.0.4        nlme_3.1-164           jsonlite_1.8.8        
-#&gt; [157] Rhdf5lib_1.16.0        carData_3.0-5          viridisLite_0.4.2     
-#&gt; [160] fansi_1.0.6            pillar_1.9.0           lattice_0.22-5        
-#&gt; [163] fastmap_1.1.1          httr_1.4.7             survival_3.5-8        
-#&gt; [166] glue_1.7.0             bayestestR_0.13.2      png_0.1-8             
-#&gt; [169] iterators_1.0.14       bit_4.0.5              ggforce_0.4.2         
-#&gt; [172] stringi_1.8.3          sass_0.4.9             performance_0.10.9    
-#&gt; [175] rematch2_2.1.2         caTools_1.18.2         memoise_2.0.1         
-#&gt; [178] Rmpfr_0.9-5            dplyr_1.1.4            ape_5.7-1</code></pre>
+#&gt; [130] metar_0.1.5            statsExpressions_1.5.4 foreign_0.8-86        
+#&gt; [133] plotly_4.10.4          xml2_1.3.6             paletteer_1.6.0       
+#&gt; [136] foreach_1.5.2          bslib_0.7.0            multtest_2.50.0       
+#&gt; [139] XVector_0.34.0         snakecase_0.11.1       stringr_1.5.1         
+#&gt; [142] digest_0.6.35          parameters_0.21.7      janitor_2.2.0         
+#&gt; [145] vegan_2.6-6.1          Biostrings_2.62.0      rmarkdown_2.27        
+#&gt; [148] htmlTable_2.4.2        curl_5.2.1             gtools_3.9.5          
+#&gt; [151] rjson_0.2.21           lifecycle_1.0.4        nlme_3.1-164          
+#&gt; [154] jsonlite_1.8.8         Rhdf5lib_1.16.0        carData_3.0-5         
+#&gt; [157] viridisLite_0.4.2      fansi_1.0.6            pillar_1.9.0          
+#&gt; [160] lattice_0.22-6         fastmap_1.2.0          httr_1.4.7            
+#&gt; [163] survival_3.6-4         glue_1.7.0             bayestestR_0.13.2     
+#&gt; [166] png_0.1-8              iterators_1.0.14       bit_4.0.5             
+#&gt; [169] ggforce_0.4.2          stringi_1.8.4          sass_0.4.9            
+#&gt; [172] performance_0.11.0     rematch2_2.1.2         caTools_1.18.2        
+#&gt; [175] memoise_2.0.1          Rmpfr_0.9-5            dplyr_1.1.4           
+#&gt; [178] ape_5.8</code></pre>
 </div>
 </div>
 

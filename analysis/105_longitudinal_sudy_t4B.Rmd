@@ -55,7 +55,7 @@ mre_4B
 
 mre_4B contains all samples from group 4B, which were collected at time-points 0, 14, 26, 50 and 74. They are 74 samples from 15 patients. In this group, there are `r sum(mre_4B@metadata@metadata_df$Arm=="Placebo")` samples in the placebo arm and `r sum(mre_4B@metadata@metadata_df$Arm=="Active")` samples in the active arm.
 
-![Group 4B](Study_4B.png)
+![Group 4B](assets/Study_4B.png)
 
 ## Gene richness - Rarefaction {.tabset}
 
